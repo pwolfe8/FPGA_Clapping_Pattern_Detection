@@ -1,0 +1,8 @@
+# modelsim stuff 
+work/
+*.ini
+*.opt
+*.wlf
+
+# vivado stuff
+vivado_run/
