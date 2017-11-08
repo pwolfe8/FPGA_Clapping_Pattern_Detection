@@ -6,12 +6,15 @@
 """
 
 #Example pattern array and incoming detected clap data (inputs for function)
-#patterns = [[[1.4,1.6],[1.8,2.2],[2.7,3.3],[0.9,1.1]],
+#stored_patterns = [[[1.4,1.6],[1.8,2.2],[2.7,3.3],[0.9,1.1]],
 #           [[0.9,1.1],[4.5,5.5],[5.4,6.6]],
 #           [[9,11],[18,22],[13.5,16.5],[4,6]],
 #           [[0.98,1.01],[4.0,6],[5.4,6.2]]]
-#testArray= [250, 1250, 1500]
+#fixed_length_arr= [250, 1250, 1500]
+#
+#Output for the above input: [1, 3]
 
+#len_used is ignored in this python code but would only be used in the RTL to immediately filter out most patterns
 def check_if_pattern_matches(fixed_length_arr, len_used, stored_patterns):   
 	# normalization
     smallest = min(fixed_length_arr)
