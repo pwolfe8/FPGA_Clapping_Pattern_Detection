@@ -114,7 +114,7 @@ begin
 				"1111111" when others;
 
     -- component instantiations
-    clockDiv : entity work.clockdiv
+    clockDiv : entity work.clockDiv
         generic map (
              -- map generics here
         )
