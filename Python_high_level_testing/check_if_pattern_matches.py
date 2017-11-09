@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
 """
 @date: 11/7/2017
-
 @author: Matthew Arceri
 """
 
