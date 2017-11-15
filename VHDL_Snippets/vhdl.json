@@ -73,15 +73,21 @@
         "body": "signal ${1:_name_} : ${2:_type_};",
         "description": "Snippet to make a signal.\n"
     },
-    "Type Defining": {
+    "Type Definition": {
         "prefix": "typ_snippet",
         "body": "type ${1:_name_} is ${2:_new_type_};",
         "description": "Snippet to define a new type.\n"
     },
+    "Alias Definition": {
+        "prefix": "alias_snippet",
+        "body": "alias ${1:_alias_name_} : ${2:_type_} is ${3:_slice_of_array_};",
+        "description": "Snippet to create an alias.\n"
+    },
 
-    // sequential snippets
+    // sequential snippets (process statement stuff)
+    // put these in a process statement (except for the process statement itself)
     "Generic Process": {
-        "prefix": "proc_snippet", // maybe make different forms for async and sync?
+        "prefix": "proc_snippet",
         "body": [ 
             "process ( ${1} ) begin",
                 "\tif ( ${2} ) then",
@@ -93,7 +99,6 @@
         ],
         "description": "Generic \"process\" statement.\n"
     },
-
     "If Statement": {
         "prefix": "if_snippet",
         "body": [
@@ -103,18 +108,19 @@
         ],
         "description": "If statement snippet.\n"
     },
-    "Instantiation": {
-        "prefix": "inst_snippet",
-        "body": [ 
-            "${1:_name_} : entity work.${2:_entity_name_}",
-                "\tgeneric map (",
-                    "\t\t${3: -- map generics here}",
-                "\t)",
-                "\tport map (",
-                    "\t\t${4:-- Paste entity's ports here. Connect signals in either form:\n\t--    \"in1,in2,out1,out2\"\n\t--    \"portname1=>signal1, portname2=>signal2\"}",
-                "\t);\n"
+    "Case Statement": {
+        "prefix": "case_snippet",
+        "body": [
+            "case $1 is",
+                "\twhen $2 =>",
+                    "\t\tif ( $3 ) then",
+                        "\t\t\t$4",
+                    "\t\tend if;",
+                "\twhen others =>",
+                    "\t\t$5",
+            "end case;"
         ],
-        "description": "Snippet to instantiate another entity.\n"
+        "description": "case statement snippet.\n"
     },
 
     // concurrent snippets
@@ -128,6 +134,32 @@
         ],
         "description": "\"with .. select\" statement.\n"
     },
+    "When Else Snippet": {
+        "prefix": "when_else_snippet",
+        "body": [
+            "${1:_signal_} <=",
+                "\t${2:_value_} when ${3:_condition_} else",
+                "\t${4:_value_} when ${5:_condition_};"
+        ],
+        "description": "When else snippet.\nlike with else, but when you need a conditional\n"
+    },
+
+    // instantiation
+    "Instantiation": {
+        "prefix": "inst_snippet",
+        "body": [ 
+            "${1:_name_} : entity work.${2:_entity_name_}",
+                "\tgeneric map (",
+                    "\t\t${3: -- map generics here}",
+                "\t)",
+                "\tport map (",
+                    "\t\t${4:-- Paste entity's ports here. Connect signals in either form:\n\t--    \"in1,in2,out1,out2\"\n\t--    \"portname1=>signal1, portname2=>signal2\"}",
+                "\t);\n"
+        ],
+        "description": "Snippet to instantiate another entity.\n"
+    },
+    // TODO: for generate loop
+
 
     // types
     "Array Snippet": {
