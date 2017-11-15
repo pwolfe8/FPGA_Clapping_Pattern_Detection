@@ -21,7 +21,7 @@ entity sevenseg is
         --These are the 7seg display legs. 
         seg : out std_logic_vector ( 6 downto 0 );
        	--This is the selector for which of the 4 7seg displays get used. 
-        an : out std_logic_vector (4 downto 0 );
+        an : out std_logic_vector ( 4 downto 0 );
     );
 end sevenseg;
 
@@ -86,7 +86,7 @@ begin
 -- u = "1100011"
 -- - = "0111111"
 -- _ = "1110111"
-	process ( clapFinished_buf) begin
+	process ( clapFinished_buf ) begin
 		if (clapFinished_buf = '1') then
 			with patternIn select
 				seg <= "1000000" when "00000",
