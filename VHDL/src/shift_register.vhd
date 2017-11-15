@@ -18,7 +18,7 @@ entity shift_register is
         flush       : in  std_logic; -- flushes all inputs when strobed
         in_val      : in  unsigned(R-1 downto 0); -- value to be shifted in
         -- outputs --
-        data        : out unsigned(R*Num-1 downto 0) -- all data in shift register
+        data_out    : out unsigned(R*Num-1 downto 0) -- all data in shift register
     );
 end shift_register;
 
@@ -26,23 +26,24 @@ architecture shift_register_arch of shift_register is
     -- constant definitions
     
     -- signal declarations
-    signal internal_data : array(Num-1 downto 0) of unsigned(R-1 downto 0);
-
+    type bank is array(Num-1 downto 0) of unsigned(R-1 downto 0);
+        -- signal internal_data : bank;
 
 begin
     process ( load, flush )
-        variable temp: 
+        variable temp : bank;
     begin
         if ( flush='1' ) then
-            internal_data <= (others=>(others=>'0'));        
+            temp <= (others=>(others=>'0'));
         elsif ( rising_edge(clk) ) then
             if ( load='1' ) then
-
-                -- for i in 0 to Num-1 loop
-                -- end loop;
+                for i in 0 to Num-1 loop
+                    temp(i) := temp(i+1)
+                end loop;
+                temp(Num-1) := in_val;
             end if;
+            data_out <= temp;
         end if;
     end process;
-    
     
 end shift_register_arch;
