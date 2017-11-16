@@ -5,7 +5,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.
+
+use work.TYPE_PACK.all;
 
 entity tb_shift_register is
 end tb_shift_register;
@@ -14,6 +15,7 @@ architecture tb_shift_register_arch of tb_shift_register is
     -- constant definitions
     constant R : positive := 8;
     constant Num : positive := 4;
+    constant T : time := 10 ns;
 
     -- testbench signal declarations
     signal clk : std_logic;
@@ -74,5 +76,3 @@ begin
     end process
 
 end tb_shift_register_arch;
-
-
