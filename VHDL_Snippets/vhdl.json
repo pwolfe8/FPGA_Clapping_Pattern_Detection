@@ -197,7 +197,7 @@
 // ==================================== //
 
     "Standard Testbench": {
-        "prefix": "testbench",
+        "prefix": "testbench_snippet",
         "body": [
             "--Engineer     : Philip Wolfe",
             "--Date         : ${3:MM}/${4:DD}/2017",
