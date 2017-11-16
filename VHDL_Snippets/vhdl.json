@@ -197,7 +197,7 @@
 // ==================================== //
 
     "Standard Testbench": {
-        "prefix": "testbench",
+        "prefix": "testbench_snippet",
         "body": [
             "--Engineer     : Philip Wolfe",
             "--Date         : ${3:MM}/${4:DD}/2017",
@@ -212,6 +212,7 @@
             "",
             "architecture tb_${1}_arch of tb_${1} is",
                 "\t-- constant definitions",
+                "\tconstant T : time := 10 ns;"
                 "\t${5}",
                 "\t-- testbench signal declarations",
                 "\t${6}",
@@ -241,7 +242,7 @@
                     "\t\t${9}",
                     "\t\t-- end test",
                     "\t\tassert false report \"Test Completed\" severity failure;",
-                "\tend process",
+                "\tend process;",
                 "",
             "end tb_${1}_arch;",
             ""

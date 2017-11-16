@@ -8,7 +8,7 @@ package TYPE_PACK is
     -- number of intervals in a bank
     constant Num_int : positive := 4;
     -- bank type
-    type T_bank is array(Num_int-1 downto 0) of unsigned(R_int-1 downto 0);
+    type T_bank is array(0 to Num_int-1) of unsigned(R_int-1 downto 0);
 
     -- matt's types. we should merge these eventually
     type patternBounds is array (0 to 7,0 to 1) of unsigned(15 downto 0);

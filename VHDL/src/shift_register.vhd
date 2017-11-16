@@ -5,12 +5,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+
 use work.TYPE_PACK.all;
 
 entity shift_register is
     generic (
-        R   : positive; -- resolution of each entry
-        Num : positive  -- number of entries in shift register
+        R   : positive := 8; -- resolution of each entry
+        Num : positive := 4  -- number of entries in shift register
     );
     port (
         -- inputs --
@@ -52,14 +53,18 @@ begin
     begin
         if ( flush='1' ) then
             temp := (others=>(others=>'0'));
+            data_out <= temp;
         elsif ( rising_edge(clk) ) then
             if ( load='1' ) then
-                for i in 0 to Num-1 loop
-                    temp(i) := temp(i+1);
-                end loop;
-                temp(Num-1) := in_val;
+                -- for i in 0 to Num-2 loop
+                --     temp(i) := temp(i+1);
+                -- end loop;
+                -- temp(Num-1) := in_val;
+                temp := temp(3) & temp(2) & in_val;
             end if;
+
             data_out <= temp;
+
         end if;
     end process;
     

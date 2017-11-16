@@ -5,7 +5,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.
+
+use work.TYPE_PACK.all;
 
 entity tb_shift_register is
 end tb_shift_register;
@@ -14,11 +15,12 @@ architecture tb_shift_register_arch of tb_shift_register is
     -- constant definitions
     constant R : positive := 8;
     constant Num : positive := 4;
+    constant T : time := 10 ns;
 
     -- testbench signal declarations
     signal clk : std_logic;
-    signal in_value : unsigned(R-1 downto 0);
     signal load, flush : std_logic;
+    signal in_val : unsigned(R-1 downto 0);
     signal data_out : T_bank;
 
 
@@ -31,7 +33,7 @@ begin
             clk     => clk,
             load	=> load,
             flush   => flush,
-            in_val  => in_value,
+            in_val  => in_val,
             -- outputs --
             data_out => data_out
         );
@@ -52,8 +54,9 @@ begin
 
         -- TEST CASE 1 --
         in_val <= X"DE";
+        wait for 5 ns;
         load <= '1';
-        wait for 10 ns;
+        wait for 20 ns;
         load <= '0';
         wait for 20 ns;
         -- assert ( outputs )
@@ -62,15 +65,15 @@ begin
         
         in_val <= X"AD";
         load <= '1';
-        wait for 10 ns;
+        wait for 20 ns;
         load <= '0';
-        wait for 10 ns;
+        wait for 20 ns;
         flush <= '1';
         wait for 20 ns;
 
         
         -- end test
         assert false report "Test Completed" severity failure;
-    end process
+    end process;
 
 end tb_shift_register_arch;
