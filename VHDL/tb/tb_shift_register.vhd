@@ -59,24 +59,31 @@ begin
         in_val <= X"DE";
         wait for 5 ns;
         load <= '1';
-        wait for 20 ns;
+        wait for 20 ns; -- 2 clock cycles with in_val=0xDE
         load <= '0';
         wait for 20 ns;
-        -- assert ( outputs )
-        -- report "================Test case 1 failed! Look at the waveform to debug!================"
-        -- severity error;
+        
+        assert ( data_out=(0=>X"DE", 1=>X"DE", 2 to 3 => X"00") )
+        report LF
+            & "================ Test case 2 failed! ================" & LF
+            & "got: " & to_hstring(data_out(0)) & to_hstring(data_out(1)) & to_hstring(data_out(2)) & to_hstring(data_out(3)) & LF
+            & "expected: " & to_hstring(X"DEDE0000") & LF
+            & "====================================================="
+        -- & "\nexpected: " & T_bank'image((0=>X"DE", 1=>X"DE", 2 to 3 => X"FF"))
+        severity error;
         
         in_val <= X"AD";
         load <= '1';
         wait for 20 ns;
         load <= '0';
         wait for 20 ns;
+
         flush <= '1';
         wait for 20 ns;
 
         
         -- end test
-        assert false report "Test Completed" severity failure;
+        assert false report LF & LF & "==== Test Completed ====" & LF severity failure;
     end process;
 
 end tb_shift_register_arch;

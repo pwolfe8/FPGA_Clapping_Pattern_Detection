@@ -26,26 +26,6 @@ entity shift_register is
 end shift_register;
 
 architecture shift_register_arch of shift_register is
-    -- constant definitions
-    
-    -- signal declarations
-
-    -- type declarations
-    -- subtype T_interval  is unsigned(R-1 downto 0); -- put R here later
-    -- type    T_bank is array(NATURAL range <>) of T_interval;
-    -- type T_bank is array(Num-1 downto 0) of unsigned(R-1 downto 0);
-
-    -- -- function definitions
-    
-    -- function to_slv(arr : T_bank) return unsigned is
-    --     variable slv : unsigned((arr'length * 32) - 1 downto 0);
-    -- begin
-    --   for i in slvv'range loop
-    --     slv((i * 32) + 31 downto (i * 32))      := slvv(i);
-    --   end loop;
-    --   return slv;
-    -- end function;
-
 
 begin
     process ( clk, load, flush )
