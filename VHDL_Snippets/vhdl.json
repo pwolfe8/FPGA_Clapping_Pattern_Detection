@@ -210,7 +210,7 @@
             "entity tb_${1} is",
             "end tb_${1};",
             "",
-            "architecture tb_${1}_arch of ${1} is",
+            "architecture tb_${1}_arch of tb_${1} is",
                 "\t-- constant definitions",
                 "\t${5}",
                 "\t-- testbench signal declarations",

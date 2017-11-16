@@ -5,26 +5,27 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.
 
 entity tb_shift_register is
 end tb_shift_register;
 
-architecture tb_shift_register_arch of shift_register is
+architecture tb_shift_register_arch of tb_shift_register is
     -- constant definitions
-    -- constant R : positive := 8;
-    -- constant Num : positive := 4;
+    constant R : positive := 8;
+    constant Num : positive := 4;
 
     -- testbench signal declarations
     signal clk : std_logic;
-    signal in_val : unsigned(R-1 downto 0);
+    signal in_value : unsigned(R-1 downto 0);
     signal load, flush : std_logic;
-
+    signal data_out : T_bank;
 
 
 begin
     -- instantiate design under test
     DUT : entity work.shift_register
-        generic map ( R=>8, Num=>4 )
+        generic map ( R=>R, Num=>Num )
         port map (
             -- inputs --
             clk     => clk,
