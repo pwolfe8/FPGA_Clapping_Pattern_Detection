@@ -5,11 +5,12 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.TYPE_PACK.all;
 
 entity shift_register is
     generic (
-        R   : positive := 8; -- resolution of each entry
-        Num : positive := 4  -- number of entries in shift register
+        R   : positive; -- resolution of each entry
+        Num : positive  -- number of entries in shift register
     );
     port (
         -- inputs --
@@ -18,7 +19,8 @@ entity shift_register is
         flush       : in  std_logic; -- flushes all inputs when strobed
         in_val      : in  unsigned(R-1 downto 0); -- value to be shifted in
         -- outputs --
-        data_out    : out unsigned(R*Num-1 downto 0) -- all data in shift register
+        data_out    : out T_bank
+        
     );
 end shift_register;
 
@@ -26,19 +28,34 @@ architecture shift_register_arch of shift_register is
     -- constant definitions
     
     -- signal declarations
-    type bank is array(Num-1 downto 0) of unsigned(R-1 downto 0);
-        -- signal internal_data : bank;
+
+    -- type declarations
+    -- subtype T_interval  is unsigned(R-1 downto 0); -- put R here later
+    -- type    T_bank is array(NATURAL range <>) of T_interval;
+    -- type T_bank is array(Num-1 downto 0) of unsigned(R-1 downto 0);
+
+    -- -- function definitions
+    
+    -- function to_slv(arr : T_bank) return unsigned is
+    --     variable slv : unsigned((arr'length * 32) - 1 downto 0);
+    -- begin
+    --   for i in slvv'range loop
+    --     slv((i * 32) + 31 downto (i * 32))      := slvv(i);
+    --   end loop;
+    --   return slv;
+    -- end function;
+
 
 begin
     process ( load, flush )
-        variable temp : bank;
+        variable temp : T_bank;
     begin
         if ( flush='1' ) then
-            temp <= (others=>(others=>'0'));
+            temp := (others=>(others=>'0'));
         elsif ( rising_edge(clk) ) then
             if ( load='1' ) then
                 for i in 0 to Num-1 loop
-                    temp(i) := temp(i+1)
+                    temp(i) := temp(i+1);
                 end loop;
                 temp(Num-1) := in_val;
             end if;

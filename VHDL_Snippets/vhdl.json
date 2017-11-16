@@ -228,7 +228,7 @@
                 "",
                 "\t-- set up clock if you need it",
                 "\t-- process begin",
-                    "\t-- \tclk <= '0';",
+                    "\t-- \tclk <= '1';",
                     "\t-- \twait for T/2;",
                     "\t-- \tclk <= '0';",
                     "\t-- \twait for T/2;",
