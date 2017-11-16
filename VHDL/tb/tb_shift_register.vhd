@@ -50,7 +50,10 @@ begin
         -- initialize
         in_val <= (others=>'0');
         load <= '0';
+        flush <= '1';
+        wait for 5 ns;
         flush <= '0';
+        wait for 5 ns;
 
         -- TEST CASE 1 --
         in_val <= X"DE";

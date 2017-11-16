@@ -48,23 +48,17 @@ architecture shift_register_arch of shift_register is
 
 
 begin
-    process ( load, flush )
+    process ( clk, load, flush )
         variable temp : T_bank;
     begin
         if ( flush='1' ) then
-            temp := (others=>(others=>'0'));
-            data_out <= temp;
+            temp := (others=>(others=>'0')); -- clear internal storage
+            data_out <= temp; -- clear output
         elsif ( rising_edge(clk) ) then
             if ( load='1' ) then
-                -- for i in 0 to Num-2 loop
-                --     temp(i) := temp(i+1);
-                -- end loop;
-                -- temp(Num-1) := in_val;
-                temp := temp(3) & temp(2) & in_val;
+                temp := in_val & temp(0 to 2);
             end if;
-
             data_out <= temp;
-
         end if;
     end process;
     
