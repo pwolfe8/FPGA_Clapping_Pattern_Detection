@@ -1,6 +1,6 @@
 --Engineer     : Philip Wolfe
 --Date         : 11/14/2017
---Name of file : clap_interval_fsm.vhd
+--Name of file : clap_FSM.vhd
 --Description  : clap interval counter and state machine
 library ieee;
 use ieee.std_logic_1164.all;
@@ -9,12 +9,12 @@ use ieee.numeric_std.all;
 use work.TYPE_PACK.all;
 
 
-entity clap_interval_fsm is
+entity clap_FSM is
     generic (
-        R_int : positive := 27;       -- enough to handle ceil(log2(f_clk*T_END_SILENCE))
-        n_int : positive := 8;       -- number of intervals
-        f_clk : positive := 25e6;    -- system frequency 25MHz
-        end_silence : positive := 3  -- amount of silence required to signal end of pattern
+        f_clk : positive := 25e6;   -- system frequency 25MHz
+        end_silence : real := 2.5;  -- amount of silence required to signal end of pattern
+        R_int : positive := 26;     -- enough to handle ceil(log2(f_clk*T_END_SILENCE))
+        n_int : positive := 8       -- number of intervals
     );
     port (
         -- inputs --
@@ -28,14 +28,14 @@ entity clap_interval_fsm is
         interval_bank_array : out T_bank;
         bank_overflowed     : out std_logic
     );
-end clap_interval_fsm;
+end clap_FSM;
 
-architecture clap_interval_fsm_arch of clap_interval_fsm is
+architecture clap_FSM_arch of clap_FSM is
     -- define state types
     type state_t is (IDLE, LOG_INTERVAL, CHECKING_PATTERN);
 
     -- constant definitions
-    constant T_END_SILENCE : positive := f_clk * end_silence;
+    constant T_END_SILENCE : positive := integer(real(f_clk) * end_silence);
     constant R_clk_ctr : positive := 30; -- ceil(log2(T_END_SILENCE))
     constant R_clap_ctr : positive := 4; -- ceil(log2(16))
 
@@ -132,7 +132,7 @@ begin
         end case;
     end process;
     
--- logging interval logic --
+-- logging intervals --
     -- instantiate shift register to store bank of data
     int_bank : entity work.shift_register
         generic map ( R=>R_int, Num=>n_int )
@@ -146,5 +146,4 @@ begin
             data_out => interval_bank_array
         );
 
-
-end clap_interval_fsm_arch;
+end clap_FSM_arch;
