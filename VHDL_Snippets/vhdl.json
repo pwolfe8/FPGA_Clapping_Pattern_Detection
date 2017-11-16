@@ -212,7 +212,7 @@
             "",
             "architecture tb_${1}_arch of tb_${1} is",
                 "\t-- constant definitions",
-                "\tconstant T : time := 10 ns;"
+                "\tconstant T : time := 10 ns;",
                 "\t${5}",
                 "\t-- testbench signal declarations",
                 "\t${6}",
