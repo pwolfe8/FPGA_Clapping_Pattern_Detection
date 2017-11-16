@@ -242,7 +242,7 @@
                     "\t\t${9}",
                     "\t\t-- end test",
                     "\t\tassert false report \"Test Completed\" severity failure;",
-                "\tend process",
+                "\tend process;",
                 "",
             "end tb_${1}_arch;",
             ""
