@@ -11,8 +11,8 @@ end tb_shift_register;
 
 architecture tb_shift_register_arch of shift_register is
     -- constant definitions
-    constant R : positive := 8;
-    constant Num : positive := 4;
+    -- constant R : positive := 8;
+    -- constant Num : positive := 4;
 
     -- testbench signal declarations
     signal clk : std_logic;
@@ -24,10 +24,7 @@ architecture tb_shift_register_arch of shift_register is
 begin
     -- instantiate design under test
     DUT : entity work.shift_register
-        generic map (
-            R   => 8, -- resolution of each entry
-            Num => 4  -- number of entries in shift register    
-        )
+        generic map ( R=>8, Num=>4 )
         port map (
             -- inputs --
             clk     => clk,
@@ -35,25 +32,41 @@ begin
             flush   => flush,
             in_val  => in_value,
             -- outputs --
-            data_out    : unsigned(R*Num-1 downto 0) -- all data in shift register    -- Paste entity's ports here. Connect signals in either form:
-            --    "in1,in2,out1,out2"
-            --    "portname1=>signal1, portname2=>signal2"
+            data_out => data_out
         );
 
     -- set up clock if you need it
     process begin
-    	clk <= '0';
+    	clk <= '1';
     	wait for T/2;
     	clk <= '0';
     	wait for T/2;
     end process;
     
     process begin
-        -- initialize signals
-        -- Paste entity's ports here. Connect signals in either form:
-        --    "in1,in2,out1,out2"
-        --    "portname1=>signal1, portname2=>signal2"
-        -- implement some test cases
+        -- initialize
+        in_val <= (others=>'0');
+        load <= '0';
+        flush <= '0';
+
+        -- TEST CASE 1 --
+        in_val <= X"DE";
+        load <= '1';
+        wait for 10 ns;
+        load <= '0';
+        wait for 20 ns;
+        -- assert ( outputs )
+        -- report "================Test case 1 failed! Look at the waveform to debug!================"
+        -- severity error;
+        
+        in_val <= X"AD";
+        load <= '1';
+        wait for 10 ns;
+        load <= '0';
+        wait for 10 ns;
+        flush <= '1';
+        wait for 20 ns;
+
         
         -- end test
         assert false report "Test Completed" severity failure;
