@@ -69,7 +69,6 @@ begin
             & "got: " & to_hstring(data_out(0)) & to_hstring(data_out(1)) & to_hstring(data_out(2)) & to_hstring(data_out(3)) & LF
             & "expected: " & to_hstring(X"DEDE0000") & LF
             & "====================================================="
-        -- & "\nexpected: " & T_bank'image((0=>X"DE", 1=>X"DE", 2 to 3 => X"FF"))
         severity error;
         
         in_val <= X"AD";
