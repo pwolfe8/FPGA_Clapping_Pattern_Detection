@@ -19,8 +19,8 @@ architecture tb_shift_register_arch of tb_shift_register is
 
     -- testbench signal declarations
     signal clk : std_logic;
-    signal in_val : unsigned(R-1 downto 0);
     signal load, flush : std_logic;
+    signal in_val : unsigned(R-1 downto 0);
     signal data_out : T_bank;
 
 
@@ -54,8 +54,9 @@ begin
 
         -- TEST CASE 1 --
         in_val <= X"DE";
+        wait for 5 ns;
         load <= '1';
-        wait for 10 ns;
+        wait for 20 ns;
         load <= '0';
         wait for 20 ns;
         -- assert ( outputs )
@@ -64,9 +65,9 @@ begin
         
         in_val <= X"AD";
         load <= '1';
-        wait for 10 ns;
+        wait for 20 ns;
         load <= '0';
-        wait for 10 ns;
+        wait for 20 ns;
         flush <= '1';
         wait for 20 ns;
 
