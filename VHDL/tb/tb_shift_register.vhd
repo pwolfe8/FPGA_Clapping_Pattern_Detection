@@ -54,8 +54,17 @@ begin
         wait for 5 ns;
         flush <= '0';
         wait for 5 ns;
-
+        
         -- TEST CASE 1 --
+        assert ( data_out=(0 to 3 => X"00") )
+        report LF
+            & "================ Test case 1 failed! ================" & LF
+            & "got: " & to_hstring(data_out(0)) & to_hstring(data_out(1)) & to_hstring(data_out(2)) & to_hstring(data_out(3)) & LF
+            & "expected: " & to_hstring(X"00000000") & LF
+            & "====================================================="
+        severity error;
+
+
         in_val <= X"DE";
         wait for 5 ns;
         load <= '1';
@@ -63,7 +72,8 @@ begin
         load <= '0';
         wait for 20 ns;
         
-        assert ( data_out=(0=>X"DE", 1=>X"DE", 2 to 3 => X"00") )
+        -- TEST CASE 2 -- 
+        assert ( data_out=(0 to 1 => X"DE", 2 to 3 => X"00") )
         report LF
             & "================ Test case 2 failed! ================" & LF
             & "got: " & to_hstring(data_out(0)) & to_hstring(data_out(1)) & to_hstring(data_out(2)) & to_hstring(data_out(3)) & LF
@@ -76,6 +86,15 @@ begin
         wait for 20 ns;
         load <= '0';
         wait for 20 ns;
+        
+        -- TEST CASE 3 -- 
+        assert ( data_out=(0 to 1 => X"AD", 2 to 3 => X"DE") )
+        report LF
+            & "================ Test case 3 failed! ================" & LF
+            & "got: " & to_hstring(data_out(0)) & to_hstring(data_out(1)) & to_hstring(data_out(2)) & to_hstring(data_out(3)) & LF
+            & "expected: " & to_hstring(X"ADADDEDE") & LF
+            & "====================================================="
+        severity error;
 
         flush <= '1';
         wait for 20 ns;

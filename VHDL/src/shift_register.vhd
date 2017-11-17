@@ -10,8 +10,8 @@ use work.TYPE_PACK.all;
 
 entity shift_register is
     generic (
-        R   : positive := 8; -- resolution of each entry
-        Num : positive := 4  -- number of entries in shift register
+        R   : positive; -- resolution of each entry
+        Num : positive  -- number of entries in shift register
     );
     port (
         -- inputs --
@@ -36,7 +36,7 @@ begin
             data_out <= temp; -- clear output
         elsif ( rising_edge(clk) ) then
             if ( load='1' ) then
-                temp := in_val & temp(0 to 2);
+                temp := in_val & temp(0 to Num-2);
             end if;
             data_out <= temp;
         end if;
