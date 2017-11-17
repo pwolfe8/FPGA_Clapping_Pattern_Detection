@@ -6,3 +6,6 @@ work/
 
 # vivado stuff
 vivado_run/
+
+# python stuff
+*.pyc

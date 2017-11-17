@@ -1,8 +1,8 @@
 # Module Testing Instructions
 
+
 ## General process
 1) Compile listed files modelsim with **VHDL 2008** settings
-    - be sure to match the "R\_int" and "n\_int" constants in typePack.vhd with the testbench before compiling
 2) Double click tb_shift_register to start simulation:
     - add all signals to waveform
     - change radix to hex
@@ -17,7 +17,15 @@
     - src/shift_register.vhd
     - tb/tb_shift_register.vhd
 * expected result:
+    - progression of data_out should be:
+        - {00,00,00,00}
+        - {DE,00,00,00}
+        - {DE,DE,00,00}
+        - {AD,DE,DE,00}
+        - {AD,AD,DE,DE}
+        - {00,00,00,00}
     - ![](tb_shift_register.png) 
+
 
 ## State Machine
 * files:
@@ -45,3 +53,17 @@
     - ending picture:
         - ![](tb_clap_FSM_end.png)
 
+
+## Boundary Compare
+(compares "bank_array" to see if it matches a pattern)
+* files:
+    - typePack.vhd
+    - src/shift_register.vhd
+    - tb/tb_shift_register.vhd
+* expected result:
+    - "match" signal denotes a pattern matching. It's progression should be:
+        - not match
+        - match
+        - not match
+        - match
+    - ![](tb_boundary_comp.png) 
