@@ -12,6 +12,7 @@
 
 
 ## Shift Register
+shifts in data, able to be flushed (zeroed)
 * files:
     - typePack.vhd
     - src/shift_register.vhd
@@ -28,6 +29,7 @@
 
 
 ## State Machine
+logs intervals between claps to shift register, flushes when new pattern starts
 * files:
     - typePack.vhd
     - src/clap_FSM.vhd
@@ -55,7 +57,7 @@
 
 
 ## Boundary Compare
-(compares "bank_array" to see if it matches a pattern)
+compares recorded pattern with a stored pattern to check for a match
 * files:
     - typePack.vhd
     - src/shift_register.vhd
@@ -67,3 +69,13 @@
         - not match
         - match
     - ![](tb_boundary_comp.png) 
+
+
+## Clap Detector
+* files:
+    - run Python_high_level_testing/clap_detection/clap.py
+* dependencies:
+    - scipy
+    - matplotlib
+* expected result
+    - graph of clap with red overlayed and clap timestamps printed
