@@ -11,10 +11,11 @@ use work.TYPE_PACK.all;
 
 entity clap_FSM is
     generic (
-        f_clk : real;       -- system frequency
-        end_silence : real; -- amount of silence required to signal end of pattern
-        R_int : positive;   -- enough to handle ceil(log2(f_clk*T_END_SILENCE))
-        N_int : positive    -- number of intervals in bank
+        f_clk : real;           -- system frequency
+        end_silence : real;     -- amount of silence required to signal end of pattern
+        R_int : positive;       -- enough to handle ceil(log2(f_clk*T_END_SILENCE))
+        N_int : positive;       -- number of intervals in bank
+        R_int_ctr : positive    -- ceil(log2(N_int)). interval counter resolution
     );
     port (
         -- inputs --
@@ -23,7 +24,7 @@ entity clap_FSM is
         clap_detected       : in  std_logic; -- strobed high for a few clock cycles when clap is detected
         check_pattern_done  : in  std_logic; -- denotes that pattern checking process is done
         -- outputs --
-        pattern_finished    : out std_logic;
+        pattern_finished    : out std_logic; -- pull high for a clock cycle to denote clap pattern finished
         num_intervals       : out std_logic_vector(2 downto 0); --change this based on ceil(log2(N_int)) assuming N_int = 8 at max for now
         state_output_code   : out std_logic_vector(1 downto 0);
         interval_bank_array : out T_bank;
@@ -37,7 +38,6 @@ architecture clap_FSM_arch of clap_FSM is
 
     -- constant definitions
     constant T_END_SILENCE : positive := integer(real(f_clk) * end_silence);
-    constant R_int_ctr : positive := 4; -- ceil(log2(16))
         -- clock counter resolution is ceil(log2(T_END_SILENCE))
 
     -- signal declarations  
@@ -69,7 +69,9 @@ begin
     process ( clk, reset, clap_detected ) begin
         if ( reset = '1' or clap_detected='1') then
             pattern_finished_buf <='0';
-        elsif ( rising_edge(clk) and clk_counter >= T_END_SILENCE ) then
+        elsif ( rising_edge(clk) and clk_counter = T_END_SILENCE ) then
+            -- make pattern_finished_buf high for one clock cycle (ctr will continue)
+                -- fix the counter though cuz that's bad practice. (it will cycle around...)
             pattern_finished_buf <= '1';
         end if;
     end process;

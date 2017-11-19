@@ -19,7 +19,7 @@ entity div_by_min is
         bank    : in std_logic_vector   ( R_int*num_int-1 downto 0);
 	min_val : out std_logic_vector ( R_int downto 0)
         -- outputs --
-        bank_out    : in std_logic_vector   ( R_int*num_int-1 downto 0);
+        bank_out    : in std_logic_vector   ( R_int*num_int-1 downto 0)
     );
 end div_by_min;
 
@@ -53,6 +53,6 @@ begin
 		end loop;
 		--Store the quotient result (no decimal precision WS 11-15-17) for output. 
 		bank_out(R_int+R_int*1-1 downto R_int*i) <= quotient;
-	
+    end loop;
 
 end div_by_min_arch;

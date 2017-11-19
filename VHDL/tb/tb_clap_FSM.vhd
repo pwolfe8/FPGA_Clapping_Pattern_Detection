@@ -36,8 +36,10 @@ begin
         generic map (
             f_clk       => f_clk,
             end_silence => end_silence,
+            -- from globals in typePack.vhd
             R_int       => R_int,
-            N_int       => N_int
+            N_int       => N_int,
+            R_int_ctr   => R_int_ctr
         )
         port map (
         -- inputs --

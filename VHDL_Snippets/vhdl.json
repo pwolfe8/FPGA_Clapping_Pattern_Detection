@@ -89,10 +89,10 @@
     "Generic Process": {
         "prefix": "proc_snippet",
         "body": [ 
-            "process ( ${1} ) begin",
-                "\tif ( ${2} ) then",
+            "process ( ${1:clk, reset} ) begin",
+                "\tif ( ${2:reset='1'} ) then",
                     "\t\t${3}",
-                "\telsif ( ${4} ) then",
+                "\telsif ( ${4:rising_edge(clk)} ) then",
                     "\t\t${5}",
                 "\tend if;",
             "end process;"

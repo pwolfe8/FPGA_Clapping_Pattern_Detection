@@ -1,46 +1,119 @@
---Engineer     : Vasundhara Rawat
---Date         : 11/08/2017
+--Engineer     : Philip Wolfe
+--Date         : 11/18/2017
 --Name of file : min_not_zero.vhd
---Description  : description
+--Description  : finds the minimum non-zero stored interval value from the interval bank
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+use work.TYPE_PACK.all;
+
+
 entity min_not_zero is
     generic (
-        R_int			: positive;
-        num_int         : positive
+        R_int : positive;
+        R_int_ctr : positive
     );
     port (
         -- inputs --
-        bank    : in std_logic_vector   ( R_int*num_int-1 downto 0);
-        -- outputs --    
-        min_val : out std_logic_vector  ( R_int downto 0)
+        clk              : in  std_logic;
+        reset            : in  std_logic;
+        pattern_finished : in  std_logic;
+        num_intervals    : in  R_int_ctr;
+        bank_array       : in  T_bank;
+        -- outputs --
+        min_done         : out std_logic;
+        smallest    	 : out unsigned(R_int-1 downto 0)
     );
 end min_not_zero;
 
-architecture rtl of min_not_zero is
+architecture min_not_zero_arch of min_not_zero is
+    -- type 
+    
     -- constant definitions
-
-
     
     -- signal declarations
+    signal execute_process : std_logic; -- execute process when high
+    signal prev_pattern_finished : std_logic;
+    signal idx : unsigned(R_int_ctr-1 downto 0);
+    signal compare_out : unsigned(R_int-1 downto 0);
+    signal smallest : unsigned(R_int-1 downto 0);
     
-
 begin
-    -- normal processes
-recursive_structure : if size/2 > 0 generate 
-    smallerEntity : entity component.myEntity(structural)
-        generic map (
-            size => size/2`
-        );
-        port map ( 
-            ... 
-        );
-end generate recursive_structure; 
+    -- manage idx (indexing from 1, so 0 can be a signal of completion)
+    process ( clk, reset ) begin
+        if ( reset='1' ) then
+            idx <= (others=>'0');
+            prev_pattern_finished <= '0';
+            execute_process <= '0';
+        elsif ( rising_edge(clk) ) then
+            prev_pattern_finished <= pattern_finished;
 
+            -- manage resetting idx
+            if ( prev_pattern_finished='0' and pattern_finished='1' ) then
+                -- doing this instead of rising_edge(pattern_finished)
+                -- because Xilinx constraints yells at me for using
+                -- a non-clock signal as a clock
+
+                idx <= num_intervals;   -- reset index to prepare for calcs
+                execute_process <= '1'; -- start the process
+            elsif ( idx > 0 ) then
+                idx <= idx - 1;
+            else
+                idx <= (others=>'0');
+                execute_process <= '0'; -- stop the process
+            end if;
+            
+        end if;
+    end process;
     
-    -- component instantiations
+    -- manage bank_at_idx
+    process ( clk, reset ) begin
+        if ( reset='1' ) then
+            bank_at_idx <= (others=>'0');
+        elsif ( rising_edge(clk) ) then
+            if ( idx=(others=>'0') ) then
+                bank_at_idx <= (others=>'0');
+            else
+                bank_at_idx <= bank_array(idx-1); -- translate to 0-indexed
+            end if;
+        end if;
+    end process;
+
+    -- instantiate min_compare2
+    min_comp : entity work.min_compare2
+        generic map (
+            R_int   => R_int
+        )
+        port map (
+            -- inputs -- 
+            left    => bank_at_idx,
+            right   => smallest,
+            -- outputs --
+            out_min_val_2 => compare_out
+        );
+
+    -- min_compare2 feedback loop
+    process ( clk, reset ) begin
+        if ( reset='1' ) then
+            smallest <= (others=>'0');
+        elsif ( rising_edge(clk) ) then
+            smallest <= compare_out;
+        end if;
+    end process;
+
+    -- manage valid bit "min_done" 
+    process ( clk, reset ) begin
+        if ( reset='1' ) then
+            min_done <= '0';
+        elsif ( rising_edge(clk) ) then
+            if (prev_execute_process='1' and execute_process='0' ) then
+                min_done <= '1';
+            else
+                min_done <= '0';
+            end if;
+        end if;
+    end process;
     
-    
-end architecture;
+end min_not_zero_arch;
+
