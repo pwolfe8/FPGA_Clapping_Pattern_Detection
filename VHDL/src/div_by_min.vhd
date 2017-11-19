@@ -1,25 +1,43 @@
---Engineer     : Philip Wolfe
+--Engineer     : Will Sutton
 --Date         : MM/DD/2017
 --Name of file : sevenseg.vhd
 --Description  : This file controls our seven segment outputs. 
+--Behavior     : see min_not_zero.vhd for "done" signaling logic
+--  When min_done goes high for one clock cycle divide_by_min should latch in min_val and
+--  turn on a signal to denote execution should happen. (and then go through and divide each entry)
+--  once all the entries have been calculated, signal div_done for 1 clock cycle to
+--  let pattern_compare know to start comparing.
+--  don't forget to de-assert signals
+--  
+--  Be sure to manage all the signal assertion/de-assertion for a signal/relevant signals
+--  in the SAME process statement unless you want multiple driver signal behavior ("XXXX")
+--  to show up in your testbench.
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+use work.TYPE_PACK.all;
+-- globals for testbenches:
+--  R_int = 8       -- resolution of intervals
+--  N_int = 4       -- number of intervals
+--  R_int_ctr = 4   -- resolution of interval counter
+
 entity div_by_min is
     generic (
---        _name_			: _type_
 	--Number of bits in the min value input
-	        R_int			: positive;
+        R_int   : positive;
 	--Number of intervals
-		num_int 		: positive
+		N_int 	: positive
     );
     port (
         -- inputs --
-        bank    : in std_logic_vector   ( R_int*num_int-1 downto 0);
-	min_val : out std_logic_vector ( R_int downto 0)
+        bank        : in T_bank; -- bank of intervals
+        min_done    : in std_logic; -- start dividing when min_done goes from low to high
+        min_val     : in unsigned(R_int-1 downto 0); -- minimum value result
         -- outputs --
-        bank_out    : in std_logic_vector   ( R_int*num_int-1 downto 0)
+        div_done    : out std_logic; -- flip high for one cycle when dividing is done
+        bank_out    : out T_bank    -- output normalized data
     );
 end div_by_min;
 
@@ -34,6 +52,7 @@ divisor : unsigned (R_int downto 0);
 quotient : std_logic_vector (R_int downto 0);
 
 begin
+
 	divisior <= unsigned(min_val);
 	intervals: for i in 0 to num_int loop
 	--Get each chunk of the bank that we care about to do operations on. 
