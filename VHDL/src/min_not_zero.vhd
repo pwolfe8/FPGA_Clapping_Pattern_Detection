@@ -19,7 +19,7 @@ entity min_not_zero is
         clk              : in  std_logic;
         reset            : in  std_logic;
         pattern_finished : in  std_logic;
-        num_intervals    : in  R_int_ctr;
+        num_intervals    : in  unsigned(R_int_ctr-1 downto 0);
         bank_array       : in  T_bank;
         -- outputs --
         min_done         : out std_logic;
@@ -28,16 +28,14 @@ entity min_not_zero is
 end min_not_zero;
 
 architecture min_not_zero_arch of min_not_zero is
-    -- type 
-    
-    -- constant definitions
-    
+
     -- signal declarations
     signal execute_process : std_logic; -- execute process when high
+    signal prev_execute_process : std_logic;
     signal prev_pattern_finished : std_logic;
     signal idx : unsigned(R_int_ctr-1 downto 0);
+    signal bank_at_idx : unsigned(R_int-1 downto 0);
     signal compare_out : unsigned(R_int-1 downto 0);
-    signal smallest : unsigned(R_int-1 downto 0);
     
 begin
     -- manage idx (indexing from 1, so 0 can be a signal of completion)
@@ -46,9 +44,10 @@ begin
             idx <= (others=>'0');
             prev_pattern_finished <= '0';
             execute_process <= '0';
+            prev_execute_process <= '0';
         elsif ( rising_edge(clk) ) then
             prev_pattern_finished <= pattern_finished;
-
+            prev_execute_process <= execute_process;
             -- manage resetting idx
             if ( prev_pattern_finished='0' and pattern_finished='1' ) then
                 -- doing this instead of rising_edge(pattern_finished)
@@ -72,10 +71,10 @@ begin
         if ( reset='1' ) then
             bank_at_idx <= (others=>'0');
         elsif ( rising_edge(clk) ) then
-            if ( idx=(others=>'0') ) then
+            if ( idx=to_unsigned(0,R_int_ctr) ) then
                 bank_at_idx <= (others=>'0');
             else
-                bank_at_idx <= bank_array(idx-1); -- translate to 0-indexed
+                bank_at_idx <= bank_array(to_integer(idx - 1)); -- translate to 0-indexed
             end if;
         end if;
     end process;
@@ -116,4 +115,3 @@ begin
     end process;
     
 end min_not_zero_arch;
-

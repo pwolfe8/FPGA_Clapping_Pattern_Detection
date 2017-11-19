@@ -13,11 +13,11 @@ entity min_compare2 is
 
     port (
         -- inputs --
-        left   : in std_logic_vector   ( R_int-1 downto 0);
-        right  : in std_logic_vector   ( R_int-1 downto 0);
+        left   : in unsigned( R_int-1 downto 0);
+        right  : in unsigned( R_int-1 downto 0);
 
         -- outputs --    
-        out_min_val_2 : out std_logic_vector  ( R_int-1 downto 0)
+        out_min_val_2 : out unsigned( R_int-1 downto 0)
     );
 end min_compare2;
 
@@ -25,18 +25,17 @@ architecture rtl of min_compare2 is
     -- constant definitions
     
     -- signal declarations   
-    signal zeros : std_logic_vector(left'range) := (others=>'0');
 
 begin 
     process(left, right) begin
         if(left < right) then
-            if (left /= zeros) then
+            if (left /= to_unsigned(0,R_int)) then
                 out_min_val_2 <= left;
             else
                 out_min_val_2 <= right;
             end if;
         else
-            if (right /= zeros) then
+            if (right /= to_unsigned(0,R_int)) then
                 out_min_val_2 <= right;
             else
                 out_min_val_2 <= left;

@@ -1,49 +1,85 @@
 --Engineer     : Philip Wolfe
---Date         : MM/DD/2017
+--Date         : 11/19/2017
 --Name of file : tb_min_not_zero.vhd
---Description  : Test bench for _entity_being_tested_.
+--Description  : Test bench for min_not_zero.
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity tb__entity_being_tested_ is
-end tb__entity_being_tested_;
+use work.TYPE_PACK.all;
 
-architecture tb__entity_being_tested__arch of _entity_being_tested_ is
+
+entity tb_min_not_zero is
+end tb_min_not_zero;
+
+architecture tb_min_not_zero_arch of tb_min_not_zero is
+    -- globals (set them in typePack.vhd before running testbench)
+        -- set R_int to 8
+        -- set N_int to 4
+        -- set R_int_ctr to 4
+        
+    
     -- constant definitions
+    constant T : time := 10 ns;
     
     -- testbench signal declarations
+        -- inputs --
+    signal clk, reset : std_logic;
+    signal pattern_finished : std_logic;
+    signal num_intervals : unsigned(R_int_ctr-1 downto 0);
+    signal bank_array : T_bank;
+        -- outputs --
+    signal min_done : std_logic;
+    signal smallest : unsigned(R_int-1 downto 0);
     
-
 begin
     -- instantiate design under test
-    DUT : entity work._entity_being_tested_
+    DUT : entity work.min_not_zero
         generic map (
-            -- Paste entity's ports here. Connect signals in either form:
-        --    "in1,in2,out1,out2"
-        --    "portname1=>signal1, portname2=>signal2"
+            R_int     => R_int,
+            R_int_ctr => R_int_ctr
         )
         port map (
-            -- Paste entity's ports here. Connect signals in either form:
-        --    "in1,in2,out1,out2"
-        --    "portname1=>signal1, portname2=>signal2"
+            -- inputs --
+            clk              => clk,
+            reset            => reset,
+            pattern_finished => pattern_finished,
+            num_intervals    => num_intervals,
+            bank_array       => bank_array,
+            -- outputs --
+            min_done         => min_done,
+            smallest    	 => smallest
         );
 
     -- set up clock if you need it
-    -- process begin
-    -- 	clk <= '0';
-    -- 	wait for T/2;
-    -- 	clk <= '0';
-    -- 	wait for T/2;
-    -- end process;
+    process begin
+    	clk <= '1';
+    	wait for T/2;
+    	clk <= '0';
+    	wait for T/2;
+    end process;
     
     process begin
         -- initialize signals
-        
-        -- implement some test cases
+        bank_array <= (
+            0 => X"04",
+            1 => X"01",
+            2 => X"04",
+            others => (others=>'0')
+        );
+        num_intervals <= to_unsigned(3,R_int_ctr);
+        pattern_finished <= '0';
+        reset <= '1';
+        wait for 10 ns;
+        reset <= '0';
+        wait for 10 ns;
+        pattern_finished <= '1';
+        wait for T;
+        pattern_finished <= '0';
+        wait for 70 ns;
         
         -- end test
-        assert false report "Test Completed" severity failure;
-    end process
+        assert false report LF & LF & "**** Test Completed ****" & LF severity failure;
+    end process;
 
-end tb__entity_being_tested__arch;
+end tb_min_not_zero_arch;

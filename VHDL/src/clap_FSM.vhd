@@ -25,7 +25,7 @@ entity clap_FSM is
         check_pattern_done  : in  std_logic; -- denotes that pattern checking process is done
         -- outputs --
         pattern_finished    : out std_logic; -- pull high for a clock cycle to denote clap pattern finished
-        num_intervals       : out std_logic_vector(2 downto 0); --change this based on ceil(log2(N_int)) assuming N_int = 8 at max for now
+        num_intervals       : out unsigned(R_int_ctr-1 downto 0); --change this based on ceil(log2(N_int)) assuming N_int = 8 at max for now
         state_output_code   : out std_logic_vector(1 downto 0);
         interval_bank_array : out T_bank;
         bank_overflowed     : out std_logic
@@ -33,6 +33,8 @@ entity clap_FSM is
 end clap_FSM;
 
 architecture clap_FSM_arch of clap_FSM is
+    -- globals from typePack.vhd
+
     -- define state types
     type state_t is (IDLE, WAIT_FOR_NEXT_CLAP, LOG_INTERVAL, CHECKING_PATTERN);
 

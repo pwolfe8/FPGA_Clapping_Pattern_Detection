@@ -14,9 +14,9 @@ architecture tb_min_compare2_arch of tb_min_compare2 is
     constant R_int : positive := 8;
 
     -- testbench signal declarations
-    signal left : std_logic_vector ( R_int-1 downto 0);
-    signal right : std_logic_vector ( R_int-1 downto 0);
-    signal out_min_val_2 : std_logic_vector  ( R_int-1 downto 0);
+    signal left : unsigned ( R_int-1 downto 0);
+    signal right : unsigned ( R_int-1 downto 0);
+    signal out_min_val_2 : unsigned ( R_int-1 downto 0);
 
 begin
     -- instantiate design under test
@@ -48,7 +48,7 @@ begin
 
         -- TEST CASE 2 --
         left <= (others=>'0');
-        right <= std_logic_vector(to_unsigned(4,R_int));
+        right <= to_unsigned(4,R_int);
         wait for 10 ns;
         assert ( out_min_val_2 = right )
         report LF
@@ -60,7 +60,7 @@ begin
         
         
         -- TEST CASE 3 --
-        left <= std_logic_vector(to_unsigned(8,R_int));
+        left <= to_unsigned(8,R_int);
         right <= (others=>'0');
         wait for 10 ns;
         assert ( out_min_val_2 = X"00" )
@@ -72,8 +72,8 @@ begin
         severity error;
         
         -- TEST CASE 4 --
-        left <= std_logic_vector(to_unsigned(7,R_int));
-        right <= std_logic_vector(to_unsigned(13,R_int));
+        left <= to_unsigned(7,R_int);
+        right <= to_unsigned(13,R_int);
         wait for 10 ns;
         assert ( out_min_val_2 = X"07" )
         report LF
@@ -84,8 +84,8 @@ begin
         severity error;
         
         -- TEST CASE 5 --
-        left <= std_logic_vector(to_unsigned(13,R_int));
-        right <= std_logic_vector(to_unsigned(7,R_int));
+        left <= to_unsigned(13,R_int);
+        right <= to_unsigned(7,R_int);
         wait for 10 ns;
         assert ( out_min_val_2 = X"07" )
         report LF
