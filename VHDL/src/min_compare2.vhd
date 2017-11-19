@@ -29,12 +29,18 @@ architecture rtl of min_compare2 is
 
 begin 
     process(left, right) begin
-        if(left < right) and (left /= zeros) then
-            out_min_val_2 <= left;
-        elsif (right /= zeros) then
-            out_min_val_2 <= right;
-        else 
-            out_min_val_2 <= (others => '0');
+        if(left < right) then
+            if (left /= zeros) then
+                out_min_val_2 <= left;
+            else
+                out_min_val_2 <= right;
+            end if;
+        else
+            if (right /= zeros) then
+                out_min_val_2 <= right;
+            else
+                out_min_val_2 <= left;
+            end if;
         end if;
     end process;   
 end rtl;

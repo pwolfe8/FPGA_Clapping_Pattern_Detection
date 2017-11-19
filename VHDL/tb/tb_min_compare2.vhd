@@ -35,14 +35,67 @@ begin
     process begin
         -- initialize signals
         left <= (others=>'0');
-        right <= std_logic_vector(to_unsigned(4,R_int) );
+        right <= (others=>'0');
         wait for 10 ns;
-
         -- TEST CASE 1 --
+        assert ( out_min_val_2 = X"00" )
+        report LF
+            & "================ Test case 1 failed! ================" & LF
+            & "received: " & to_hstring(out_min_val_2) & LF
+            & "expected: " & to_hstring(X"00") & LF
+            & "====================================================="
+        severity error;
+
+        -- TEST CASE 2 --
+        left <= (others=>'0');
+        right <= std_logic_vector(to_unsigned(4,R_int));
+        wait for 10 ns;
         assert ( out_min_val_2 = right )
-        report "================Test case 1 failed! Look at the waveform to debug!================"
+        report LF
+            & "================ Test case 2 failed! ================" & LF
+            & "received: " & to_hstring(out_min_val_2) & LF
+            & "expected: " & to_hstring(X"04") & LF
+            & "====================================================="
         severity error;
         
+        
+        -- TEST CASE 3 --
+        left <= std_logic_vector(to_unsigned(8,R_int));
+        right <= (others=>'0');
+        wait for 10 ns;
+        assert ( out_min_val_2 = X"00" )
+        report LF
+            & "================ Test case 3 failed! ================" & LF
+            & "received: " & to_hstring(out_min_val_2) & LF
+            & "expected: " & to_hstring(X"00") & LF
+            & "====================================================="
+        severity error;
+        
+        -- TEST CASE 4 --
+        left <= std_logic_vector(to_unsigned(7,R_int));
+        right <= std_logic_vector(to_unsigned(13,R_int));
+        wait for 10 ns;
+        assert ( out_min_val_2 = X"07" )
+        report LF
+            & "================ Test case 4 failed! ================" & LF
+            & "received: " & to_hstring(out_min_val_2) & LF
+            & "expected: " & to_hstring(X"07") & LF
+            & "====================================================="
+        severity error;
+        
+        -- TEST CASE 5 --
+        left <= std_logic_vector(to_unsigned(13,R_int));
+        right <= std_logic_vector(to_unsigned(7,R_int));
+        wait for 10 ns;
+        assert ( out_min_val_2 = X"07" )
+        report LF
+            & "================ Test case 5 failed! ================" & LF
+            & "received: " & to_hstring(out_min_val_2) & LF
+            & "expected: " & to_hstring(X"07") & LF
+            & "====================================================="
+        severity error;
+
+
         -- end test
         assert false report LF & "**** Test Completed ****" & LF severity failure;
     end process;
