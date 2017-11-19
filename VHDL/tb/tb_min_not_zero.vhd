@@ -76,8 +76,37 @@ begin
         pattern_finished <= '1';
         wait for T;
         pattern_finished <= '0';
-        wait for 70 ns;
+        wait for 60 ns;
+        -- TEST CASE 1 --
+        assert ( smallest = X"01" )
+        report LF
+            & "================ Test case 1 failed! ================" & LF
+            & "received: " & to_hstring(smallest) & LF
+            & "expected: " & to_hstring(X"01") & LF
+            & "====================================================="
+        severity error;
+
         
+        bank_array <= (
+            0 => X"17",
+            1 => X"FF",
+            2 => X"14",
+            others => (others=>'0')
+        );
+        num_intervals <= to_unsigned(3,R_int_ctr);
+        pattern_finished <= '1';
+        wait for T;
+        pattern_finished <= '0';
+        wait for 60 ns;
+        -- TEST CASE 2 --
+        assert ( smallest = X"14" )
+        report LF
+            & "================ Test case 2 failed! ================" & LF
+            & "received: " & to_hstring(smallest) & LF
+            & "expected: " & to_hstring(X"14") & LF
+            & "====================================================="
+        severity error;
+
         -- end test
         assert false report LF & LF & "**** Test Completed ****" & LF severity failure;
     end process;

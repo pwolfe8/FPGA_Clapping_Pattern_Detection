@@ -97,7 +97,11 @@ begin
         if ( reset='1' ) then
             smallest <= (others=>'0');
         elsif ( rising_edge(clk) ) then
-            smallest <= compare_out;
+            if ( prev_pattern_finished='0' and pattern_finished='1' ) then
+                smallest <= (others=>'0');
+            else
+                smallest <= compare_out;
+            end if;
         end if;
     end process;
 
