@@ -14,7 +14,7 @@ entity clap_FSM is
         f_clk : real;       -- system frequency
         end_silence : real; -- amount of silence required to signal end of pattern
         R_int : positive;   -- enough to handle ceil(log2(f_clk*T_END_SILENCE))
-        n_int : positive    -- number of intervals in bank
+        N_int : positive    -- number of intervals in bank
     );
     port (
         -- inputs --
@@ -24,7 +24,7 @@ entity clap_FSM is
         check_pattern_done  : in  std_logic; -- denotes that pattern checking process is done
         -- outputs --
         pattern_finished    : out std_logic;
-        num_intervals       : out std_logic_vector(2 downto 0); --change this based on ceil(log2(n_int)) assuming n_int = 8 at max for now
+        num_intervals       : out std_logic_vector(2 downto 0); --change this based on ceil(log2(N_int)) assuming N_int = 8 at max for now
         state_output_code   : out std_logic_vector(1 downto 0);
         interval_bank_array : out T_bank;
         bank_overflowed     : out std_logic
@@ -75,8 +75,8 @@ begin
     end process;
 
     -- instantiate shift register to store bank of data
-    int_bank : entity work.shift_register
-        generic map ( R=>R_int, Num=>n_int )
+    interval_bank : entity work.shift_register
+        generic map ( R=>R_int, N=>N_int )
         port map (
             -- inputs --
             clk     => clk,
@@ -150,7 +150,7 @@ begin
                 load <= '1'; -- load for 1 clock cycle
                 flush <= '0';
                 interval_counter <= interval_counter + 1;
-                if ( interval_counter>n_int ) then
+                if ( interval_counter>N_int ) then
                     bank_overflowed <= '1';
                 end if;
             when CHECKING_PATTERN =>

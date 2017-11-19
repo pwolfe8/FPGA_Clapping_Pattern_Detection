@@ -12,22 +12,24 @@ entity tb_shift_register is
 end tb_shift_register;
 
 architecture tb_shift_register_arch of tb_shift_register is
+    -- globals (set them in typePack.vhd before running testbench)
+        -- set R_int to 8
+        -- set N_int to 4
+    
     -- constant definitions
-    constant R : positive := 8;
-    constant Num : positive := 4;
     constant T : time := 10 ns;
 
     -- testbench signal declarations
     signal clk : std_logic;
     signal load, flush : std_logic;
-    signal in_val : unsigned(R-1 downto 0);
+    signal in_val : unsigned(R_int-1 downto 0);
     signal data_out : T_bank;
 
 
 begin
     -- instantiate design under test
     DUT : entity work.shift_register
-        generic map ( R=>R, Num=>Num )
+        generic map ( R=>R_int, N=>N_int )
         port map (
             -- inputs --
             clk     => clk,

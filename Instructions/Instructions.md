@@ -32,6 +32,7 @@ shifts in data, able to be flushed (zeroed)
 logs intervals between claps to shift register, flushes when new pattern starts
 * files:
     - typePack.vhd
+    - src/shift_register.vhd
     - src/clap_FSM.vhd
     - tb/tb_clap_FSM.vhd
 * expected results:

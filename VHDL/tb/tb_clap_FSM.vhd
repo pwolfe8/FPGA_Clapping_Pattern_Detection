@@ -13,12 +13,14 @@ entity tb_clap_FSM is
 end tb_clap_FSM;
 
 architecture tb_clap_FSM_arch of tb_clap_FSM is
+    -- globals (set them in typePack.vhd before running testbench)
+        -- set R_int to 8
+        -- set N_int to 4
+    
     -- constant definitions
     constant f_clk : real := 781.25e3; -- 100MHz/128
     constant T : time := 1.28 us;
     constant end_silence : real := 0.00005; --50 us
-    constant R_int : positive := 8; -- match this with typePack.vhd before simulating
-    constant n_int : positive := 4;
 
     -- testbench signal declarations
     signal clk, reset : std_logic;
@@ -32,7 +34,10 @@ begin
     -- instantiate design under test
     DUT : entity work.clap_FSM
         generic map (
-            f_clk=>f_clk, end_silence=>end_silence, R_int=>R_int, n_int=>n_int
+            f_clk       => f_clk,
+            end_silence => end_silence,
+            R_int       => R_int,
+            N_int       => N_int
         )
         port map (
         -- inputs --
@@ -94,7 +99,7 @@ begin
         wait for 5 us;
 
         -- end test
-        assert false report "Test Completed" severity failure;
+        assert false report LF & "**** Test Completed ****" & LF severity failure;
     end process;
 
 end tb_clap_FSM_arch;
