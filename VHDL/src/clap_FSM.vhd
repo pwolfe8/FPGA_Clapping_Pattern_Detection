@@ -24,6 +24,7 @@ entity clap_FSM is
         check_pattern_done  : in  std_logic; -- denotes that pattern checking process is done
         -- outputs --
         pattern_finished    : out std_logic;
+        num_intervals       : out std_logic_vector(2 downto 0); --change this based on ceil(log2(n_int)) assuming n_int = 8 at max for now
         state_output_code   : out std_logic_vector(1 downto 0);
         interval_bank_array : out T_bank;
         bank_overflowed     : out std_logic
@@ -149,7 +150,7 @@ begin
                 load <= '1'; -- load for 1 clock cycle
                 flush <= '0';
                 interval_counter <= interval_counter + 1;
-                if ( interval_counter=n_int ) then
+                if ( interval_counter>n_int ) then
                     bank_overflowed <= '1';
                 end if;
             when CHECKING_PATTERN =>

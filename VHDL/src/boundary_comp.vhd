@@ -9,11 +9,11 @@ use work.TYPE_PACK.all;
 entity boundaryComp is
     generic(
         N: integer; --Data width
-        M: integer; --Data length
-        L: integer  --Pattern to check
+        M: integer --Data length (matts_number_intervals)
+        -- L: integer  --Pattern to check
     );
     port (
-        r_bank          : in unsigned(N-1 downto 0);  --This might just have a set size
+        -- r_bank          : in unsigned(N-1 downto 0);  --This might just have a set size
         normalized_data : in recordedData;
         pattern         : in patternBounds;
         match           : out std_logic
@@ -21,7 +21,7 @@ entity boundaryComp is
 end boundaryComp;
 
 architecture boundaryComp_arch of boundaryComp is
-    type recordedDataPlusOne  is array (0 to 7) of unsigned(N downto 0);
+    type recordedDataPlusOne  is array (0 to M-1) of unsigned(N downto 0);
     signal upper,lower: recordedDataPlusOne;
     signal boundMatch : std_logic_vector(M-1 downto 0);
     constant all_ones :std_logic_vector(M-1 downto 0) := (others=>'1');
