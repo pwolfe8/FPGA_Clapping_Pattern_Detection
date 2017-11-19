@@ -254,13 +254,15 @@
         "prefix": "testcase_snippet",
         "body": [ 
             "-- TEST CASE ${1:1} --",
-            "${2:_set_inputs_here_}",
-            "wait for 10 ns;",
-            "assert ( ${3:_check_outputs_here_} )",
-            "report \"================Test case ${1} failed! Look at the waveform to debug!================\"",
+            "assert ( ${2:_some_boolean_checking_output_} )",
+            "report LF",
+                "\t& \"================ Test case 1 failed! ================\" & LF",
+                "\t& \"received: \" & to_hstring() & LF",
+                "\t& \"expected: \" & to_hstring() & LF",
+                "\t& \"=====================================================\"",
             "severity error;\n"
         ],
-        "description": "description"
+        "description": "Inserts a testcase. Use VHDL 2008 compiler for to_hstring()"
     }
 
 }

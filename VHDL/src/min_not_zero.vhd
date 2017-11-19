@@ -108,7 +108,7 @@ begin
             min_done <= '0';
         elsif ( rising_edge(clk) ) then
             if (prev_execute_process='1' and execute_process='0' ) then
-                min_done <= '1';
+                min_done <= '1'; -- high for a clock cycle when done
             else
                 min_done <= '0';
             end if;

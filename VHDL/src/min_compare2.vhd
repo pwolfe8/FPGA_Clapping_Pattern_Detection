@@ -25,7 +25,7 @@ architecture rtl of min_compare2 is
     -- constant definitions
     
     -- signal declarations   
-    signal zeros : std_logic_vector(R_int-1 downto 0) := (others=>'0');
+    signal zeros : std_logic_vector(left'range) := (others=>'0');
 
 begin 
     process(left, right) begin

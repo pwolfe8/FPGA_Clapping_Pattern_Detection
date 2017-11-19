@@ -41,7 +41,7 @@ begin
         -- TEST CASE 1 --
         assert ( out_min_val_2 = right )
         report "================Test case 1 failed! Look at the waveform to debug!================"
-        severity error;        
+        severity error;
         
         -- end test
         assert false report LF & "**** Test Completed ****" & LF severity failure;
