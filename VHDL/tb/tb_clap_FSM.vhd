@@ -27,7 +27,7 @@ architecture tb_clap_FSM_arch of tb_clap_FSM is
     signal clap_detected, check_pattern_done : std_logic;
     signal pattern_finished, bank_overflowed : std_logic;
 
-    signal state_output_code : std_logic_vector(1 downto 0);
+    signal state_output : T_state;
     signal bank_array : T_bank;
 
 begin
@@ -49,7 +49,7 @@ begin
         check_pattern_done  => check_pattern_done,
         -- outputs --
         pattern_finished    => pattern_finished,
-        state_output_code   => state_output_code,
+        state_output        => state_output,
         interval_bank_array => bank_array,
         bank_overflowed     => bank_overflowed
     );

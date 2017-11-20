@@ -26,24 +26,22 @@ entity clap_FSM is
         -- outputs --
         pattern_finished    : out std_logic; -- pull high for a clock cycle to denote clap pattern finished
         num_intervals       : out unsigned(R_int_ctr-1 downto 0); --change this based on ceil(log2(N_int)) assuming N_int = 8 at max for now
-        state_output_code   : out std_logic_vector(1 downto 0);
+        state_output        : out T_state;
         interval_bank_array : out T_bank;
         bank_overflowed     : out std_logic
     );
 end clap_FSM;
 
 architecture clap_FSM_arch of clap_FSM is
-    -- globals from typePack.vhd
-
-    -- define state types
-    type state_t is (IDLE, WAIT_FOR_NEXT_CLAP, LOG_INTERVAL, CHECKING_PATTERN);
+    -- globals from typePack.vhd, including state types:
+    -- type T_state is (IDLE, WAIT_FOR_NEXT_CLAP, LOG_INTERVAL, CHECKING_PATTERN);
 
     -- constant definitions
     constant T_END_SILENCE : positive := integer(real(f_clk) * end_silence);
         -- clock counter resolution is ceil(log2(T_END_SILENCE))
 
     -- signal declarations  
-    signal state, next_state : state_t;
+    signal state, next_state : T_state;
     signal load, flush : std_logic;
     signal pattern_finished_buf : std_logic;
     signal last_interval : unsigned(R_int-1 downto 0);
@@ -140,17 +138,14 @@ begin
     Outputs : process ( state ) begin
         case state is
             when IDLE =>
-                state_output_code <= "00";
                 load <= '0';
                 flush <= '1';
                 bank_overflowed <= '0';
                 interval_counter <= (others=>'0');
             when WAIT_FOR_NEXT_CLAP =>
-                state_output_code <= "01";
                 load <= '0';  -- de-assert
                 flush <= '0'; -- de-assert
             when LOG_INTERVAL =>
-                state_output_code <= "10";
                 load <= '1'; -- load for 1 clock cycle
                 flush <= '0';
                 interval_counter <= interval_counter + 1;
@@ -158,7 +153,6 @@ begin
                     bank_overflowed <= '1';
                 end if;
             when CHECKING_PATTERN =>
-                state_output_code <= "11";
                 load <= '0'; -- de-assert
                 flush <= '0';
             when others =>
@@ -166,5 +160,7 @@ begin
         end case;
     end process;
     
+    -- output current state
+    state_output <= state;
 
 end clap_FSM_arch;

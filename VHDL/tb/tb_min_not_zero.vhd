@@ -51,7 +51,7 @@ begin
             smallest    	 => smallest
         );
 
-    -- set up clock if you need it
+    -- set up clock
     process begin
     	clk <= '1';
     	wait for T/2;

@@ -2,6 +2,8 @@
 --Date         : 11/18/2017
 --Name of file : min_not_zero.vhd
 --Description  : finds the minimum non-zero stored interval value from the interval bank
+--Behavior     : checks the interval bank array backwards comparing current min with next value
+-- delay is n+1 clk cycles, where n is the num_intervals recorded for the current pattern
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -32,41 +34,34 @@ architecture min_not_zero_arch of min_not_zero is
     -- signal declarations
     signal execute_process : std_logic; -- execute process when high
     signal prev_execute_process : std_logic;
-    signal prev_pattern_finished : std_logic;
     signal idx : unsigned(R_int_ctr-1 downto 0);
     signal bank_at_idx : unsigned(R_int-1 downto 0);
     signal compare_out : unsigned(R_int-1 downto 0);
     
 begin
     -- manage idx (indexing from 1, so 0 can be a signal of completion)
-    process ( clk, reset ) begin
+    -- on rising edge of pattern_finished reset idx & begin execute_process
+    process ( clk, reset, pattern_finished ) begin
         if ( reset='1' ) then
             idx <= (others=>'0');
-            prev_pattern_finished <= '0';
             execute_process <= '0';
             prev_execute_process <= '0';
+        elsif ( pattern_finished = '1' ) then
+            idx <= num_intervals;   -- reset index to prepare for calcs
+            execute_process <= '1'; -- start the process
         elsif ( rising_edge(clk) ) then
-            prev_pattern_finished <= pattern_finished;
             prev_execute_process <= execute_process;
             -- manage resetting idx
-            if ( prev_pattern_finished='0' and pattern_finished='1' ) then
-                -- doing this instead of rising_edge(pattern_finished)
-                -- because Xilinx constraints yells at me for using
-                -- a non-clock signal as a clock
-
-                idx <= num_intervals;   -- reset index to prepare for calcs
-                execute_process <= '1'; -- start the process
-            elsif ( idx > 0 ) then
+            if ( idx > 0 ) then
                 idx <= idx - 1;
             else
                 idx <= (others=>'0');
                 execute_process <= '0'; -- stop the process
             end if;
-            
         end if;
     end process;
     
-    -- manage bank_at_idx
+    -- manage bank_at_idx at every clock cycle
     process ( clk, reset ) begin
         if ( reset='1' ) then
             bank_at_idx <= (others=>'0');
@@ -93,15 +88,14 @@ begin
         );
 
     -- min_compare2 feedback loop
-    process ( clk, reset ) begin
+    -- rising_edge of pattern_finished should reset
+    process ( clk, reset, pattern_finished ) begin
         if ( reset='1' ) then
             smallest <= (others=>'0');
+        elsif ( pattern_finished = '1' ) then
+            smallest <= (others=>'0');
         elsif ( rising_edge(clk) ) then
-            if ( prev_pattern_finished='0' and pattern_finished='1' ) then
-                smallest <= (others=>'0');
-            else
                 smallest <= compare_out;
-            end if;
         end if;
     end process;
 
