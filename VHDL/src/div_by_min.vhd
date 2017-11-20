@@ -32,6 +32,7 @@ entity div_by_min is
     );
     port (
         -- inputs --
+        clk, reset  : in std_logic;
         bank        : in T_bank; -- bank of intervals
         min_done    : in std_logic; -- start dividing when min_done goes from low to high
         min_val     : in unsigned(R_int-1 downto 0); -- minimum value result
