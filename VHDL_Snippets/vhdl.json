@@ -215,6 +215,7 @@
                 "\tconstant T : time := 10 ns;",
                 "\t${5}",
                 "\t-- testbench signal declarations",
+                "-- signal clk : std_logic;",
                 "\t${6}",
             "",
             "begin",
