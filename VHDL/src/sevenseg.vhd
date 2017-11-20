@@ -1,10 +1,15 @@
---Engineer     : Philip Wolfe
+--Engineer     : Will Sutton
 --Date         : MM/DD/2017
 --Name of file : sevenseg.vhd
 --Description  : This file controls our seven segment outputs. 
+--Behavior     : will receive state_output_code: 00=>idle, 01=>
+--  Displays previous matched value during idle
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+
+use work.TYPE_PACK.all;
 
 entity sevenseg is
     generic (
@@ -12,11 +17,11 @@ entity sevenseg is
     );
     port (
         -- inputs --
-        patternIn :  in std_logic_vector ( 4 downto 0 );
-        clk : in std_logic; --Assuming 50Mhz clock for now. 
-        clapDetected : in std_logic;
-        clapFinished_buf: in std_logic
-        rst : in std_logic;
+        patternIn       : in std_logic_vector ( 4 downto 0 );
+        clk             : in std_logic; --Assuming 50Mhz clock for now. 
+        rst             : in std_logic;
+        clapDetected    : in std_logic;
+        state           : T_state;
         -- outputs --
         --These are the 7seg display legs. 
         seg : out std_logic_vector ( 6 downto 0 );
@@ -37,7 +42,7 @@ clapDetectedClk : std_logic;
 
 
 begin
-    -- normal processes
+    
     process ( clk, rst ) begin
         if ( rst='1' ) then
             
@@ -46,9 +51,10 @@ begin
         end if;
     end process;
 
+    -- display H when clap detected
     process ( clapDetectedClk, clapDetected ) begin
     	if ( rising_edge(clk) and clapDetected = '1') then
-	    	seg <= "1110110" -- for 5 seconds
+	    	seg <= "1110110" -- display "H" for 5 seconds
     	end if;
     end process;
 
