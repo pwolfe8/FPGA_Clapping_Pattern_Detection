@@ -5,6 +5,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.TYPE_PACK.all;
 
 entity pattern_compare is
     generic (
@@ -17,7 +18,7 @@ entity pattern_compare is
         clk, reset          : in  std_logic;
         norm_done           : in  std_logic;
         norm_data           : in  T_bank;
-        stored_patterns     : in  T_bounds;
+        stored_patterns     : in  T_stored;
         -- outputs --
         check_pattern_done  : out std_logic;
         patterns_matched    : out std_logic_vector(N_patt-1 downto 0)
