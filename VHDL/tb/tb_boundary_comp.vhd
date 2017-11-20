@@ -46,7 +46,7 @@ begin
             (to_unsigned(12,R_int), to_unsigned(19,R_int)),
             (to_unsigned(76,R_int), to_unsigned(82,R_int)),
             (to_unsigned(41,R_int), to_unsigned(49,R_int)),
-            (to_unsigned(80,R_int), to_unsigned(95,R_int))
+            (to_unsigned(00,R_int), to_unsigned(00,R_int)) -- 80,95
         );
         normalized_data <= (
             to_unsigned(20,R_int),
@@ -56,7 +56,7 @@ begin
             to_unsigned(18,R_int),
             to_unsigned(80,R_int),
             to_unsigned(45,R_int),
-            to_unsigned(30,R_int)
+            to_unsigned(00,R_int) -- 30
         );
 
         wait for 10 ns;   

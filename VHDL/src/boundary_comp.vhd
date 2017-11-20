@@ -30,9 +30,9 @@ architecture boundaryComp_arch of boundaryComp is
         -- Lower bound is stored_bounds(i, 0)
         U1: for i in 0 to M-1 generate
         begin
-            lower(i) <= (resize(unsigned(pattern(i,0)),N+1) - normalized_data(i));
-            upper(i) <= (resize(normalized_data(i),N+1) - pattern(i,1));
-            boundMatch(i) <= lower(i)(N-1) and upper(i)(N-1);
+            lower(i) <= (normalized_data(i) - resize(unsigned(pattern(i,0)),N+1));
+            upper(i) <= (pattern(i,1) - resize(normalized_data(i),N+1));
+            boundMatch(i) <= (not lower(i)(N)) and (not upper(i)(N));
         end generate;
         
         match <= '1' when (boundMatch = all_ones) else '0';
