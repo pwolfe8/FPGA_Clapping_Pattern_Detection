@@ -62,10 +62,10 @@ begin
         reset <= '0';
         wait for T;
         min_done <= '1';
-
-        -- TEST CASE 1 --
+        wait for 100 ns; -- change this past however many clock cycles
+                        -- you think division will take.
         
-        wait for 10 ns;
+        -- TEST CASE 1 --      
         assert ( bank_out = () )
         report LF
             & "================ Test case 1 failed! ================" & LF
