@@ -227,7 +227,7 @@
                     "\t\t\t${8:-- Paste entity's ports here. Connect signals in either form:\n\t\t\t--    \"in1,in2,out1,out2\"\n\t\t\t--    \"portname1=>signal1, portname2=>signal2\"}",
                     "\t\t);",
                 "",
-                "\t-- set up clock if you need it",
+                "\t-- -- set up clock",
                 "\t-- process begin",
                     "\t-- \tclk <= '1';",
                     "\t-- \twait for T/2;",

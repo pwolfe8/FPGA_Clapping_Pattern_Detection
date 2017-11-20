@@ -2,8 +2,13 @@
 --Date         : MM/DD/2017
 --Name of file : sevenseg.vhd
 --Description  : This file controls our seven segment outputs. 
---Behavior     : will receive state_output_code: 00=>idle, 01=>
---  Displays previous matched value during idle
+--Behavior     : will receive state, clap_detected, and which patterns matched
+-- if clap_detected then display "H" ( we can remove this part and put it in led_shift_register.vhd)
+-- else display:
+--      IDLE               : display prev matched pattern
+--      WAIT_FOR_NEXT_CLAP : display "n"
+--      LOG_INTERVAL       : display "n"
+--      CHECKING_PATTERN   : display "n"
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -12,21 +17,21 @@ use ieee.numeric_std.all;
 use work.TYPE_PACK.all;
 
 entity sevenseg is
-    generic (
+--     generic (
 --        _name_			: _type_
-    );
+--     );
     port (
         -- inputs --
-        patternIn       : in std_logic_vector ( 4 downto 0 );
         clk             : in std_logic; --Assuming 50Mhz clock for now. 
         rst             : in std_logic;
+        patternIn       : in std_logic_vector ( N_patt-1 downto 0 );
         clapDetected    : in std_logic;
         state           : T_state;
         -- outputs --
         --These are the 7seg display legs. 
         seg : out std_logic_vector ( 6 downto 0 );
        	--This is the selector for which of the 4 7seg displays get used. 
-        an : out std_logic_vector ( 4 downto 0 );
+        an : out std_logic_vector ( 3 downto 0 )
     );
 end sevenseg;
 
@@ -39,7 +44,6 @@ architecture sevenseg_arch of sevenseg is
 
 clockDiv : unsigned := 26;
 clapDetectedClk : std_logic;
-
 
 begin
     
@@ -71,7 +75,7 @@ begin
 --
 --
 -- 0 = "1000000"
--- 1 = "0000110"
+-- 1 = "0000110" ** double check this one (invert?)
 -- 2 = "0100100"
 -- 3 = "0110000"
 -- 4 = "0011001"
@@ -92,11 +96,32 @@ begin
 -- u = "1100011"
 -- - = "0111111"
 -- _ = "1110111"
+
+-- @Will compare to sevensegdecoder.v from example XADC project:
+    --   4'h0: ssOut = 7'b1000000;
+    --   4'h1: ssOut = 7'b1111001;
+    --   4'h2: ssOut = 7'b0100100;
+    --   4'h3: ssOut = 7'b0110000;
+    --   4'h4: ssOut = 7'b0011001;
+    --   4'h5: ssOut = 7'b0010010;
+    --   4'h6: ssOut = 7'b0000010;
+    --   4'h7: ssOut = 7'b1111000;
+    --   4'h8: ssOut = 7'b0000000;
+    --   4'h9: ssOut = 7'b0011000;
+    --   4'hA: ssOut = 7'b0001000;
+    --   4'hB: ssOut = 7'b0000011;
+    --   4'hC: ssOut = 7'b1000110;
+    --   4'hD: ssOut = 7'b0100001;
+    --   4'hE: ssOut = 7'b0000110;
+    --   4'hF: ssOut = 7'b0001110;
+    --   default: ssOut = 7'b1001001;
+
 	process ( clapFinished_buf ) begin
 		if (clapFinished_buf = '1') then
 			with patternIn select
-				seg <= "1000000" when "00000",
-					"0000110" when "00001",
+				seg <= 
+                "1000000" when "00000",
+				"0000110" when "00001", -- check this
 				"0100100" when "00010",
 				"0110000" when "00011",
 				"0011001" when "00100",
