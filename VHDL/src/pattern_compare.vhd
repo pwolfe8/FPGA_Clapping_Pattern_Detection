@@ -27,13 +27,57 @@ end pattern_compare;
 
 architecture pattern_compare_arch of pattern_compare is
     -- constant definitions
-    
+    signal pattern_match : std_logic;
+    signal current_pattern : patternBounds;
+    signal counter : unsigned(R_patt_ctr-1 downto 0);
+    signal has_finished : std_logic := 1;
     -- signal declarations
     
 
 begin
+
+    compare : entity work.boundaryComp
+    generic map (
+        N => R_int,
+        M => N_int
+    )
+    port map (
+        normalized_data => norm_data,
+        match=> pattern_match,
+        pattern => current_pattern
+    );
+
     -- normal processes
-    
+    process (clk,reset) begin
+        if(reset = '1') then
+            has_finished <= '1';
+            check_pattern_done <= '1';
+        else
+            if(norm_done = '1') then
+                counter <= to_unsigned(N_patt,R_patt_ctr);
+                has_finished <= '0';
+            end if;
+
+            if(counter = to_unsigned(0,R_patt_ctr) then
+                if(has_finished = '0') then
+                    pattern_matched(0) <= pattern_match;
+                    has_finished <= '1'
+                    check_pattern_done <= '1';
+                else
+                    check_pattern_done <= '0';
+                end if;
+            end if;
+
+            if(counter /= to_unsigned(0,R_patt_ctr) then
+                counter <= counter - '1';
+                if(pattern /= N_patt-1) then
+                    patterns_matched(counter) <= pattern_match;
+                end if
+                current_pattern <= stored_patterns(counter);
+            end if;
+        end if;
+        
+    end process;
     -- component instantiations
     
     

@@ -8,7 +8,8 @@ package TYPE_PACK is
     constant N_int : positive := 4;     -- number of intervals in a bank
     constant R_int_ctr : positive := 4; -- ceil(log2(N_int)). resolution of interval counter
     constant N_patt : positive := 4;    -- number of stored patterns
-    
+    constant R_patt_ctr : positive := 2;-- ceil(log2(N_patt))
+
     constant matts_number_intervals : positive := 8;
     
     -- global interval array type (interval bank)
