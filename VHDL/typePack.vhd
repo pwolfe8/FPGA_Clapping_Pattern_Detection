@@ -17,6 +17,9 @@ package TYPE_PACK is
     type T_bounds is array(0 to N_int-1) of unsigned(R_int-1 downto 0); -- type for boundaries
     type T_stored is array (0 to N_patt-1) of T_bounds; -- type for stored patterns (stores multiple bounds)
 
+    -- global state type
+    type T_state is (IDLE, WAIT_FOR_NEXT_CLAP, LOG_INTERVAL, CHECKING_PATTERN);
+
 
     -- matt's types. we should merge these eventually
     type patternBounds is array (0 to matts_number_intervals-1, 0 to 1) of unsigned(R_int-1 downto 0);

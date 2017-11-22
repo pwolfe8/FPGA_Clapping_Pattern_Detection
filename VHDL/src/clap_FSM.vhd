@@ -47,7 +47,7 @@ architecture clap_FSM_arch of clap_FSM is
     signal last_interval : unsigned(R_int-1 downto 0);
     signal clk_counter : unsigned(R_int-1 downto 0);
     signal interval_counter : unsigned(R_int_ctr-1 downto 0); -- count how many intervals have been stored
-    signal CLK_MAX : unsigned(clk_counter'range) := (others=>'1');
+    signal CLK_MAX : unsigned(clk_counter'range) := (others=>'1'); -- to_unsigned(48,clk_counter'length) -- use this for testbench
 
 begin
 

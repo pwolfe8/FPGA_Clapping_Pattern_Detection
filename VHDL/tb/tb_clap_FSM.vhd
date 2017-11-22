@@ -97,8 +97,8 @@ begin
         check_pattern_done <= '1';
         wait for T;
         check_pattern_done <= '0';
-        -- wait a bit at end to return to idle
-        wait for 5 us;
+        -- wait a bit at end to return to idle and see if clock stops itself
+        wait for 10 us;
 
         -- end test
         assert false report LF & "**** Test Completed ****" & LF severity failure;
