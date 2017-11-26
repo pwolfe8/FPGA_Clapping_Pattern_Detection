@@ -14,8 +14,8 @@ entity boundaryComp is
     );
     port (
         -- r_bank          : in unsigned(N-1 downto 0);  --This might just have a set size
-        normalized_data : in recordedData;
-        pattern         : in patternBounds;
+        normalized_data : in T_bank;
+        pattern         : in T_bounds;
         match           : out std_logic
     );
 end boundaryComp;

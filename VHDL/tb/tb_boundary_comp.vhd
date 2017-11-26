@@ -12,8 +12,8 @@ end tb_boundaryComp;
 
 architecture tb_boundaryComp_arch of tb_boundaryComp is
     --Assuming 16ths of the shortest is the standard unit
-    signal  normalized_data : recordedData;
-    signal  pattern1 : patternBounds;
+    signal  normalized_data : T_bank;
+    signal  pattern1 : T_bounds;
 
     --Example patterns 
        --((17, 67, 10, 60, 12, 76, 41, 80),(23, 78, 17, 66, 19, 82, 49, 95)),
@@ -25,8 +25,7 @@ begin
     DUT : entity work.boundaryComp
         generic map (
             N => R_int,                     -- Data width (resolution of entries in interval bank)
-            M => matts_number_intervals     -- number of intervals in bank
-            -- L => 8              -- Pattern to check (not used?...)
+            M => N_int     -- number of intervals in bank
         )
         port map (
         --    r_bank => to_unsigned(16,8), -- also not used. dammit matt
@@ -42,38 +41,38 @@ begin
             (to_unsigned(17,R_int), to_unsigned(23,R_int)),
             (to_unsigned(67,R_int), to_unsigned(78,R_int)),
             (to_unsigned(10,R_int), to_unsigned(17,R_int)),
-            (to_unsigned(60,R_int), to_unsigned(66,R_int)),
-            (to_unsigned(12,R_int), to_unsigned(19,R_int)),
-            (to_unsigned(76,R_int), to_unsigned(82,R_int)),
-            (to_unsigned(41,R_int), to_unsigned(49,R_int)),
-            (to_unsigned(00,R_int), to_unsigned(00,R_int)) -- 80,95
+            (to_unsigned(60,R_int), to_unsigned(66,R_int))
+           -- (to_unsigned(12,R_int), to_unsigned(19,R_int)),
+            --(to_unsigned(76,R_int), to_unsigned(82,R_int)),
+            --(to_unsigned(41,R_int), to_unsigned(49,R_int)),
+            --(to_unsigned(00,R_int), to_unsigned(00,R_int)) -- 80,95
         );
         normalized_data <= (
             to_unsigned(20,R_int),
-            to_unsigned(70,R_int),
+            to_unsigned(50,R_int),
             to_unsigned(16,R_int),
-            to_unsigned(63,R_int),
-            to_unsigned(18,R_int),
-            to_unsigned(80,R_int),
-            to_unsigned(45,R_int),
-            to_unsigned(00,R_int) -- 30
+            to_unsigned(63,R_int)--,
+            --to_unsigned(18,R_int),
+            --to_unsigned(80,R_int),
+            --to_unsigned(45,R_int),
+            --to_unsigned(00,R_int) -- 30
         );
 
         wait for 10 ns;   
         assert ( match = '0')  report "================Test case 1 failed!================" severity error;  
         
         --Correct the recorded data
-        normalized_data(7) <= to_unsigned(90,R_int);
+        normalized_data(1) <= to_unsigned(70,R_int);
         wait for 10 ns;
         assert ( match = '1' ) report "================Test case 2 failed!================" severity error; 
 
         --Corrupt the recorded data
-        normalized_data(2) <= to_unsigned(57,R_int);
+        normalized_data(3) <= to_unsigned(57,R_int);
         wait for 10 ns;
         assert ( match = '0' ) report "================Test case 3 failed!================" severity error; 
 
         --Correct the recorded data
-        normalized_data(2) <= to_unsigned(16,R_int);
+        normalized_data(3) <= to_unsigned(63,R_int);
         wait for 10 ns;
         assert ( match = '1' ) report "================Test case 4 failed!================" severity error; 
 

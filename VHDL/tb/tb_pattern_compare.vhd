@@ -21,8 +21,8 @@ architecture tb_pattern_compare_arch of tb_pattern_compare is
     signal norm_data : T_bank;
     signal stored_patterns : T_stored;
         -- outputs --
-    check_pattern_done : std_logic;
-    patterns_matched : std_logic_vector(N_patt-1 downto 0);
+    signal check_pattern_done : std_logic;
+    signal patterns_matched : std_logic_vector(N_patt-1 downto 0);
     
 begin
     -- instantiate design under test
@@ -64,9 +64,9 @@ begin
         );
         stored_patterns <= (
             0 =>(   -- bullshit pattern --
-                0 => (0=>X"69",1=>X"69"),
-                1 => (0=>X"69",1=>X"69"),
-                2 => (0=>X"96",1=>X"96"),
+                0 => (0=>X"69",1=>X"6C"),
+                1 => (0=>X"69",1=>X"6C"),
+                2 => (0=>X"96",1=>X"99"),
                 3 => (0=>X"00",1=>X"00")
             ),
             1 => (   -- actual matching pattern --
@@ -97,17 +97,18 @@ begin
         wait for T;
         norm_done <= '0';
 
-        wait for 6*T;
+        -- wait for 6*T;
+        wait for 50 ns;
 
         -- TEST CASE 1 --
-        assert ( _some_boolean_checking_output_ )
+        assert (false)--patterns_matched = "0010"/2)
         report LF
             & "================ Test case 1 failed! ================" & LF
-            & "received: " & std_logic'image(patterns_matched) & LF
-            & "expected: \"0100\"" & LF
+            & "received: " & integer'image(to_integer(unsigned(patterns_matched)) ) 
+            & LF & "expected: 0100" & LF
             & "====================================================="
-        severity error;
-        
+            severity error;
+
         
         -- end test
         assert false report LF & LF & "**** Test Completed ****" & LF severity failure;
