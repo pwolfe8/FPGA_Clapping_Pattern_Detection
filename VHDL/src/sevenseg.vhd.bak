@@ -176,7 +176,7 @@ begin
 
     end if;
 
-end process;
+process end;
     -- component instantiations
 --    clockDiv : entity work.clockDiv
 --        generic map (

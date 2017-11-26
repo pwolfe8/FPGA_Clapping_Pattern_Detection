@@ -1,0 +1,414 @@
+vlib work
+vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:52:07 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# ** Error: (vcom-11) Could not find work.type_pack.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(17): (vcom-1195) Cannot find expanded name "work.TYPE_PACK".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(17): Unknown expanded name.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(19): VHDL Compiler exiting
+# End time: 16:52:07 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/typePack.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:52:13 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/typePack.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling package TYPE_PACK
+# End time: 16:52:13 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:52:18 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(45): near "clockDiv": (vcom-1576) expecting BEGIN.
+# End time: 16:52:19 on Nov 26,2017, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:54:34 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(45): near "clockDiv": (vcom-1576) expecting BEGIN.
+# End time: 16:54:34 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:54:57 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(45): near "beginy": (vcom-1576) expecting BEGIN.
+# End time: 16:54:57 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:55:04 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(47): Illegal target for assignment.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(47): Illegal concurrent statement.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(47): Target type ieee.NUMERIC_STD.UNSIGNED in variable assignment is different from expression type Integer.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(48): Illegal statement: STD_LOGIC
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(125): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Illegal sequential statement.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Enumeration literal '1' is not of type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(128): Enumeration literal '2' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(129): Enumeration literal '4' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(130): Enumeration literal '8' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(165): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(168): near ")": syntax error
+# End time: 16:55:04 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 16, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:55:30 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(47): near "'": syntax error
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(48): Statement cannot be labeled.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(48): Illegal statement: STD_LOGIC
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(125): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Illegal sequential statement.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Enumeration literal '1' is not of type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(128): Enumeration literal '2' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(129): Enumeration literal '4' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(130): Enumeration literal '8' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(165): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(168): near ")": syntax error
+# End time: 16:55:30 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 15, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vsim work.sevenseg
+# vsim work.sevenseg 
+# Start time: 16:55:41 on Nov 26,2017
+# Loading std.standard
+# ** Error: (vsim-3173) Entity '/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/work.sevenseg' has no architecture.
+# Error loading design
+# End time: 16:55:41 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:55:44 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(47): Illegal statement: UNSIGNED
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(48): Illegal statement: STD_LOGIC
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(125): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Illegal sequential statement.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Enumeration literal '1' is not of type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(128): Enumeration literal '2' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(129): Enumeration literal '4' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(130): Enumeration literal '8' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(165): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(168): near ")": syntax error
+# End time: 16:55:44 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 14, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:56:03 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(48): Illegal statement: STD_LOGIC
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(125): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Illegal sequential statement.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Enumeration literal '1' is not of type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(128): Enumeration literal '2' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(129): Enumeration literal '4' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(130): Enumeration literal '8' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(165): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(168): near ")": syntax error
+# End time: 16:56:03 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 13, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:56:20 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(125): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Illegal sequential statement.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Enumeration literal '1' is not of type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(128): Enumeration literal '2' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(129): Enumeration literal '4' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(130): Enumeration literal '8' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(165): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(168): near ")": syntax error
+# End time: 16:56:20 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 12, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:57:00 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(124): near "=": syntax error
+# End time: 16:57:00 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:57:43 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(125): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Illegal sequential statement.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Enumeration literal '1' is not of type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(128): Enumeration literal '2' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(129): Enumeration literal '4' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(130): Enumeration literal '8' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): (vcom-1581) No feasible entries for infix operator '='.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(157): Type error resolving infix expression "=" as type std.STANDARD.BOOLEAN.
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(165): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(168): near ")": syntax error
+# End time: 16:57:43 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 10, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 16:57:56 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(125): (vcom-1186) Array type selected signal assignment expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Illegal sequential statement.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(127): Enumeration literal '1' is not of type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(128): Enumeration literal '2' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(129): Enumeration literal '4' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(130): Enumeration literal '8' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(165): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(168): near ")": syntax error
+# End time: 16:57:56 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 8, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 17:02:17 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(132): (vcom-1186) Array type case expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(133): near "then": (vcom-1576) expecting => or '|' or '!'.
+# End time: 17:02:17 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 17:03:07 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(132): (vcom-1186) Array type case expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(133): Enumeration literal '1' is not of type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(135): Enumeration literal '2' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(137): Enumeration literal '4' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(139): Enumeration literal '8' is type std.STANDARD.CHARACTER; expecting type ieee.NUMERIC_STD.SIGNED.
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(179): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(182): near ")": syntax error
+# End time: 17:03:07 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 7, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 17:03:38 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Warning: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(132): (vcom-1186) Array type case expression must be of a locally static subtype.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(135): String literal has a character '2' not in the enumeration type ieee.std_logic_1164.STD_ULOGIC.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(137): String literal has a character '4' not in the enumeration type ieee.std_logic_1164.STD_ULOGIC.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(139): String literal has a character '8' not in the enumeration type ieee.std_logic_1164.STD_ULOGIC.
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(179): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(182): near ")": syntax error
+# End time: 17:03:38 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 6, Warnings: 1
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 17:04:22 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: (vcom-11) Could not find work.clockdiv.
+# ** Error (suppressible): /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(179): (vcom-1195) Cannot find expanded name "work.clockDiv".
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(182): near ")": syntax error
+# End time: 17:04:22 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 17:04:44 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(193): near "sevenseg_arch": (vcom-1576) expecting PROCESS.
+# End time: 17:04:44 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vsim work.sevenseg
+# vsim work.sevenseg 
+# Start time: 17:05:20 on Nov 26,2017
+# Loading std.standard
+# ** Error: (vsim-3173) Entity '/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/work.sevenseg' has no architecture.
+# Error loading design
+# End time: 17:05:20 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 17:05:23 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(179): Illegal sequential statement.
+# ** Error: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd(179): near "end": (vcom-1576) expecting BEGIN.
+# End time: 17:05:23 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# /home/will/intelFPGA_pro/17.0/modelsim_ase/linuxaloem/vcom failed.
+vcom -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5c Compiler 2017.01 Jan 23 2017
+# Start time: 17:05:43 on Nov 26,2017
+# vcom -reportprogress 300 -work work /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/src/sevenseg.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package TYPE_PACK
+# -- Compiling entity sevenseg
+# -- Compiling architecture sevenseg_arch of sevenseg
+# End time: 17:05:43 on Nov 26,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
