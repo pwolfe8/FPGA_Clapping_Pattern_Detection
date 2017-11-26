@@ -57,7 +57,7 @@ begin
             denominator <= min_val; -- minimum value (doesn't change)
             execute_divide <= '1'; -- start the process
         elsif ( rising_edge(clk) ) then
-
+            
             -- de-assert execute_divide after we've finished execution
             
 
@@ -79,10 +79,10 @@ begin
     end process;
 
     -- manage storing the divided pattern result to the output normalized data bank
+    
 
 
-
-    -- instantiate a divider
+    -- instantiate a divider. trigger by flipping start high for a clock cycle
     divider : entity work.divider
         generic map (
             R_int => R_int,

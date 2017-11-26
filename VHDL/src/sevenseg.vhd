@@ -25,13 +25,13 @@ entity sevenseg is
 --        clk             : in std_logic; --Assuming 50Mhz clock for now. 
         rst             : in std_logic;
         patternIn       : in std_logic_vector ( N_patt-1 downto 0 );
-        clapDetected    : in std_logic;
+        -- clapDetected    : in std_logic;
         state           : T_state;
         -- outputs --
         --These are the 7seg display legs. 
-        seg : out std_logic_vector ( 6 downto 0 );
+        seg : out std_logic_vector ( 6 downto 0 )
        	--This is the selector for which of the 4 7seg displays get used. 
-        an : out std_logic_vector ( 3 downto 0 )
+        -- an : out std_logic_vector ( 3 downto 0 )
     );
 end sevenseg;
 

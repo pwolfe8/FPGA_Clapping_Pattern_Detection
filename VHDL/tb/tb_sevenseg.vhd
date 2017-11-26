@@ -23,18 +23,19 @@ entity tb_sevenseg is
 end tb_sevenseg;
 
 architecture tb_sevenseg_arch of tb_sevenseg is
-    -- Xilinx IP: PLL component prototype declaration
-    component PLL_100MHz_to_7MHz
-    port (
-        -- inputs --
-        clk_oscillator  : in  std_logic;    -- input clock from 100MHz oscillator
-        reset           : in  std_logic;    -- reset PLL
 
-        -- outputs --
-        clk_out         : out std_logic;    -- output clock (7MHz)
-        locked          : out std_logic     -- high when phase-locked-loop has locked
-     );
-    end component;
+    -- -- Xilinx IP: PLL component prototype declaration
+    -- component PLL_100MHz_to_6_25MHz
+    -- port (
+    --     -- inputs --
+    --     clk_in1  : in  std_logic;    -- input clock from 100MHz oscillator
+    --     reset           : in  std_logic;    -- reset PLL
+
+    --     -- outputs --
+    --     clk_out1         : out std_logic;    -- output clock (7MHz)
+    --     locked          : out std_logic     -- high when phase-locked-loop has locked
+    --  );
+    -- end component;
 
     -- signal declarations
     signal state : T_state := IDLE;
@@ -42,39 +43,38 @@ architecture tb_sevenseg_arch of tb_sevenseg is
     signal advance_state : std_logic;
 
 begin
-    -- instantiate the Xilinx PLL IP
-    pll_1 : PLL_100MHz_to_7MHz
-    port map ( 
-        clk_oscillator => osc_clk,  -- clock in (100MHz)
-        reset => reset,             -- reset
-        clk_out => clk,             -- clock out (7MHz)
-        locked => locked            -- whether PLL has locked
-    );
+    -- -- instantiate the Xilinx PLL IP
+    -- pll_1 : PLL_100MHz_to_6_25MHz
+    -- port map ( 
+    --     clk_in1 => osc_clk,  -- clock in (100MHz)
+    --     reset => reset,             -- reset
+    --     clk_out => clk,             -- clock out (7MHz)
+    --     locked => locked            -- whether PLL has locked
+    -- );
 
     -- select sseg 0 all the time
     an <= (others=>'0');
 
     -- manage advance_state
-    advance_state  <= btnC(3) and btnC(2) and btnC(1) and btnC(0);
+    advance_state  <= btnC_buf(3) and btnC_buf(2) and btnC_buf(1) and btnC_buf(0);
 
     -- advance the state every time btnC is pressed
     process ( clk, btnL, advance_state ) begin
         if ( btnL='1' ) then --reset to idle
             state <= IDLE;
             btnC_buf <= (others=>'0');
-            advance_state <= '0';
         elsif ( rising_edge(clk) ) then
             btnC_buf <= btnC & btnC_buf(3 downto 1); -- shift in new val
             if(advance_state='1') then
 --actually change state. 
 		case state is
-			when "IDLE" => 
+			when IDLE => 
 				state <= WAIT_FOR_NEXT_CLAP;
-			when "WAIT_FOR_NEXT_CLAP" => 
+			when WAIT_FOR_NEXT_CLAP => 
 				state <= LOG_INTERVAL;
-			when "LOG_INTERVAL" => 
+			when LOG_INTERVAL => 
 				state <= CHECKING_PATTERN;
-			when "CHECKING_PATTERN" => 
+			when CHECKING_PATTERN => 
 				state <= IDLE;
 		end case;
                 -- insert case statement for transition logic here
@@ -90,11 +90,9 @@ begin
             patternIn => sw,
             state => state, -- this should change based on the center button
             -- ouputs --
-            seg => seg,
-            an => an
+            seg => seg
+            -- an => an
         );
-
-
 
 
 end tb_sevenseg_arch;
