@@ -1,5 +1,5 @@
---Engineer     : Will Sutton
---Date         : MM/DD/2017
+--Engineer     : Will Sutton and Philip Wolfe
+--Date         : 11/22/2017
 --Name of file : sevenseg.vhd
 --Description  : This file controls our seven segment outputs. 
 --Behavior     : see min_not_zero.vhd for "done" signaling logic
@@ -44,35 +44,44 @@ end div_by_min;
 
 architecture div_by_min_arch of div_by_min is
     -- constant definitions
---    constant _name_ : _type_ := _value_;
     
     -- signal declarations
---    signal _name_ : _type_;
-numerator : unsigned (R_int-1 downto 0);
-divisor : unsigned (R_int downto 0);
-quotient : std_logic_vector (R_int downto 0);
+    numerator : unsigned (R_int-1 downto 0);
+    divisor : unsigned (R_int downto 0);
+    quotient : std_logic_vector (R_int downto 0);
 
 begin
 
-	divisior <= unsigned(min_val);
-	intervals: for i in 0 to num_int loop
-	--Get each chunk of the bank that we care about to do operations on. 
-		numerator <= unsigned(resize(bank(R_int+R_int*i-1 downto R_int*i),R_int+1));
-		--Do the actual division below	
-		for j in 0 to R_int loop
-			quotient(R_int downto 1) := quotient(R_int-1 downto 0);
-			quotient(0) := numerator(R_int);	
-			numerator(R_int downto 1) := numerator(R_int-1 downto 0);
-			quotient := quotient-divisor;
-			if(quotient(R_int-1) ='1') then
-				numerator(0) :='0';
-				quotient := quotient+divisor;
-			else
-				numerator(0) :='1';	
-			end if;
-		end loop;
-		--Store the quotient result (no decimal precision WS 11-15-17) for output. 
-		bank_out(R_int+R_int*1-1 downto R_int*i) <= quotient;
-    end loop;
+        
+
+
+
+
+
+
+
+
+
+
+    -- divisior <= unsigned(min_val);
+	-- intervals: for i in 0 to num_int loop
+	-- --Get each chunk of the bank that we care about to do operations on. 
+	-- 	numerator <= unsigned(resize(bank(R_int+R_int*i-1 downto R_int*i),R_int+1));
+    -- Divider : entity work.divider
+    --     generic map (
+    --         R_int => R_int
+    --     )
+    --     port map (
+    --         -- inputs --
+    --         start         start
+    --         numerator   => numerator;
+    --         divisor     => divisor;
+    --         -- outputs --
+    --         done		: out std_logic;
+    --         result      : out unsigned(R_int-1 downto 0)
+    --     );
+	-- 	--Store the quotient result (no decimal precision WS 11-15-17) for output. 
+	-- 	bank_out(R_int+R_int*1-1 downto R_int*i) <= quotient;
+
 
 end div_by_min_arch;
