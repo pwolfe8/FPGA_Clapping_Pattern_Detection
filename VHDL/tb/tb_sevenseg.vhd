@@ -24,7 +24,7 @@ end tb_sevenseg;
 
 architecture tb_sevenseg_arch of tb_sevenseg is
     -- signal declarations
-    signal state : T_state := IDLE;
+    signal state : T_state;
     signal btnC_buf : std_logic_vector(3 downto 0);
     signal advance_state : std_logic;
 
@@ -39,6 +39,8 @@ begin
     process ( clk, btnL, advance_state ) begin
         if ( btnL='1' ) then --reset to idle
             state <= IDLE;
+            btnC_buf <= (others=>'0');
+            advance_state <= '0';
         elsif ( rising_edge(clk) ) then
             btnC_buf <= btnC & btnC_buf(3 downto 1); -- shift in new val
             if(advance_state='1') then
