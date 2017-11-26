@@ -6,7 +6,7 @@
 -- if clap_detected then display "H" ( we can remove this part and put it in led_shift_register.vhd)
 -- else display:
 --      IDLE               : display prev matched pattern
---      WAIT_FOR_NEXT_CLAP : display "n"
+--      WAIT_FOR_NEXT_CLAP : display "L"
 --      LOG_INTERVAL       : display "n"
 --      CHECKING_PATTERN   : display "n"
 
@@ -56,11 +56,11 @@ begin
     end process;
 
     -- display H when clap detected
-    process ( clapDetectedClk, clapDetected ) begin
-    	if ( rising_edge(clk) and clapDetected = '1') then
-	    	seg <= "1110110" -- display "H" for 5 seconds
-    	end if;
-    end process;
+--    process ( clapDetectedClk, clapDetected ) begin
+--    	if ( rising_edge(clk) and clapDetected = '1') then
+--	    	seg <= "1110110" -- display "H" for 5 seconds
+--    	end if;
+--    end process;
 
 -- Seven segment 
 -- bit to segment
@@ -96,6 +96,8 @@ begin
 -- u = "1100011"
 -- - = "0111111"
 -- _ = "1110111"
+-- L = "1000111"
+
 
 -- @Will compare to sevensegdecoder.v from example XADC project:
     --   4'h0: ssOut = 7'b1000000;
@@ -116,34 +118,47 @@ begin
     --   4'hF: ssOut = 7'b0001110;
     --   default: ssOut = 7'b1001001;
 
-	process ( clapFinished_buf ) begin
-		if (clapFinished_buf = '1') then
-			with patternIn select
-				seg <= 
-                "1000000" when "00000",
-				"0000110" when "00001", -- check this
-				"0100100" when "00010",
-				"0110000" when "00011",
-				"0011001" when "00100",
-				"0010010" when "00101",
-				"0000010" when "00110",
-				"1111000" when "00111",
-				"0000000" when "01000",
-				"0011000" when "01001",
-				"0001000" when "01010",
-				"0000011" when "01011",
-				"1000110" when "01100",
-				"0100001" when "01101",
-				"0000110" when "01110",
-				"0001110" when "01111",
-				"0100011" when "10000",
-				"0101011" when "10001",
-				"0001100" when "10010",
-				"1100011" when "10011",
-				"0111111" when "10100",
-				"1110111" when "10101",
-				"1111111" when others;
+	process ( state ) begin
+		if (state = "IDLE" ) then
+			with signed(patternIn) select
+				seg <=
+        "0000110" when '1',
+        "0100100" when '2',
+        "0110000" when '4',
+        "0011001" when '8',
+        "0001110" when others;
+--        "1000000" when "00000", --Pattern 1
+-- 				"0000110" when "00001", --Pattern 2
+--				"0100100" when "00010",
+--				"0110000" when "00011",
+--				"0011001" when "00100", 
+--				"0010010" when "00101",
+--				"0000010" when "00110",
+--				"1111000" when "00111",
+--				"0000000" when "01000",
+--				"0011000" when "01001",
+--				"0001000" when "01010",
+--				"0000011" when "01011",
+--				"1000110" when "01100",
+--				"0100001" when "01101",
+--				"0000110" when "01110",
+--				"0001110" when "01111",
+--				"0100011" when "10000",
+--				"0101011" when "10001",
+--				"0001100" when "10010",
+--				"1100011" when "10011",
+--				"0111111" when "10100",
+--				"1110111" when "10101",
+ --       "1000111" when "10110",
+--				"1111111" when others;
 
+    elsif (state = "WAIT_FOR_NEXT_CLAP") then
+      seg <= "1000111";
+
+    else
+      seg <= "0101011";
+
+    end if;
     -- component instantiations
     clockDiv : entity work.clockDiv
         generic map (
