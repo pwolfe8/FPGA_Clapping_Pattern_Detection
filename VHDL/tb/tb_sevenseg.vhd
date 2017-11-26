@@ -37,7 +37,7 @@ architecture tb_sevenseg_arch of tb_sevenseg is
     end component;
 
     -- signal declarations
-    signal state : T_state;
+    signal state : T_state := IDLE;
     signal btnC_buf : std_logic_vector(3 downto 0);
     signal advance_state : std_logic;
 
@@ -66,6 +66,18 @@ begin
         elsif ( rising_edge(clk) ) then
             btnC_buf <= btnC & btnC_buf(3 downto 1); -- shift in new val
             if(advance_state='1') then
+--actually change state. 
+		case state is
+			when "IDLE" => 
+				state <= WAIT_FOR_NEXT_CLAP;
+			when "WAIT_FOR_NEXT_CLAP" => 
+				state <= LOG_INTERVAL;
+			when "LOG_INTERVAL" => 
+				state <= CHECKING_PATTERN;
+			when "CHECKING_PATTERN" => 
+				state <= IDLE;
+		end case;
+		seg <= "0001"; --CHANGE THIS SHIT
                 -- insert case statement for transition logic here
             end if;
         end if;
@@ -82,5 +94,8 @@ begin
             seg => seg,
             an => an
         );
+
+
+
 
 end tb_sevenseg_arch;
