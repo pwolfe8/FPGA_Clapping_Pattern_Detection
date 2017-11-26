@@ -37,7 +37,6 @@ def get_actual_timestamps(arr):
 	return ans
 
 i = 500
-
 clap_durations = []
 while i < len(data):
 	short_term_average = np.mean([data[i-short_term_duration:i]])
