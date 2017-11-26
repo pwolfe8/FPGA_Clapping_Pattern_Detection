@@ -1,4 +1,4 @@
---Engineer     : Will Sutton and Philip Wolfe
+--Engineer     : Philip Wolfe
 --Date         : 11/22/2017
 --Name of file : sevenseg.vhd
 --Description  : This file controls our seven segment outputs. 
@@ -7,11 +7,6 @@
 --  turn on a signal to denote execution should happen. (and then go through and divide each entry)
 --  once all the entries have been calculated, signal div_done for 1 clock cycle to
 --  let pattern_compare know to start comparing.
---  don't forget to de-assert signals
---  
---  Be sure to manage all the signal assertion/de-assertion for a signal/relevant signals
---  in the SAME process statement unless you want multiple driver signal behavior ("XXXX")
---  to show up in your testbench.
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -44,44 +39,68 @@ end div_by_min;
 
 architecture div_by_min_arch of div_by_min is
     -- constant definitions
-    
+
     -- signal declarations
-    numerator : unsigned (R_int-1 downto 0);
-    divisor : unsigned (R_int downto 0);
-    quotient : std_logic_vector (R_int downto 0);
+    signal idx : unsigned(R_int_ctr-1 downto 0);
 
 begin
+    -- manage idx (indexing from 1, so 0 can be a signal of completion)
+    -- on rising edge of pattern_finished reset idx & begin execute_divide
+    process ( clk, reset, min_done ) begin
+        if ( reset='1' ) then
+            idx <= (others=>'0');
+            denominator <= (others=>'0');
+            execute_divide <= '0';
+            prev_execute_divide <= '0';
+        elsif ( min_done = '1' ) then
+            idx <= num_intervals;   -- reset index to prepare for calcs
+            denominator <= min_val; -- minimum value (doesn't change)
+            execute_divide <= '1'; -- start the process
+        elsif ( rising_edge(clk) ) then
 
-        
+            -- de-assert execute_divide after we've finished execution
+            
+
+        end if;
+    end process;
+
+
+    -- manage bank_at_idx at every clock cycle
+    process ( clk, reset ) begin
+        if ( reset='1' ) then
+            bank_at_idx <= (others=>'0');
+        elsif ( rising_edge(clk) ) then
+            if ( idx=to_unsigned(0,R_int_ctr) ) then
+                bank_at_idx <= (others=>'0');
+            else
+                bank_at_idx <= bank_array(to_integer(idx - 1)); -- translate to 0-indexed
+            end if;
+        end if;
+    end process;
+
+    -- manage storing the divided pattern result to the output normalized data bank
 
 
 
+    -- instantiate a divider
+    divider : entity work.divider
+        generic map (
+            R_int => R_int,
+            R_ctr => 5, -- ceil(log2(R_int+N_dec)) + some
+            N_dec => N_dec
+        )
+        port map (
+            -- inputs --
+            clk => clk,
+            reset => reset,
+            start => start,
+            numerator => numerator,
+            denominator => denominator,
+            -- outputs --
+            done => done,
+            result => result
+        );
 
-
-
-
-
-
-
-    -- divisior <= unsigned(min_val);
-	-- intervals: for i in 0 to num_int loop
-	-- --Get each chunk of the bank that we care about to do operations on. 
-	-- 	numerator <= unsigned(resize(bank(R_int+R_int*i-1 downto R_int*i),R_int+1));
-    -- Divider : entity work.divider
-    --     generic map (
-    --         R_int => R_int
-    --     )
-    --     port map (
-    --         -- inputs --
-    --         start         start
-    --         numerator   => numerator;
-    --         divisor     => divisor;
-    --         -- outputs --
-    --         done		: out std_logic;
-    --         result      : out unsigned(R_int-1 downto 0)
-    --     );
-	-- 	--Store the quotient result (no decimal precision WS 11-15-17) for output. 
-	-- 	bank_out(R_int+R_int*1-1 downto R_int*i) <= quotient;
-
+    -- process for managing latching in the bank values
 
 end div_by_min_arch;

@@ -1,4 +1,4 @@
---Engineer     : Will Sutton
+--Engineer     : Philip Wolfe
 --Date         : 11/19/2017
 --Name of file : tb_div_by_min.vhd
 --Description  : Test bench for div_by_min.
