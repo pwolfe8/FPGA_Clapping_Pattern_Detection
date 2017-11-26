@@ -23,12 +23,34 @@ entity tb_sevenseg is
 end tb_sevenseg;
 
 architecture tb_sevenseg_arch of tb_sevenseg is
+    -- Xilinx IP: PLL component prototype declaration
+    component PLL_100MHz_to_7MHz
+    port (
+        -- inputs --
+        clk_oscillator  : in  std_logic;    -- input clock from 100MHz oscillator
+        reset           : in  std_logic;    -- reset PLL
+
+        -- outputs --
+        clk_out         : out std_logic;    -- output clock (7MHz)
+        locked          : out std_logic     -- high when phase-locked-loop has locked
+     );
+    end component;
+
     -- signal declarations
     signal state : T_state;
     signal btnC_buf : std_logic_vector(3 downto 0);
     signal advance_state : std_logic;
 
 begin
+    -- instantiate the Xilinx PLL IP
+    pll_1 : PLL_100MHz_to_7MHz
+    port map ( 
+        clk_oscillator => osc_clk,  -- clock in (100MHz)
+        reset => reset,             -- reset
+        clk_out => clk,             -- clock out (7MHz)
+        locked => locked            -- whether PLL has locked
+    );
+
     -- select sseg 0 all the time
     an <= (others=>'0');
 
