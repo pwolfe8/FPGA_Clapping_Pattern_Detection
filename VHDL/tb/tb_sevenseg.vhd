@@ -77,7 +77,7 @@ begin
 			when "CHECKING_PATTERN" => 
 				state <= IDLE;
 		end case;
-		seg <= "0001"; --CHANGE THIS SHIT
+		seg <= sw; --CHANGE THIS SHIT
                 -- insert case statement for transition logic here
             end if;
         end if;
