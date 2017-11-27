@@ -30,22 +30,34 @@ architecture LED_shift_reg_arch of LED_shift_reg is
 signal led_complete_buffer : std_logic := '0';
 
 begin
+    -- -- manage the pattern_finished signal flushing stuff?
+     process ( clk, reset, pattern_finished ) begin
+         --if ( reset='1' ) then
+     		--led_complete_buffer <= '0';
+         if ( pattern_finished = '1' and led_complete_buffer = '0')  then
+		led_complete_buffer <= '1';  
+         end if;
+     end process;
 
-    process ( clk, reset, clap_detected, pattern_finished )
+    process ( clk, reset, clap_detected )
         variable temp : std_logic_vector(15 downto 0);
     begin
         if ( reset='1') then
             temp := (others=>'0'); -- clear internal storage
             leds <= temp; -- clear output
 	    led_complete_buffer <= '0';
-        elsif (pattern_finished='1') then
-	    led_complete_buffer <= '1';
         elsif ( rising_edge(clk) ) then
+	    if ( pattern_finished='1') then
+		led_complete_buffer <= '1';
+	    end if;
+
             if ( clap_detected='1') then 
-		if (led_complete_buffer = '0') then
+		if (led_complete_buffer = '0' ) then
                     temp := "1" & temp(15 downto 1);
+--		    temp := "0101010101010101";
 	        else
 		    temp := (15=>'1',others=>'0');
+--		    temp := "1010101010101010";
 		    led_complete_buffer <= '0';
 		end if;
    	    end if;
