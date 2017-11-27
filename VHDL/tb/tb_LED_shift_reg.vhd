@@ -14,16 +14,23 @@ architecture tb_LED_shift_reg_arch of tb_LED_shift_reg is
     constant T : time := 10 ns;
     
     -- testbench signal declarations
-    signal clk : std_logic;
+    signal clk, reset : std_logic;
+    signal clap_detected, pattern_finished : std_logic;
+    signal leds : std_logic_vector(15 downto 0);
 
 begin
     -- instantiate design under test
     DUT : entity work.LED_shift_reg
-        generic map (
-            
-        )
+        -- generic map (        
+        -- )
         port map (
-            
+            -- inputs -- 
+            clk => clk,
+            reset => reset,
+            clap_detected => clap_detected,
+            pattern_finished => pattern_finished,
+            -- outputs -- 
+            leds=>leds
         );
 
     -- set up clock
@@ -36,9 +43,61 @@ begin
     
     process begin
         -- initialize signals
-        
-        -- implement some test cases
-        
+        -- reset starts high and then goes low
+        reset <= '1';
+        clap_detected <= '0';
+        pattern_finished <= '0';
+        wait for T;
+        reset <= '0';
+        wait for T;
+
+        -- clap --
+        clap_detected <= '1';
+        wait for T;
+        clap_detected <= '0';
+        wait for T;
+        -- wait for a while --
+        wait for 5*T;
+
+        -- clap --
+        clap_detected <= '1'; 
+        wait for T;
+        clap_detected <= '0';
+        wait for T;
+        -- wait for a while --
+        wait for 5*T;
+
+        -- clap --
+        clap_detected <= '1'; 
+        wait for T;
+        clap_detected <= '0';
+        wait for T;
+        -- wait for a while --
+        wait for 5*T;
+
+        -- flush --
+        pattern_finished <= '1';
+        wait for T;
+        pattern_finished <= '0';
+        wait for T;
+
+        -- clap --
+        clap_detected <= '1'; 
+        wait for T;
+        clap_detected <= '0';
+        wait for T;
+        -- wait for a while --
+        wait for 5*T;
+
+        -- clap --
+        clap_detected <= '1'; 
+        wait for T;
+        clap_detected <= '0';
+        wait for T;
+        -- wait for a while --
+        wait for 5*T;
+
+
         -- end test
         assert false report LF & LF & "**** Test Completed ****" & LF severity failure;
     end process;

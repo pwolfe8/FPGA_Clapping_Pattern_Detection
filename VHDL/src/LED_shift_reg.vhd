@@ -14,10 +14,11 @@ entity LED_shift_reg is
     -- );
     port (
         -- inputs --
-        clk, reset      : in  std_logic;
-        clap_detected   : in  std_logic;
+        clk, reset       : in  std_logic;
+        clap_detected    : in  std_logic;
+        pattern_finished : in  std_logic;
         -- outputs --
-        leds		    : out std_logic_vector(15 downto 0)
+        leds		     : out std_logic_vector(15 downto 0)
     );
 end LED_shift_reg;
 
@@ -26,18 +27,16 @@ architecture LED_shift_reg_arch of LED_shift_reg is
         -- N = 16
         -- R = 1
     -- signal declarations
-    signal pattern_finished : std_logic;
-    signal clk_counter : unsigned(R_int-1 downto 0); -- enough resolution to handle 
 
 begin
-    -- manage the pattern_finished signal
-    process ( reset, clk ) begin
-        if ( reset='1' ) then
-        else if 
-        elsif ( rising_edge(clk) ) then
+    -- -- manage the pattern_finished signal flushing stuff?
+    -- process ( reset, clk ) begin
+    --     if ( reset='1' ) then
+     
+    --     elsif ( rising_edge(clk) ) then
             
-        end if;
-    end process;
+    --     end if;
+    -- end process;
 
     process ( clk, reset, flush, load )
         variable temp : std_logic_vector(15 downto 0);
