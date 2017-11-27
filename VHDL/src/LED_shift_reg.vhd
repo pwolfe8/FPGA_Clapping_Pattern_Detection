@@ -46,7 +46,7 @@ begin
             leds <= temp; -- clear output
         elsif ( rising_edge(clk) ) then
             if ( load='1' ) then
-                temp := in_val & temp(0 to N-2);
+                temp := in_val & temp(15 to 1);
             end if;
             data_out <= temp;
         end if;
