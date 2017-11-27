@@ -471,3 +471,6 @@ run -a
 # 
 #    Time: 410 ns  Iteration: 0  Process: /tb_led_shift_reg/line__44 File: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/tb/tb_LED_shift_reg.vhd
 # Break in Process line__44 at /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/tb/tb_LED_shift_reg.vhd line 102
+# Break key hit
+# End time: 21:39:37 on Nov 26,2017, Elapsed time: 0:49:27
+# Errors: 0, Warnings: 0

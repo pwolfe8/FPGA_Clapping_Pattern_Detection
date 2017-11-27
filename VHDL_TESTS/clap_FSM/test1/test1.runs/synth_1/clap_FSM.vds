@@ -1,0 +1,32 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Sun Nov 26 21:47:05 2017
+# Process ID: 7833
+# Current directory: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/clap_FSM/test1/test1.runs/synth_1
+# Command line: vivado -log clap_FSM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source clap_FSM.tcl
+# Log file: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/clap_FSM/test1/test1.runs/synth_1/clap_FSM.vds
+# Journal file: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/clap_FSM/test1/test1.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source clap_FSM.tcl -notrace
+Command: synth_design -top clap_FSM -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t-cpg236'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t-cpg236'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 7849 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1233.715 ; gain = 45.992 ; free physical = 8722 ; free virtual = 12085
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-1779] cannot read from 'out' object pattern_finished ; use 'buffer' or 'inout' [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/clap_FSM/clap_FSM.vhd:122]
+ERROR: [Synth 8-1085] pattern_finished with mode 'out' cannot be read [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/clap_FSM/clap_FSM.vhd:109]
+INFO: [Synth 8-2810] unit clap_fsm_arch ignored due to previous errors [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/clap_FSM/clap_FSM.vhd:35]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1273.215 ; gain = 85.492 ; free physical = 8732 ; free virtual = 12095
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+2 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 26 21:47:26 2017...
