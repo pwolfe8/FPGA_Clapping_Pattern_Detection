@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xcku035-ffva1156-3-e" LaunchTime="1511752804">
+<GenRun Id="synth_1" LaunchPart="xcku035-ffva1156-3-e" LaunchTime="1511757184">
   <File Type="VDS-TIMING-PB" Name="min_not_zero_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="min_not_zero_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="min_not_zero.dcp"/>

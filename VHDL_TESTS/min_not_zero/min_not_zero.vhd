@@ -12,10 +12,10 @@ use work.TYPE_PACK.all;
 
 
 entity min_not_zero is
-    generic (
-        R_int : positive;
-        R_int_ctr : positive
-    );
+    -- generic (
+    --     R_int : positive;
+    --     R_int_ctr : positive
+    -- );
     port (
         -- inputs --
         clk              : in  std_logic;
@@ -37,6 +37,7 @@ architecture min_not_zero_arch of min_not_zero is
     signal idx : unsigned(R_int_ctr-1 downto 0);
     signal bank_at_idx : unsigned(R_int-1 downto 0);
     signal compare_out : unsigned(R_int-1 downto 0);
+    signal smallest_buf : unsigned(R_int-1 downto 0);
     
 begin
     -- manage idx (indexing from 1, so 0 can be a signal of completion)
@@ -82,20 +83,21 @@ begin
         port map (
             -- inputs -- 
             left    => bank_at_idx,
-            right   => smallest,
+            right   => smallest_buf,
             -- outputs --
             out_min_val_2 => compare_out
         );
 
     -- min_compare2 feedback loop
     -- rising_edge of pattern_finished should reset
+    smallest <= smallest_buf;
     process ( clk, reset, pattern_finished ) begin
         if ( reset='1' ) then
-            smallest <= (others=>'0');
+            smallest_buf <= (others=>'0');
         elsif ( pattern_finished = '1' ) then
-            smallest <= (others=>'0');
+            smallest_buf <= (others=>'0');
         elsif ( rising_edge(clk) ) then
-                smallest <= compare_out;
+                smallest_buf <= compare_out;
         end if;
     end process;
 
