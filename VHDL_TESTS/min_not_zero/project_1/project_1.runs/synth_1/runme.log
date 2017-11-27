@@ -1,0 +1,32 @@
+
+*** Running vivado
+    with args -log min_not_zero.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source min_not_zero.tcl
+
+
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source min_not_zero.tcl -notrace
+Command: synth_design -top min_not_zero -part xcku035-ffva1156-3-e
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xcku035-ffva1156'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcku035-ffva1156'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 9945 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1233.711 ; gain = 45.992 ; free physical = 8449 ; free virtual = 11884
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-1779] cannot read from 'out' object smallest ; use 'buffer' or 'inout' [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:85]
+WARNING: [Synth 8-2040] formal port right of mode in cannot be associated with actual port smallest of mode out [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:85]
+ERROR: [Synth 8-1085] smallest with mode 'out' cannot be read [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:85]
+INFO: [Synth 8-2810] unit min_not_zero_arch ignored due to previous errors [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:32]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1273.211 ; gain = 85.492 ; free physical = 8460 ; free virtual = 11895
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+2 Infos, 1 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 26 22:20:27 2017...

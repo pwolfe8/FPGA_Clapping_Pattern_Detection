@@ -8,11 +8,11 @@ use ieee.numeric_std.all;
 use work.TYPE_PACK.all;
 
 entity pattern_compare is
-    generic (
-        R_int  : positive;
-        N_int  : positive;
-        N_patt : positive
-    );
+--    generic (
+--        R_int  : positive := 8;
+--        N_int  : positive := ;
+--        N_patt : positive := 
+--    );
     port (
         -- inputs --
         clk, reset          : in  std_logic;
