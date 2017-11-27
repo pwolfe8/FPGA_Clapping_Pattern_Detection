@@ -79,7 +79,7 @@ begin
         pattern_finished <= '1';
         wait for T;
         pattern_finished <= '0';
-        wait for 3*T;
+        wait for T;
 
         -- clap --
         clap_detected <= '1'; 
