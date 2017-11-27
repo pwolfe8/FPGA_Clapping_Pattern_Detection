@@ -28,11 +28,11 @@ entity div_by_min is
     port (
         -- inputs --
         clk, reset  : in std_logic;
-        bank        : in T_bank; -- bank of intervals
+        bank_in     : in T_bank; -- bank of intervals
         min_done    : in std_logic; -- start dividing when min_done goes from low to high
         min_val     : in unsigned(R_int-1 downto 0); -- minimum value result
         -- outputs --
-        div_done    : out std_logic; -- flip high for one cycle when dividing is done
+        norm_done   : out std_logic; -- flip high for one cycle when dividing is done
         bank_out    : out T_bank    -- output normalized data
     );
 end div_by_min;
@@ -40,12 +40,22 @@ end div_by_min;
 architecture div_by_min_arch of div_by_min is
     -- constant definitions
 
-    -- signal declarations
+    -- signal declarations --
+    -- divider signals
+        -- input --
+        signal start : std_logic;
+        signal numerator, denominator : unsigned(R_int-1 downto 0);
+        -- output --
+        signal div_done : std_logic;
+        signal result : unsigned(R_int-1 downto 0);
+
     signal idx : unsigned(R_int_ctr-1 downto 0);
     signal start_dividing, prev_start_dividing : std_logic;
+    signal bank_out_buf : T_bank;
 
 begin
     -- manage idx (indexing from 1, so 0 can be a signal of completion)
+    -- manage denominator
     process ( clk, reset, min_done ) begin
         if ( reset='1' ) then
             idx <= (others=>'0');
@@ -55,34 +65,38 @@ begin
             denominator <= min_val; -- minimum value (doesn't change)
             start_dividing <= '1';  -- start the process
         elsif ( rising_edge(clk) ) then
-            
             -- only decrement the idx if the divider has finished or start_dividing='1'
-            if ( start_dividing='1' or divide_done='1' ) then
-                start_dividing <= '0'; -- de-assert
+            if ( ready_for_next='1' ) then
+                start_dividing <= '0'; --de-assert
                 idx <= idx - 1; -- decrement idx
-
+                
             end if;
-
         end if;
     end process;
 
-    -- manage bank_at_idx at every clock cycle
-    numerator <= bank_at_idx;
+    -- manage numerator at every clock cycle
     process ( clk, reset ) begin
         if ( reset='1' ) then
-            bank_at_idx <= (others=>'0');
+            numerator <= (others=>'0');
         elsif ( rising_edge(clk) ) then
             if ( idx=to_unsigned(0,R_int_ctr) ) then
-                bank_at_idx <= (others=>'0');
+                numerator <= (others=>'0');
             else
-                bank_at_idx <= bank_array(to_integer(idx - 1)); -- translate to 0-indexed
+                numerator <= bank_in(to_integer(idx - 1)); -- translate to 0-indexed
             end if;
         end if;
     end process;
 
     -- manage storing the divided pattern result to the output normalized data bank
-
-
+    process ( clk, reset ) begin
+        if ( reset='1' ) then
+            bank_out_buf <= (others=>(others=>'0'));
+        elsif ( rising_edge(clk) ) then
+            if ( ready_for_next='1' ) then 
+                bank_out_buf(to_integer(idx-1)) <= result;
+            end if;
+        end if;
+    end process;
 
     -- instantiate a divider. trigger by flipping start high for a clock cycle
     divider : entity work.divider
@@ -99,7 +113,7 @@ begin
             numerator => numerator,
             denominator => denominator,
             -- outputs --
-            done => done,
+            done => div_done,
             result => result
         );
 

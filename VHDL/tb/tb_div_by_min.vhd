@@ -20,7 +20,7 @@ architecture tb_div_by_min_arch of tb_div_by_min is
     signal min_done : std_logic;
     signal min_val : unsigned(R_int-1 downto 0);
         -- outputs --
-    signal div_done : std_logic;
+    signal norm_done : std_logic;
     signal bank_out : T_bank;
 
 begin
@@ -36,7 +36,7 @@ begin
             min_done    => min_done,
             min_val     => min_val,
             -- outputs --
-            div_done    => div_done,
+            div_done    => norm_done,
             bank_out    => bank_out
         );
 

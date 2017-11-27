@@ -40,11 +40,10 @@ begin
     N <= numerator & to_unsigned(0,N_dec);
     D <= denominator;
 
-    process ( clk, reset, start ) 
+    process ( clk, reset, start )
         variable idx, nxt : unsigned(R_ctr-1 downto 0);
         variable Q : unsigned(R_int+N_dec-1 downto 0); -- quotient
         variable R : unsigned(R_int-1 downto 0); -- remainder
-        -- variable next_R : unsigned(R_int-1 downto 0);
         variable finished, done_buf : std_logic;
     begin
         if ( reset='1' or start='1' ) then
@@ -87,19 +86,5 @@ begin
             end if;
         end if;
     end process;
-    
-    
-    -- for j in 0 to R_int loop
-    --     quotient(R_int downto 1) := quotient(R_int-1 downto 0);
-    --     quotient(0) := numerator(R_int);	
-    --     numerator(R_int downto 1) := numerator(R_int-1 downto 0);
-    --     quotient := quotient-denominator;
-    --     if(quotient(R_int-1) ='1') then
-    --         numerator(0) :='0';
-    --         quotient := quotient+denominator;
-    --     else
-    --         numerator(0) :='1';	
-    --     end if;
-    -- end loop;
     
 end divider_arch;

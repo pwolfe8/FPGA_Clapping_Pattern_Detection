@@ -35,10 +35,10 @@ architecture tb_min_not_zero_arch of tb_min_not_zero is
 begin
     -- instantiate design under test
     DUT : entity work.min_not_zero
-        generic map (
-            R_int     => R_int,
-            R_int_ctr => R_int_ctr
-        )
+        -- generic map (
+        --     R_int     => R_int,
+        --     R_int_ctr => R_int_ctr
+        -- )
         port map (
             -- inputs --
             clk              => clk,
