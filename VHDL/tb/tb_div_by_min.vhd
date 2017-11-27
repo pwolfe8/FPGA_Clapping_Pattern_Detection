@@ -66,7 +66,7 @@ begin
                         -- you think division will take.
         
         -- TEST CASE 1 --      
-        assert ( bank_out = () )
+        assert ( bank_out = X"01010200" )
         report LF
             & "================ Test case 1 failed! ================" & LF
             & "received: " & to_hstring(bank_out(0)) & to_hstring(bank_out(1)) & to_hstring(bank_out(2)) & to_hstring(bank_out(3)) & LF

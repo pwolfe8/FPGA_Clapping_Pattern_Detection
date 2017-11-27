@@ -42,30 +42,32 @@ architecture div_by_min_arch of div_by_min is
 
     -- signal declarations
     signal idx : unsigned(R_int_ctr-1 downto 0);
+    signal start_dividing, prev_start_dividing : std_logic;
 
 begin
     -- manage idx (indexing from 1, so 0 can be a signal of completion)
-    -- on rising edge of pattern_finished reset idx & begin execute_divide
     process ( clk, reset, min_done ) begin
         if ( reset='1' ) then
             idx <= (others=>'0');
             denominator <= (others=>'0');
-            execute_divide <= '0';
-            prev_execute_divide <= '0';
         elsif ( min_done = '1' ) then
             idx <= num_intervals;   -- reset index to prepare for calcs
             denominator <= min_val; -- minimum value (doesn't change)
-            execute_divide <= '1'; -- start the process
+            start_dividing <= '1';  -- start the process
         elsif ( rising_edge(clk) ) then
             
-            -- de-assert execute_divide after we've finished execution
-            
+            -- only decrement the idx if the divider has finished or start_dividing='1'
+            if ( start_dividing='1' or divide_done='1' ) then
+                start_dividing <= '0'; -- de-assert
+                idx <= idx - 1; -- decrement idx
+
+            end if;
 
         end if;
     end process;
 
-
     -- manage bank_at_idx at every clock cycle
+    numerator <= bank_at_idx;
     process ( clk, reset ) begin
         if ( reset='1' ) then
             bank_at_idx <= (others=>'0');
@@ -79,7 +81,7 @@ begin
     end process;
 
     -- manage storing the divided pattern result to the output normalized data bank
-    
+
 
 
     -- instantiate a divider. trigger by flipping start high for a clock cycle

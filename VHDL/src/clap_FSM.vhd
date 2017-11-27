@@ -106,7 +106,7 @@ begin
     -- state machine transition logic
     process (   state,
                 clap_detected,
-                pattern_finished,
+                pattern_finished_buf,
                 check_pattern_done )
     begin
         case state is
@@ -119,7 +119,7 @@ begin
             when WAIT_FOR_NEXT_CLAP => 
                 if ( clap_detected ='1' ) then
                     next_state <= LOG_INTERVAL;
-                elsif ( pattern_finished='1' ) then
+                elsif ( pattern_finished_buf='1' ) then
                     next_state <= CHECKING_PATTERN;
                 else
                     next_state <= WAIT_FOR_NEXT_CLAP;
