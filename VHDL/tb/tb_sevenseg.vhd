@@ -36,10 +36,12 @@ architecture tb_sevenseg_arch of tb_sevenseg is
     --     locked          : out std_logic     -- high when phase-locked-loop has locked
     --  );
     -- end component;
+    constant buf_len : positive := 32;
 
     -- signal declarations
     signal state : T_state := IDLE;
-    signal btnC_buf : std_logic_vector(3 downto 0);
+    -- signal btnC_buf : std_logic_vector(buf_len-1 downto 0);
+    signal prev_btnC : std_logic;
     signal advance_state : std_logic;
 
 begin
@@ -53,18 +55,22 @@ begin
     -- );
 
     -- select sseg 0 all the time
-    an <= (others=>'0');
+    an <= "1110";
 
     -- manage advance_state
-    advance_state  <= btnC_buf(3) and btnC_buf(2) and btnC_buf(1) and btnC_buf(0);
+    advance_state <=
+        '1' when prev_btnC='0' and btnC='1' else
+        '0';
 
     -- advance the state every time btnC is pressed
     process ( clk, btnL, advance_state ) begin
         if ( btnL='1' ) then --reset to idle
             state <= IDLE;
-            btnC_buf <= (others=>'0');
+            prev_btnC <= '0';
+            -- btnC_buf <= (others=>'0');
         elsif ( rising_edge(clk) ) then
-            btnC_buf <= btnC & btnC_buf(3 downto 1); -- shift in new val
+            prev_btnC <= btnC;
+            -- btnC_buf <= btnC & btnC_buf(buf_len-1 downto 1); -- shift in new val
             if(advance_state='1') then
 --actually change state. 
 		case state is

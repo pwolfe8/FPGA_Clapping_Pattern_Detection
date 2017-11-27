@@ -33,19 +33,16 @@ begin
     -- manage the pattern_finished signal
     process ( reset, clk ) begin
         if ( reset='1' ) then
-            pattern_finished <= '0';
+        else if 
         elsif ( rising_edge(clk) ) then
             
         end if;
     end process;
 
-
-
-
-    process ( clk, load, flush )
+    process ( clk, reset, flush, load )
         variable temp : std_logic_vector(15 downto 0);
     begin
-        if ( flush='1' ) then
+        if ( reset='1' or flush='1' ) then
             temp := (others=>'0'); -- clear internal storage
             leds <= temp; -- clear output
         elsif ( rising_edge(clk) ) then

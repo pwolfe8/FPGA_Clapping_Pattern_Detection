@@ -124,14 +124,14 @@ begin
 		if (state = IDLE ) then
 --			with signed(patternIn) select
 --				seg <=
---        "0000110" when '1',
+--        "1111001" when '1',
 --        "0100100" when '2',
 --        "0110000" when '4',
 --        "0011001" when '8',
 --        "0001110" when others;
 			case patternIn is
 				when "0001" => 
-					seg <= "0000110";
+					seg <= "1111001";
 				when "0010" => 
 					seg <= "0100100";
 				when "0100" =>  
