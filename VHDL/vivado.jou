@@ -26,3 +26,45 @@ set_property target_language VHDL [current_project]
 add_files -norecurse -scan_for_includes {/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/boundary_comp.vhd /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/pattern_compare.vhd}
 add_files -fileset constrs_1 -norecurse /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc
 update_compile_order -fileset sources_1
+add_files -norecurse -scan_for_includes /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/typePack.vhd
+launch_runs synth_1
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+launch_runs impl_1
+wait_on_run impl_1
+close_project
+create_project project_1 /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/project_1 -part xc7a35tcpg236-1
+set_property target_language VHDL [current_project]
+add_files -norecurse -scan_for_includes {/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_compare2.vhd /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd}
+add_files -fileset constrs_1 -norecurse /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc
+update_compile_order -fileset sources_1
+add_files -norecurse -scan_for_includes /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/typePack.vhd
+update_compile_order -fileset sources_1
+launch_runs synth_1
+wait_on_run synth_1
+close_project
+open_project /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/clap_FSM/test1/test1.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+close_project
+open_project /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+create_run synth_2 -flow {Vivado Synthesis 2017} -strategy {Vivado Synthesis Defaults}
+current_run [get_runs synth_2]
+set_property part xcku035-ffva1156-3-e [current_project]
+close_project
+open_project /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/project_1/project_1.xpr
+update_compile_order -fileset sources_1
+set_property part xcku035-ffva1156-3-e [current_project]
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
