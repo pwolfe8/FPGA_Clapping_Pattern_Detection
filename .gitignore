@@ -5,7 +5,14 @@ work/
 *.wlf
 
 # vivado stuff
+vivado*
 vivado_run/
 
 # python stuff
 *.pyc
+
+# mac leftovers
+.DS_Store
+
+# backup files
+*.bak
