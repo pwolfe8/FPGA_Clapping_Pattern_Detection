@@ -2,8 +2,8 @@
 # Vivado v2017.2 (64-bit)
 # SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
 # IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
-# Start of session at: Sun Nov 26 22:20:04 2017
-# Process ID: 9927
+# Start of session at: Sun Nov 26 23:33:05 2017
+# Process ID: 12728
 # Current directory: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/project_1/project_1.runs/synth_1
 # Command line: vivado -log min_not_zero.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source min_not_zero.tcl
 # Log file: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/project_1/project_1.runs/synth_1/min_not_zero.vds

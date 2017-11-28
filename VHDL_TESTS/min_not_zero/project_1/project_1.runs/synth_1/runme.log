@@ -14,19 +14,400 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xcku035-ffva1156'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xcku035-ffva1156'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 9945 
+INFO: Helper process launched with PID 12736 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1233.711 ; gain = 45.992 ; free physical = 8449 ; free virtual = 11884
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1233.715 ; gain = 45.992 ; free physical = 6813 ; free virtual = 10741
 ---------------------------------------------------------------------------------
-ERROR: [Synth 8-1779] cannot read from 'out' object smallest ; use 'buffer' or 'inout' [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:85]
-WARNING: [Synth 8-2040] formal port right of mode in cannot be associated with actual port smallest of mode out [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:85]
-ERROR: [Synth 8-1085] smallest with mode 'out' cannot be read [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:85]
-INFO: [Synth 8-2810] unit min_not_zero_arch ignored due to previous errors [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:32]
+INFO: [Synth 8-638] synthesizing module 'min_not_zero' [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:32]
+WARNING: [Synth 8-614] signal 'num_intervals' is read in the process but is not in the sensitivity list [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:45]
+INFO: [Synth 8-638] synthesizing module 'min_compare2' [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_compare2.vhd:24]
+	Parameter R_int bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'min_compare2' (1#1) [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_compare2.vhd:24]
+INFO: [Synth 8-5837] Detected dual asynchronous set and preset for register execute_process_reg in module min_not_zero. This is not a recommended register style for Xilinx devices  [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'min_not_zero' (2#1) [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:32]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1273.211 ; gain = 85.492 ; free physical = 8460 ; free virtual = 11895
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1275.223 ; gain = 87.500 ; free physical = 6823 ; free virtual = 10751
 ---------------------------------------------------------------------------------
-RTL Elaboration failed
-2 Infos, 1 Warnings, 0 Critical Warnings and 3 Errors encountered.
-synth_design failed
-ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 26 22:20:27 2017...
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1275.223 ; gain = 87.500 ; free physical = 6824 ; free virtual = 10752
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xcku035-ffva1156-3-e
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sw[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:12]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:12]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:82]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:83]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:83]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:84]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:84]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:85]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:85]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[4]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[4]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[5]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[5]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[6]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[6]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/min_not_zero_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/min_not_zero_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1773.895 ; gain = 0.000 ; free physical = 6327 ; free virtual = 10255
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1773.898 ; gain = 586.176 ; free physical = 6443 ; free virtual = 10371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xcku035-ffva1156-3-e
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1773.898 ; gain = 586.176 ; free physical = 6443 ; free virtual = 10371
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1773.898 ; gain = 586.176 ; free physical = 6444 ; free virtual = 10372
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1773.898 ; gain = 586.176 ; free physical = 6435 ; free virtual = 10363
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 4     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module min_not_zero 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 5     
+Module min_compare2 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 1700 (col length:120)
+BRAMs: 1080 (col length: RAMB18 120 RAMB36 60)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1773.902 ; gain = 586.180 ; free physical = 6425 ; free virtual = 10353
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1968.914 ; gain = 781.191 ; free physical = 6112 ; free virtual = 10040
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1980.926 ; gain = 793.203 ; free physical = 6109 ; free virtual = 10037
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 1989.941 ; gain = 802.219 ; free physical = 6109 ; free virtual = 10037
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1989.941 ; gain = 802.219 ; free physical = 6109 ; free virtual = 10037
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1989.941 ; gain = 802.219 ; free physical = 6109 ; free virtual = 10037
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1989.941 ; gain = 802.219 ; free physical = 6109 ; free virtual = 10037
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1989.941 ; gain = 802.219 ; free physical = 6109 ; free virtual = 10037
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1989.941 ; gain = 802.219 ; free physical = 6109 ; free virtual = 10037
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1989.941 ; gain = 802.219 ; free physical = 6109 ; free virtual = 10037
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY8 |     1|
+|3     |LUT2   |     2|
+|4     |LUT3   |     9|
+|5     |LUT4   |    14|
+|6     |LUT5   |    19|
+|7     |LUT6   |     8|
+|8     |FDCE   |    18|
+|9     |FDCP   |     4|
+|10    |FDCPE  |     1|
+|11    |IBUF   |    39|
+|12    |OBUF   |     9|
++------+-------+------+
+
+Report Instance Areas: 
++------+-----------+-------------+------+
+|      |Instance   |Module       |Cells |
++------+-----------+-------------+------+
+|1     |top        |             |   125|
+|2     |  min_comp |min_compare2 |    17|
++------+-----------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1989.941 ; gain = 802.219 ; free physical = 6109 ; free virtual = 10037
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:32 . Memory (MB): peak = 1989.941 ; gain = 303.547 ; free physical = 6130 ; free virtual = 10058
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1989.949 ; gain = 802.219 ; free physical = 6130 ; free virtual = 10058
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 46 Unisim elements for replacement
+CRITICAL WARNING: [Netlist 29-358] Reg 'idx_reg[3]' of type 'FDCP' cannot be timed accurately. Hardware behavior may be unpredictable. Use check_timing command for more information. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:47]
+Resolution: Recode your design, so that you do not depend on both asynchronous set and reset for your desired functionality.
+Convert at least one of them to synchronous signal, or get rid of at least one of those.
+Often, the use of "initial" value will help you get rid of one of the asynchronous set/reset signals.
+CRITICAL WARNING: [Netlist 29-358] Reg 'idx_reg[2]' of type 'FDCP' cannot be timed accurately. Hardware behavior may be unpredictable. Use check_timing command for more information. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:47]
+Resolution: Recode your design, so that you do not depend on both asynchronous set and reset for your desired functionality.
+Convert at least one of them to synchronous signal, or get rid of at least one of those.
+Often, the use of "initial" value will help you get rid of one of the asynchronous set/reset signals.
+CRITICAL WARNING: [Netlist 29-358] Reg 'idx_reg[1]' of type 'FDCP' cannot be timed accurately. Hardware behavior may be unpredictable. Use check_timing command for more information. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:47]
+Resolution: Recode your design, so that you do not depend on both asynchronous set and reset for your desired functionality.
+Convert at least one of them to synchronous signal, or get rid of at least one of those.
+Often, the use of "initial" value will help you get rid of one of the asynchronous set/reset signals.
+CRITICAL WARNING: [Netlist 29-358] Reg 'idx_reg[0]' of type 'FDCP' cannot be timed accurately. Hardware behavior may be unpredictable. Use check_timing command for more information. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:47]
+Resolution: Recode your design, so that you do not depend on both asynchronous set and reset for your desired functionality.
+Convert at least one of them to synchronous signal, or get rid of at least one of those.
+Often, the use of "initial" value will help you get rid of one of the asynchronous set/reset signals.
+CRITICAL WARNING: [Netlist 29-358] Reg 'execute_process_reg' of type 'FDCPE' cannot be timed accurately. Hardware behavior may be unpredictable. Use check_timing command for more information. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/min_not_zero.vhd:48]
+Resolution: Recode your design, so that you do not depend on both asynchronous set and reset for your desired functionality.
+Convert at least one of them to synchronous signal, or get rid of at least one of those.
+Often, the use of "initial" value will help you get rid of one of the asynchronous set/reset signals.
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 45 instances were transformed.
+  BUFG => BUFGCE: 1 instances
+  FDCP => FDCP (FDCE, FDPE, LUT3, LDCE, VCC): 4 instances
+  FDCPE => FDCPE (FDCE, FDPE, LUT3, LDCE, VCC): 1 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 39 instances
+
+16 Infos, 35 Warnings, 39 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 2003.574 ; gain = 828.438 ; free physical = 6119 ; free virtual = 10047
+INFO: [Common 17-1381] The checkpoint '/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/project_1/project_1.runs/synth_1/min_not_zero.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2027.590 ; gain = 0.000 ; free physical = 6120 ; free virtual = 10048
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 26 23:34:04 2017...

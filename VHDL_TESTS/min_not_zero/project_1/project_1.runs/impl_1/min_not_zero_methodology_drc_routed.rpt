@@ -1,0 +1,302 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.2 (lin64) Build 1909853 Thu Jun 15 18:39:10 MDT 2017
+| Date         : Sun Nov 26 23:37:51 2017
+| Host         : localhost.localdomain running 64-bit unknown
+| Command      : report_methodology -file min_not_zero_methodology_drc_routed.rpt -rpx min_not_zero_methodology_drc_routed.rpx
+| Design       : min_not_zero
+| Device       : xcku035-ffva1156-3-e
+| Speed File   : -3
+| Design State : Routed
+-------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 53
++-----------+----------+------------------------------------------------------------------+------------+
+| Rule      | Severity | Description                                                      | Violations |
++-----------+----------+------------------------------------------------------------------+------------+
+| CKLD-2    | Warning  | Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads | 1          |
+| TIMING-18 | Warning  | Missing input or output delay                                    | 47         |
+| TIMING-20 | Warning  | Non-clocked latch                                                | 5          |
++-----------+----------+------------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+CKLD-2#1 Warning
+Clock Net has IO Driver, not a Clock Buf, and/or non-Clock loads  
+Clock net pattern_finished_IBUF_inst/O is directly driven by an IO rather than a Clock Buffer or may be an IO driving a mix of Clock Buffer and non-Clock loads. This connectivity should be reviewed and corrected as appropriate. Driver(s): pattern_finished_IBUF_inst/IBUFCTRL_INST/O
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[0][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[0][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[0][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[0][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[0][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[0][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[0][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[0][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[1][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[1][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[1][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[1][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[1][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[1][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[1][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[1][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[2][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[2][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[2][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[2][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[2][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#22 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[2][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#23 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[2][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#24 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[2][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#25 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[3][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#26 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[3][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#27 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[3][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#28 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[3][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#29 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[3][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#30 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[3][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#31 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[3][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#32 Warning
+Missing input or output delay  
+An input delay is missing on bank_array[3][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#33 Warning
+Missing input or output delay  
+An input delay is missing on num_intervals[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#34 Warning
+Missing input or output delay  
+An input delay is missing on num_intervals[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#35 Warning
+Missing input or output delay  
+An input delay is missing on num_intervals[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#36 Warning
+Missing input or output delay  
+An input delay is missing on num_intervals[3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#37 Warning
+Missing input or output delay  
+An input delay is missing on pattern_finished relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#38 Warning
+Missing input or output delay  
+An input delay is missing on reset relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#39 Warning
+Missing input or output delay  
+An output delay is missing on min_done relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#40 Warning
+Missing input or output delay  
+An output delay is missing on smallest[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#41 Warning
+Missing input or output delay  
+An output delay is missing on smallest[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#42 Warning
+Missing input or output delay  
+An output delay is missing on smallest[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#43 Warning
+Missing input or output delay  
+An output delay is missing on smallest[3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#44 Warning
+Missing input or output delay  
+An output delay is missing on smallest[4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#45 Warning
+Missing input or output delay  
+An output delay is missing on smallest[5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#46 Warning
+Missing input or output delay  
+An output delay is missing on smallest[6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#47 Warning
+Missing input or output delay  
+An output delay is missing on smallest[7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch execute_process_reg/L7 (in execute_process_reg macro) cannot be properly analyzed as its control pin execute_process_reg/L7/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch idx_reg[0]/L7 (in idx_reg[0] macro) cannot be properly analyzed as its control pin idx_reg[0]/L7/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch idx_reg[1]/L7 (in idx_reg[1] macro) cannot be properly analyzed as its control pin idx_reg[1]/L7/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch idx_reg[2]/L7 (in idx_reg[2] macro) cannot be properly analyzed as its control pin idx_reg[2]/L7/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch idx_reg[3]/L7 (in idx_reg[3] macro) cannot be properly analyzed as its control pin idx_reg[3]/L7/G is not reached by a timing clock
+Related violations: <none>
+
+

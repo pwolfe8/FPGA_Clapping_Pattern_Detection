@@ -68,3 +68,29 @@ set_property part xcku035-ffva1156-3-e [current_project]
 reset_run synth_1
 launch_runs synth_1 -jobs 4
 wait_on_run synth_1
+close_project
+open_project /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/clap_FSM/test1/test1.xpr
+reset_run synth_1
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+close_project
+open_project /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.xpr
+update_compile_order -fileset sources_1
+launch_runs synth_2 -jobs 4
+wait_on_run synth_2
+launch_runs impl_2 -jobs 4
+wait_on_run impl_2
+open_run impl_2
+close_project
+open_project /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/min_not_zero/project_1/project_1.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+wait_on_run synth_1
+launch_runs impl_1 -jobs 4
+wait_on_run impl_1
+open_run impl_1

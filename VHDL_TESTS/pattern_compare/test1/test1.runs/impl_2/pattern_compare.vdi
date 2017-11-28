@@ -1,0 +1,532 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Sun Nov 26 23:02:34 2017
+# Process ID: 11303
+# Current directory: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_2
+# Command line: vivado -log pattern_compare.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source pattern_compare.tcl -notrace
+# Log file: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_2/pattern_compare.vdi
+# Journal file: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_2/vivado.jou
+#-----------------------------------------------------------
+source pattern_compare.tcl -notrace
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Netlist 29-17] Analyzing 291 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.2
+INFO: [Device 21-403] Loading part xcku035-ffva1156-3-e
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc]
+CRITICAL WARNING: [Common 17-69] Command failed: 'W5' is not a valid site or package pin name. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:7]
+WARNING: [Vivado 12-584] No ports matched 'sw[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:12]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:12]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:82]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:83]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:83]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:84]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:84]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:85]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:85]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[4]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[4]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[5]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[5]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[6]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[6]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 291 instances were transformed.
+  IBUF => IBUF (IBUFCTRL, INBUF): 291 instances
+
+link_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1630.371 ; gain = 455.238 ; free physical = 7821 ; free virtual = 11507
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcku035-ffva1156'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcku035-ffva1156'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+Command: report_drc (run_mandatory_drcs) for: opt_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1683.387 ; gain = 52.016 ; free physical = 7811 ; free virtual = 11497
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 16ecb6600
+
+Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.05 . Memory (MB): peak = 1974.035 ; gain = 0.000 ; free physical = 7607 ; free virtual = 11293
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 16ecb6600
+
+Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 1974.035 ; gain = 0.000 ; free physical = 7607 ; free virtual = 11293
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 16ecb6600
+
+Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.07 . Memory (MB): peak = 1974.035 ; gain = 0.000 ; free physical = 7607 ; free virtual = 11293
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 16ecb6600
+
+Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1974.035 ; gain = 0.000 ; free physical = 7607 ; free virtual = 11293
+INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
+
+Phase 5 Shift Register Optimization
+Phase 5 Shift Register Optimization | Checksum: 16ecb6600
+
+Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1974.035 ; gain = 0.000 ; free physical = 7607 ; free virtual = 11293
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1974.035 ; gain = 0.000 ; free physical = 7607 ; free virtual = 11293
+Ending Logic Optimization Task | Checksum: 16ecb6600
+
+Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.11 . Memory (MB): peak = 1974.035 ; gain = 0.000 ; free physical = 7607 ; free virtual = 11293
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: 16ecb6600
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1974.035 ; gain = 0.000 ; free physical = 7607 ; free virtual = 11293
+21 Infos, 34 Warnings, 35 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:14 . Memory (MB): peak = 1974.035 ; gain = 343.664 ; free physical = 7607 ; free virtual = 11293
+INFO: [Common 17-1381] The checkpoint '/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_2/pattern_compare_opt.dcp' has been generated.
+Command: report_drc -file pattern_compare_drc_opted.rpt
+INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_2/pattern_compare_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Chipscope 16-241] No debug cores found in the current design.
+Before running the implement_debug_core command, either use the Set Up Debug wizard (GUI mode)
+or use the create_debug_core and connect_debug_core Tcl commands to insert debug cores into the design.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcku035-ffva1156'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcku035-ffva1156'
+Command: report_drc (run_mandatory_drcs) for: incr_eco_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+Command: report_drc (run_mandatory_drcs) for: placer_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 4 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2006.051 ; gain = 0.000 ; free physical = 7592 ; free virtual = 11278
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 88ec342e
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2006.051 ; gain = 0.000 ; free physical = 7592 ; free virtual = 11278
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2006.051 ; gain = 0.000 ; free physical = 7592 ; free virtual = 11278
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: a63bddeb
+
+Time (s): cpu = 00:01:16 ; elapsed = 00:01:13 . Memory (MB): peak = 2732.191 ; gain = 726.141 ; free physical = 6841 ; free virtual = 10766
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 10454bc45
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:01:15 . Memory (MB): peak = 2735.203 ; gain = 729.152 ; free physical = 6822 ; free virtual = 10746
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 10454bc45
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:01:15 . Memory (MB): peak = 2735.203 ; gain = 729.152 ; free physical = 6822 ; free virtual = 10747
+Phase 1 Placer Initialization | Checksum: 10454bc45
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:01:15 . Memory (MB): peak = 2735.203 ; gain = 729.152 ; free physical = 6822 ; free virtual = 10747
+
+Phase 2 Global Placement
+Phase 2 Global Placement | Checksum: d639ab30
+
+Time (s): cpu = 00:01:20 ; elapsed = 00:01:16 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6793 ; free virtual = 10718
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: d639ab30
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:01:16 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6793 ; free virtual = 10717
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: a4a6d011
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:01:16 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6791 ; free virtual = 10715
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: a2d5880e
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:01:16 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6789 ; free virtual = 10714
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: a2d5880e
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:01:16 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6789 ; free virtual = 10714
+
+Phase 3.5 IO Cut Optimizer
+Phase 3.5 IO Cut Optimizer | Checksum: 13aa00de7
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:01:17 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6787 ; free virtual = 10712
+
+Phase 3.6 Timing Path Optimizer
+Phase 3.6 Timing Path Optimizer | Checksum: 13aa00de7
+
+Time (s): cpu = 00:01:21 ; elapsed = 00:01:17 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6787 ; free virtual = 10712
+
+Phase 3.7 Small Shape Detail Placement
+Phase 3.7 Small Shape Detail Placement | Checksum: 1677a0145
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:01:17 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6779 ; free virtual = 10703
+
+Phase 3.8 Re-assign LUT pins
+Phase 3.8 Re-assign LUT pins | Checksum: db473f10
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:01:17 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6779 ; free virtual = 10703
+
+Phase 3.9 Pipeline Register Optimization
+Phase 3.9 Pipeline Register Optimization | Checksum: db473f10
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:01:17 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6779 ; free virtual = 10703
+Phase 3 Detail Placement | Checksum: db473f10
+
+Time (s): cpu = 00:01:22 ; elapsed = 00:01:17 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6779 ; free virtual = 10703
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 4.1.1 Post Placement Optimization
+Post Placement Optimization Initialization | Checksum: d024d961
+
+Phase 4.1.1.1 BUFG Insertion
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 4 CPUs
+INFO: [Place 46-41] BUFG insertion identified 0 candidate nets, 0 success, 0 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason.
+Phase 4.1.1.1 BUFG Insertion | Checksum: d024d961
+
+Time (s): cpu = 00:01:23 ; elapsed = 00:01:18 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6777 ; free virtual = 10702
+INFO: [Place 30-746] Post Placement Timing Summary WNS=7.548. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: 6ef0cd9e
+
+Time (s): cpu = 00:01:23 ; elapsed = 00:01:18 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6777 ; free virtual = 10702
+Phase 4.1 Post Commit Optimization | Checksum: 6ef0cd9e
+
+Time (s): cpu = 00:01:23 ; elapsed = 00:01:18 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6778 ; free virtual = 10702
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 6ef0cd9e
+
+Time (s): cpu = 00:01:23 ; elapsed = 00:01:18 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6786 ; free virtual = 10711
+
+Phase 4.3 Placer Reporting
+Phase 4.3 Placer Reporting | Checksum: cc80f201
+
+Time (s): cpu = 00:01:23 ; elapsed = 00:01:18 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6788 ; free virtual = 10713
+
+Phase 4.4 Final Placement Cleanup
+Phase 4.4 Final Placement Cleanup | Checksum: 10e73c476
+
+Time (s): cpu = 00:01:23 ; elapsed = 00:01:18 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6788 ; free virtual = 10713
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 10e73c476
+
+Time (s): cpu = 00:01:24 ; elapsed = 00:01:18 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6788 ; free virtual = 10713
+Ending Placer Task | Checksum: cb40c58d
+
+Time (s): cpu = 00:01:24 ; elapsed = 00:01:18 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6819 ; free virtual = 10743
+38 Infos, 34 Warnings, 35 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:01:27 ; elapsed = 00:01:20 . Memory (MB): peak = 2759.215 ; gain = 753.164 ; free physical = 6819 ; free virtual = 10743
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.11 . Memory (MB): peak = 2759.215 ; gain = 0.000 ; free physical = 6815 ; free virtual = 10743
+INFO: [Common 17-1381] The checkpoint '/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_2/pattern_compare_placed.dcp' has been generated.
+report_io: Time (s): cpu = 00:00:00.52 ; elapsed = 00:00:00.53 . Memory (MB): peak = 2759.215 ; gain = 0.000 ; free physical = 6793 ; free virtual = 10718
+report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2759.215 ; gain = 0.000 ; free physical = 6816 ; free virtual = 10742
+report_control_sets: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2759.215 ; gain = 0.000 ; free physical = 6816 ; free virtual = 10742
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xcku035-ffva1156'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcku035-ffva1156'
+Running DRC as a precondition to command route_design
+Command: report_drc (run_mandatory_drcs) for: router_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 4 CPUs
+Checksum: PlaceDB: 222ba32 ConstDB: 0 ShapeSum: 6b8de6f8 RouteDB: 5d902463
+
+Phase 1 Build RT Design
+Phase 1 Build RT Design | Checksum: b9eec218
+
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:48 . Memory (MB): peak = 2866.207 ; gain = 106.992 ; free physical = 6560 ; free virtual = 10486
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: 13dc67b5a
+
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:48 . Memory (MB): peak = 2866.211 ; gain = 106.996 ; free physical = 6560 ; free virtual = 10486
+
+Phase 2.2 Fix Topology Constraints
+Phase 2.2 Fix Topology Constraints | Checksum: 13dc67b5a
+
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:48 . Memory (MB): peak = 2866.211 ; gain = 106.996 ; free physical = 6535 ; free virtual = 10461
+
+Phase 2.3 Pre Route Cleanup
+Phase 2.3 Pre Route Cleanup | Checksum: 13dc67b5a
+
+Time (s): cpu = 00:01:07 ; elapsed = 00:00:48 . Memory (MB): peak = 2866.211 ; gain = 106.996 ; free physical = 6535 ; free virtual = 10461
+
+Phase 2.4 Global Clock Net Routing
+ Number of Nodes with overlaps = 0
+Phase 2.4 Global Clock Net Routing | Checksum: 1adde946e
+
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:52 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6446 ; free virtual = 10371
+
+Phase 2.5 Update Timing
+Phase 2.5 Update Timing | Checksum: 27b820d6e
+
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:52 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6448 ; free virtual = 10374
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=7.625  | TNS=0.000  | WHS=0.061  | THS=0.000  |
+
+Phase 2 Router Initialization | Checksum: 27129adb3
+
+Time (s): cpu = 00:01:12 ; elapsed = 00:00:52 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6447 ; free virtual = 10373
+
+Phase 3 Initial Routing
+Phase 3 Initial Routing | Checksum: 14905a407
+
+Time (s): cpu = 00:01:14 ; elapsed = 00:00:53 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6439 ; free virtual = 10365
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 13
+ Number of Nodes with overlaps = 0
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=7.732  | TNS=0.000  | WHS=0.072  | THS=0.000  |
+
+Phase 4.1 Global Iteration 0 | Checksum: 1d60f33f1
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:54 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6439 ; free virtual = 10365
+Phase 4 Rip-up And Reroute | Checksum: 1d60f33f1
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:54 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6439 ; free virtual = 10365
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+Phase 5.1 Delay CleanUp | Checksum: 1d60f33f1
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:54 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6439 ; free virtual = 10364
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 1d60f33f1
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:54 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6439 ; free virtual = 10364
+Phase 5 Delay and Skew Optimization | Checksum: 1d60f33f1
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:54 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6439 ; free virtual = 10364
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Hold Fix Iter
+
+Phase 6.1.1 Update Timing
+Phase 6.1.1 Update Timing | Checksum: 1554c7c4b
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:54 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6440 ; free virtual = 10366
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=7.732  | TNS=0.000  | WHS=0.072  | THS=0.000  |
+
+Phase 6.1 Hold Fix Iter | Checksum: 1554c7c4b
+
+Time (s): cpu = 00:01:15 ; elapsed = 00:00:54 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6440 ; free virtual = 10366
+Phase 6 Post Hold Fix | Checksum: 1554c7c4b
+
+Time (s): cpu = 00:01:16 ; elapsed = 00:00:54 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6440 ; free virtual = 10366
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.219223 %
+  Global Horizontal Routing Utilization  = 0.0730145 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 2e2bb556b
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:54 . Memory (MB): peak = 2904.574 ; gain = 145.359 ; free physical = 6438 ; free virtual = 10363
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 2e2bb556b
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:54 . Memory (MB): peak = 2907.574 ; gain = 148.359 ; free physical = 6438 ; free virtual = 10363
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 2e2bb556b
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:55 . Memory (MB): peak = 2907.574 ; gain = 148.359 ; free physical = 6438 ; free virtual = 10363
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=7.732  | TNS=0.000  | WHS=0.072  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 2e2bb556b
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:55 . Memory (MB): peak = 2907.574 ; gain = 148.359 ; free physical = 6440 ; free virtual = 10366
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:01:18 ; elapsed = 00:00:55 . Memory (MB): peak = 2907.574 ; gain = 148.359 ; free physical = 6471 ; free virtual = 10396
+
+Routing Is Done.
+50 Infos, 34 Warnings, 35 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:01:22 ; elapsed = 00:00:56 . Memory (MB): peak = 2940.352 ; gain = 181.137 ; free physical = 6471 ; free virtual = 10397
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.20 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2940.352 ; gain = 0.000 ; free physical = 6468 ; free virtual = 10397
+INFO: [Common 17-1381] The checkpoint '/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_2/pattern_compare_routed.dcp' has been generated.
+Command: report_drc -file pattern_compare_drc_routed.rpt -pb pattern_compare_drc_routed.pb -rpx pattern_compare_drc_routed.rpx
+INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_2/pattern_compare_drc_routed.rpt.
+report_drc completed successfully
+Command: report_methodology -file pattern_compare_methodology_drc_routed.rpt -rpx pattern_compare_methodology_drc_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-133] Running Methodology with 4 threads
+INFO: [Coretcl 2-1520] The results of Report Methodology are in file /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_2/pattern_compare_methodology_drc_routed.rpt.
+report_methodology completed successfully
+Command: report_power -file pattern_compare_power_routed.rpt -pb pattern_compare_power_summary_routed.pb -rpx pattern_compare_power_routed.rpx
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+57 Infos, 34 Warnings, 35 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2996.289 ; gain = 0.000 ; free physical = 6505 ; free virtual = 10432
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -3, Temperature grade: E, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 26 23:05:48 2017...

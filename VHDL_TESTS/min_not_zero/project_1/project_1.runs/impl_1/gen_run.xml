@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xcku035-ffva1156-3-e" LaunchTime="1511757306">
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="BG-DRC" Name="min_not_zero.drc"/>
+  <File Type="BG-BGN" Name="min_not_zero.bgn"/>
+  <File Type="BITSTR-SYSDEF" Name="min_not_zero.sysdef"/>
+  <File Type="BITSTR-MMI" Name="min_not_zero.mmi"/>
+  <File Type="BITSTR-BMM" Name="min_not_zero_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="min_not_zero.nky"/>
+  <File Type="BITSTR-RBT" Name="min_not_zero.rbt"/>
+  <File Type="BITSTR-MSK" Name="min_not_zero.msk"/>
+  <File Type="BG-BIN" Name="min_not_zero.bin"/>
+  <File Type="BG-BIT" Name="min_not_zero.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="min_not_zero_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="min_not_zero_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="min_not_zero_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="min_not_zero_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="min_not_zero_postroute_physopt.dcp"/>
+  <File Type="ROUTE-CLK" Name="min_not_zero_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="min_not_zero_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="min_not_zero_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="min_not_zero_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="min_not_zero_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="min_not_zero_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="min_not_zero_route_status.rpt"/>
+  <File Type="PLACE-CTRL" Name="min_not_zero_control_sets_placed.rpt"/>
+  <File Type="PLACE-IO" Name="min_not_zero_io_placed.rpt"/>
+  <File Type="PWROPT-TIMING" Name="min_not_zero_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="min_not_zero_placed.dcp"/>
+  <File Type="PLACE-UTIL-PB" Name="min_not_zero_utilization_placed.pb"/>
+  <File Type="PHYSOPT-TIMING" Name="min_not_zero_timing_summary_physopted.rpt"/>
+  <File Type="PWROPT-DRC" Name="min_not_zero_drc_pwropted.rpt"/>
+  <File Type="PWROPT-DCP" Name="min_not_zero_pwropt.dcp"/>
+  <File Type="PLACE-UTIL" Name="min_not_zero_utilization_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="min_not_zero_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="OPT-TIMING" Name="min_not_zero_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="min_not_zero.hwdef"/>
+  <File Type="PLACE-CLK" Name="min_not_zero_clock_utilization_placed.rpt"/>
+  <File Type="RDI-RDI" Name="min_not_zero.vdi"/>
+  <File Type="PLACE-TIMING" Name="min_not_zero_timing_summary_placed.rpt"/>
+  <File Type="INIT-TIMING" Name="min_not_zero_timing_summary_init.rpt"/>
+  <File Type="OPT-DRC" Name="min_not_zero_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="min_not_zero_opt.dcp"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="min_not_zero_methodology_drc_opted.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="min_not_zero_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="min_not_zero_incremental_reuse_placed.rpt"/>
+  <File Type="PA-TCL" Name="min_not_zero.tcl"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="min_not_zero_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="min_not_zero_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="min_not_zero_drc_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="min_not_zero_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="min_not_zero_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="min_not_zero_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="min_not_zero_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="min_not_zero_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="min_not_zero_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="min_not_zero_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="min_not_zero_drc_routed.rpx"/>
+  <File Type="ROUTE-PWR" Name="min_not_zero_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="min_not_zero_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="min_not_zero_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="min_not_zero_power_routed.rpx"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../min_compare2.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../typePack.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../min_not_zero.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="min_not_zero"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PPRDIR/../../../VHDL/Basys3_connections.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>
