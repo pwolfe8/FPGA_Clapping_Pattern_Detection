@@ -47,7 +47,6 @@ begin
         variable idx : unsigned(R_ctr-1 downto 0);
         variable Q : unsigned(R_int+N_dec-1 downto 0); -- quotient
         variable R : unsigned(R_int-1 downto 0); -- remainder
-        variable first_set : std_logic;
     begin
         if ( reset='1' or start='1' ) then
             done <= '0';
@@ -56,7 +55,6 @@ begin
             Q := (others=>'0');
             R := (others=>'0');
             result <= (others=>'0');
-            first_set := '1'; -- high if first time setting done hasn't happened
         elsif ( rising_edge(clk) ) then
         -- output to debug signals --
             -- counter <= idx;
@@ -71,16 +69,17 @@ begin
                         R := R - D;
                         Q(to_integer(idx)) := '1';
                     end if;
+                    -- decrement idx and check if done
                     idx := idx - 1;
-                elsif( first_set='1' ) then
-                    done_buf <= '1';
-                    result <= Q(R_int-1 downto 0); -- assign Q to result
+                    if( not(idx>0) ) then
+                        done_buf <= '1';
+                        result <= Q(R_int-1 downto 0); -- assign Q to result
+                    end if;
                 end if;
                 
-                -- manage "done" signal
+                -- manage done signal
                 if ( done_buf='1') then
                     done_buf <= '0';
-                    first_set := '0';
                     done <= '1';
                 else
                     done <= '0';

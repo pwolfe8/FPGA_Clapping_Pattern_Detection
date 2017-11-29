@@ -19,7 +19,8 @@ architecture tb_div_by_min_arch of tb_div_by_min is
     -- testbench signal declarations
     signal clk, reset : std_logic;
         -- inputs --
-    signal bank : T_bank;
+    signal bank_in : T_bank;
+    signal num_int : unsigned(R_int_ctr-1 downto 0);
     signal min_done : std_logic;
     signal min_val : unsigned(R_int-1 downto 0);
         -- outputs --
@@ -37,7 +38,8 @@ begin
             -- inputs --
             clk         => clk,
             reset       => reset,
-            bank_in     => bank,
+            bank_in     => bank_in,
+            num_int     => num_int,
             min_done    => min_done,
             min_val     => min_val,
             -- outputs --
@@ -56,18 +58,22 @@ begin
     process begin
         -- initialize signals
         reset <= '1';
-        bank <= (
-            0 => X"04", -- after div should be 01
-            1 => X"06", -- after div should be 01
-            2 => X"08", -- after div should be 02
+        bank_in <= (
+            0 => X"04", -- after div should be 16 or X"10"
+            1 => X"06", -- after div should be 24 or X"18"
+            2 => X"08", -- after div should be 32 or X"20"
             others => (others=>'0')
         );
+        num_int <= X"3";
+        min_val <= X"04";
         min_done <= '0';
         wait for T;
         reset <= '0';
         wait for T;
         min_done <= '1';
-        wait for 100 ns; -- change this past however many clock cycles
+        wait for T;
+        min_done <= '0';
+        wait for (N_int+1)*12*T; -- change this past however many clock cycles
                         -- you think division will take.
         
         -- TEST CASE 1 --      
@@ -79,6 +85,22 @@ begin
         --     & "====================================================="
         -- severity error;
         
+
+        bank_in <= (
+            0 => X"23", -- after div should be 70 or X"46"
+            1 => X"08", -- after div should be 16 or X"10"
+            others => (others=>'0')
+        );
+        num_int <= X"2";
+        min_val <= X"08";
+        wait for T;
+        min_done <='1';
+        wait for T;
+        min_done <= '0';
+        wait for (N_int+1)*12*T;
+
+
+
         
         -- end test
         assert false report LF & LF & "**** Test Completed ****" & LF severity failure;

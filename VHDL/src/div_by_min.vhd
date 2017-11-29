@@ -26,6 +26,7 @@ entity div_by_min is
         -- inputs --
         clk, reset  : in std_logic;
         bank_in     : in T_bank; -- bank of intervals
+        num_int     : in unsigned(R_int_ctr-1 downto 0);
         min_done    : in std_logic; -- start dividing when min_done goes from low to high
         min_val     : in unsigned(R_int-1 downto 0); -- minimum value result
         -- outputs --
@@ -41,10 +42,12 @@ architecture div_by_min_arch of div_by_min is
     signal numerator, denominator : unsigned(R_int-1 downto 0);
     signal result : unsigned(R_int-1 downto 0);
     signal start_div, div_done : std_logic;
-    
+
     -- buffers
-    signal start_div_buf, div_done_buf : std_logic; -- for communicating when to start next division
+    signal div_done_buf : std_logic; -- for communicating when to start next division
     signal bank_buf : T_bank;
+    signal norm_done_buf : std_logic;
+    signal bank_at_idx : unsigned(R_int-1 downto 0);
 
     -- debug signals
     signal counter : unsigned(R_int_ctr-1 downto 0);
@@ -73,44 +76,69 @@ begin
 
     -- main process
     process ( clk, reset, min_done, div_done )
-        signal idx : unsigned(R_int_ctr-1 downto 0);
-
+        variable idx : unsigned(R_int_ctr-1 downto 0); -- index for bank_in
+        
     begin
+        -- output to debug signals --
+        counter <= idx;
+
         if ( reset='1' ) then
+            bank_buf <= (others=>(others=>'0'));
             idx := (others=>'0');
+            bank_at_idx <= (others=>'0');
             numerator <= (others=>'0');
             denominator <= (others=>'0');
             div_done_buf <= '0';
+            norm_done_buf <= '0';
+            norm_done <= '0';
+            start_div <= '0';
         elsif ( min_done='1' ) then
-            idx := to_unsigned(N_int,R_int);   -- reset index to prepare for divisions
-            numerator <= bank_in(to_integer(idx));
+            bank_buf <= (others=>(others=>'0'));
+            idx := num_int;   -- reset index to number of intervals recorded
+            bank_at_idx <= bank_in(to_integer(idx-1));
+            numerator <= bank_at_idx;
             denominator <= min_val; -- minimum value (doesn't change)
             div_done_buf <= '1';  -- start the process
+            norm_done_buf <= '0';
         elsif ( div_done='1' ) then
             div_done_buf <= '1';
         elsif ( rising_edge(clk) ) then
-        -- output to debug signals --
-            counter <= idx;
             
+            -- manage bank_at_idx
+            if (idx>0) then
+                bank_at_idx <= bank_in(to_integer(idx-1));
+            end if;
+
             -- process div_done_buf
             if ( div_done_buf='1' ) then
                 div_done_buf <= '0'; -- deassert
+                
                 if ( idx > 0 ) then
-                    bank_buf(to_integer(idx-1)) <= result; -- store in bank_buf
+                    bank_buf(to_integer(idx)) <= result; -- store in bank_buf
                     idx := idx - 1; -- decrement idx
-                    numerator <= bank_in(to_integer(idx-1)); -- get new numerator
-                    start_div_buf <= '1'; -- start divider
-                end if; -- otherwise we've reached end of interval
+                    numerator <= bank_at_idx; -- get new numerator
+                    start_div <= '1'; -- start divider
 
-                -- manage deassertion of start_div
-                if (start_div_buf='1') then
-                    start_div_buf <= '0'; --deassert
-                    start_div <= '1';
-                else
-                    start_div <= '0'; -- deassert
-                end if;
-
+                    -- check if done
+                    if (not(idx>0) ) then
+                        norm_done_buf <= '1';
+                    end if;
+                end if;        
             end if;
+
+            -- manage deassertion of start_div
+            if (start_div='1') then
+                start_div <= '0'; --deassert
+            end if;
+
+            -- manage norm_done signal
+            if ( norm_done_buf='1' and div_done_buf='1') then
+                norm_done_buf <= '0';
+                norm_done <= '1'; -- fix this to happen after last division finishes
+            else
+                norm_done <= '0';
+            end if;
+
         end if;
     end process;
 
