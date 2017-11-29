@@ -44,6 +44,7 @@ architecture div_by_min_arch of div_by_min is
     signal start_div, div_done : std_logic;
 
     -- buffers
+    signal result_buf : unsigned(R_int-1 downto 0);
     signal div_done_buf : std_logic; -- for communicating when to start next division
     signal bank_buf : T_bank;
     signal norm_done_buf : std_logic;
@@ -83,6 +84,7 @@ begin
         counter <= idx;
 
         if ( reset='1' ) then
+            result_buf <= (others=>'0');
             bank_buf <= (others=>(others=>'0'));
             idx := (others=>'0');
             bank_at_idx <= (others=>'0');
@@ -93,6 +95,7 @@ begin
             norm_done <= '0';
             start_div <= '0';
         elsif ( min_done='1' ) then
+            result_buf <= (others=>'0');
             bank_buf <= (others=>(others=>'0'));
             idx := num_int;   -- reset index to number of intervals recorded
             bank_at_idx <= bank_in(to_integer(idx-1));
@@ -103,7 +106,8 @@ begin
         elsif ( div_done='1' ) then
             div_done_buf <= '1';
         elsif ( rising_edge(clk) ) then
-            
+            result_buf <= result;
+
             -- manage bank_at_idx
             if (idx>0) then
                 bank_at_idx <= bank_in(to_integer(idx-1));
@@ -112,13 +116,11 @@ begin
             -- process div_done_buf
             if ( div_done_buf='1' ) then
                 div_done_buf <= '0'; -- deassert
-                
+                bank_buf(to_integer(idx)) <= result_buf; -- store in bank_buf
                 if ( idx > 0 ) then
-                    bank_buf(to_integer(idx)) <= result; -- store in bank_buf
                     idx := idx - 1; -- decrement idx
                     numerator <= bank_at_idx; -- get new numerator
                     start_div <= '1'; -- start divider
-
                     -- check if done
                     if (not(idx>0) ) then
                         norm_done_buf <= '1';
