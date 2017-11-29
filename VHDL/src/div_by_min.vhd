@@ -13,10 +13,7 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 use work.TYPE_PACK.all;
--- globals for testbenches:
---  R_int = 8       -- resolution of intervals
---  N_int = 4       -- number of intervals
---  R_int_ctr = 4   -- resolution of interval counter
+
 
 entity div_by_min is
     generic (
@@ -41,62 +38,19 @@ architecture div_by_min_arch of div_by_min is
     -- constant definitions
 
     -- signal declarations --
-    -- divider signals
-        -- input --
-        signal start : std_logic;
-        signal numerator, denominator : unsigned(R_int-1 downto 0);
-        -- output --
-        signal div_done : std_logic;
-        signal result : unsigned(R_int-1 downto 0);
+    signal numerator, denominator : unsigned(R_int-1 downto 0);
+    signal result : unsigned(R_int-1 downto 0);
+    signal start_div, div_done : std_logic;
+    
+    -- buffers
+    signal start_div_buf, div_done_buf : std_logic; -- for communicating when to start next division
+    signal bank_buf : T_bank;
 
-    signal idx : unsigned(R_int_ctr-1 downto 0);
-    signal start_dividing, prev_start_dividing : std_logic;
-    signal bank_out_buf : T_bank;
+    -- debug signals
+    signal counter : unsigned(R_int_ctr-1 downto 0);
+
 
 begin
-    -- manage idx (indexing from 1, so 0 can be a signal of completion)
-    -- manage denominator
-    process ( clk, reset, min_done ) begin
-        if ( reset='1' ) then
-            idx <= (others=>'0');
-            denominator <= (others=>'0');
-        elsif ( min_done = '1' ) then
-            idx <= num_intervals;   -- reset index to prepare for calcs
-            denominator <= min_val; -- minimum value (doesn't change)
-            start_dividing <= '1';  -- start the process
-        elsif ( rising_edge(clk) ) then
-            -- only decrement the idx if the divider has finished or start_dividing='1'
-            if ( ready_for_next='1' ) then
-                start_dividing <= '0'; --de-assert
-                idx <= idx - 1; -- decrement idx
-                
-            end if;
-        end if;
-    end process;
-
-    -- manage numerator at every clock cycle
-    process ( clk, reset ) begin
-        if ( reset='1' ) then
-            numerator <= (others=>'0');
-        elsif ( rising_edge(clk) ) then
-            if ( idx=to_unsigned(0,R_int_ctr) ) then
-                numerator <= (others=>'0');
-            else
-                numerator <= bank_in(to_integer(idx - 1)); -- translate to 0-indexed
-            end if;
-        end if;
-    end process;
-
-    -- manage storing the divided pattern result to the output normalized data bank
-    process ( clk, reset ) begin
-        if ( reset='1' ) then
-            bank_out_buf <= (others=>(others=>'0'));
-        elsif ( rising_edge(clk) ) then
-            if ( ready_for_next='1' ) then 
-                bank_out_buf(to_integer(idx-1)) <= result;
-            end if;
-        end if;
-    end process;
 
     -- instantiate a divider. trigger by flipping start high for a clock cycle
     divider : entity work.divider
@@ -109,7 +63,7 @@ begin
             -- inputs --
             clk => clk,
             reset => reset,
-            start => start,
+            start => start_div,
             numerator => numerator,
             denominator => denominator,
             -- outputs --
@@ -117,6 +71,50 @@ begin
             result => result
         );
 
-    -- process for managing latching in the bank values
+    -- main process
+    process ( clk, reset, min_done, div_done )
+        signal idx : unsigned(R_int_ctr-1 downto 0);
+
+    begin
+        if ( reset='1' ) then
+            idx := (others=>'0');
+            numerator <= (others=>'0');
+            denominator <= (others=>'0');
+            div_done_buf <= '0';
+        elsif ( min_done='1' ) then
+            idx := to_unsigned(N_int,R_int);   -- reset index to prepare for divisions
+            numerator <= bank_in(to_integer(idx));
+            denominator <= min_val; -- minimum value (doesn't change)
+            div_done_buf <= '1';  -- start the process
+        elsif ( div_done='1' ) then
+            div_done_buf <= '1';
+        elsif ( rising_edge(clk) ) then
+        -- output to debug signals --
+            counter <= idx;
+            
+            -- process div_done_buf
+            if ( div_done_buf='1' ) then
+                div_done_buf <= '0'; -- deassert
+                if ( idx > 0 ) then
+                    bank_buf(to_integer(idx-1)) <= result; -- store in bank_buf
+                    idx := idx - 1; -- decrement idx
+                    numerator <= bank_in(to_integer(idx-1)); -- get new numerator
+                    start_div_buf <= '1'; -- start divider
+                end if; -- otherwise we've reached end of interval
+
+                -- manage deassertion of start_div
+                if (start_div_buf='1') then
+                    start_div_buf <= '0'; --deassert
+                    start_div <= '1';
+                else
+                    start_div <= '0'; -- deassert
+                end if;
+
+            end if;
+        end if;
+    end process;
+
+    -- bank output values is our current storage
+    bank_out <= bank_buf;
 
 end div_by_min_arch;

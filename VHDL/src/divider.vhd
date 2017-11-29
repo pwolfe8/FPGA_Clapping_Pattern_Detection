@@ -32,34 +32,39 @@ architecture divider_arch of divider is
     -- signal definitions
     signal N : unsigned(R_int+N_dec-1 downto 0); --adjusted numerator
     signal D : unsigned(R_int-1 downto 0); -- adjusted denominator
-    signal counter : unsigned(R_ctr-1 downto 0);
-    signal quotient : unsigned(R_int+N_dec-1 downto 0);
-    signal remainder : unsigned(R_int-1 downto 0);
+    signal done_buf, prev_done_buf : std_logic;
+
+    -- debug signals
+    -- signal counter : unsigned(R_ctr-1 downto 0);
+    -- signal quotient : unsigned(R_int+N_dec-1 downto 0);
+    -- signal remainder : unsigned(R_int-1 downto 0);
 
 begin
     N <= numerator & to_unsigned(0,N_dec);
     D <= denominator;
 
     process ( clk, reset, start )
-        variable idx, nxt : unsigned(R_ctr-1 downto 0);
+        variable idx : unsigned(R_ctr-1 downto 0);
         variable Q : unsigned(R_int+N_dec-1 downto 0); -- quotient
         variable R : unsigned(R_int-1 downto 0); -- remainder
-        variable finished, done_buf : std_logic;
+        variable first_set : std_logic;
     begin
         if ( reset='1' or start='1' ) then
             done <= '0';
-            done_buf := '0';
+            done_buf <= '0';
             idx := to_unsigned(R_int+N_dec-1,R_ctr);
-            nxt := idx-1;
             Q := (others=>'0');
             R := (others=>'0');
             result <= (others=>'0');
-
+            first_set := '1'; -- high if first time setting done hasn't happened
         elsif ( rising_edge(clk) ) then
-            if ( D>0 ) then 
-                counter <= idx;
-                quotient <= Q;
-                remainder <= R;
+        -- output to debug signals --
+            -- counter <= idx;
+            -- quotient <= Q;
+            -- remainder <= R;
+
+            prev_done_buf <= done_buf;
+            if ( D>0 ) then
                 if (idx > 0) then
                     R := R(R_int-2 downto 0) & N(to_integer(idx));
                     if ( R >= D ) then
@@ -67,19 +72,20 @@ begin
                         Q(to_integer(idx)) := '1';
                     end if;
                     idx := idx - 1;
-                    nxt := idx - 1;
-                else
-                    finished := '1';
+                elsif( first_set='1' ) then
+                    done_buf <= '1';
                     result <= Q(R_int-1 downto 0); -- assign Q to result
                 end if;
                 
                 -- manage "done" signal
-                if (done_buf='0' and finished='1') then
+                if ( done_buf='1') then
+                    done_buf <= '0';
+                    first_set := '0';
                     done <= '1';
                 else
                     done <= '0';
                 end if;
-                done_buf := finished;
+                
             else 
                 done <= '0';
                 result <= (others=>'0');

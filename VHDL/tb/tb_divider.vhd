@@ -60,7 +60,7 @@ begin
         start <= '1';
         wait for T;
         start <= '0';
-        wait for (R_int+5)*T;
+        wait for (R_int+6)*T;
         -- TEST CASE 1 --
         assert ( result = X"18" ) --24
         report LF
@@ -76,7 +76,7 @@ begin
         start <= '1';
         wait for T;
         start <= '0';
-        wait for (R_int+5)*T;
+        wait for (R_int+6)*T;
         -- TEST CASE 2 --
         assert ( result = X"08" ) -- 8
         report LF
@@ -93,7 +93,7 @@ begin
         start <= '1';
         wait for T;
         start <= '0';
-        wait for (R_int+5)*T;
+        wait for (R_int+6)*T;
         -- TEST CASE 3 --
         assert ( result = X"00" )
         report LF
@@ -109,7 +109,7 @@ begin
         start <= '1';
         wait for T;
         start <= '0';
-        wait for (R_int+5)*T;
+        wait for (R_int+6)*T;
         -- TEST CASE 4 --
         assert ( result = X"10" ) -- 16
         report LF
@@ -119,6 +119,7 @@ begin
             & "====================================================="
         severity error;
 
+        wait for 6*T;
 
         -- end test
         assert false report "Test Completed" severity failure;
