@@ -255,13 +255,11 @@
         "prefix": "testcase_snippet",
         "body": [ 
             "-- TEST CASE ${1:1} --",
-            "${2:_change_signals_here_}",
-            "wait for 10 ns;",
-            "assert ( ${3:_some_boolean_checking_output_} )",
+            "assert ( ${3:_output_} = ${4:_expected_val_} )",
             "report LF",
                 "\t& \"================ Test case $1 failed! ================\" & LF",
-                "\t& \"received: \" & to_hstring(${4:_signal_being_checked_}) & LF",
-                "\t& \"expected: \" & to_hstring(${5:_expected_signal_}) & LF",
+                "\t& \"received: \" & to_hstring($3) & LF",
+                "\t& \"expected: \" & to_hstring($4) & LF",
                 "\t& \"=====================================================\"",
             "severity error;\n"
         ],
