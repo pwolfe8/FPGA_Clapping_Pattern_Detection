@@ -1,4 +1,4 @@
---Engineer     : Vasundhara Rawat
+--Engineer     : Philip Wolfe
 --Date         : 11/08/2017
 --Name of file : tb_min_compare2.vhd
 --Description  : Test bench for min_compare2.

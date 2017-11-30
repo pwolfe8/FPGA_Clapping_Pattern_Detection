@@ -30,10 +30,6 @@ architecture tb_div_by_min_arch of tb_div_by_min is
 begin
     -- instantiate design under test
     DUT : entity work.div_by_min
-        generic map (
-            R_int=>R_int,
-            N_int=>N_int
-        )
         port map (
             -- inputs --
             clk         => clk,

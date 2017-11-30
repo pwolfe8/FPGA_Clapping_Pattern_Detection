@@ -16,12 +16,6 @@ use work.TYPE_PACK.all;
 
 
 entity div_by_min is
-    generic (
-	--Number of bits in the min value input
-        R_int   : positive;
-	--Number of intervals
-		N_int 	: positive
-    );
     port (
         -- inputs --
         clk, reset  : in std_logic;

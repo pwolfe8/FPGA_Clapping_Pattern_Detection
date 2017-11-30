@@ -1,4 +1,4 @@
---Engineer     : Vasundhara Rawat
+--Engineer     : Philip Wolfe
 --Date         : 11/20/2017
 --Name of file : tb_clap_detector.vhd
 --Description  : Test bench for clap_detector.

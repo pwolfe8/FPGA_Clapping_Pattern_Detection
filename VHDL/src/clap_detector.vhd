@@ -1,4 +1,4 @@
---Engineer     : Vasundhara Rawat
+--Engineer     : Matt Arceri
 --Date         : 11/20/2017
 --Name of file : clap_detector.vhd
 --Description  : detects if a clap has been detected based off ADC inputs

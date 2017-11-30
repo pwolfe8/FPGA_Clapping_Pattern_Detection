@@ -12,10 +12,6 @@ use work.TYPE_PACK.all;
 
 
 entity min_not_zero is
-    -- generic (
-    --     R_int : positive;
-    --     R_int_ctr : positive
-    -- );
     port (
         -- inputs --
         clk              : in  std_logic;

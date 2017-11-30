@@ -27,11 +27,6 @@ architecture tb_pattern_compare_arch of tb_pattern_compare is
 begin
     -- instantiate design under test
     DUT : entity work.pattern_compare
-        generic map (
-            R_int=>R_int,
-            N_int=>N_int,
-            N_patt=>N_patt
-        )
         port map (
             -- inputs --
             clk                 => clk, 
@@ -101,7 +96,7 @@ begin
         wait for 50 ns;
 
         -- TEST CASE 1 --
-        assert (false)--patterns_matched = "0010"/2)
+        assert (patterns_matched="0010")--patterns_matched = "0010"/2)
         report LF
             & "================ Test case 1 failed! ================" & LF
             & "received: " & integer'image(to_integer(unsigned(patterns_matched)) ) 

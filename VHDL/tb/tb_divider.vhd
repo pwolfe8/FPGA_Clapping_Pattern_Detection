@@ -95,7 +95,7 @@ begin
         start <= '0';
         wait for (R_int+6)*T;
         -- TEST CASE 3 --
-        assert ( result = X"00" )
+        assert ( result = X"00" ) -- 0
         report LF
             & "================ Test case 3 failed! ================" & LF
             & "received: " & to_hstring(result) & LF
@@ -118,6 +118,23 @@ begin
             & "expected: " & to_hstring(X"10") & LF
             & "====================================================="
         severity error;
+
+        numerator <= X"36";
+        denominator <= X"14";
+        wait for T;
+        start <= '1';
+        wait for T;
+        start <= '0';
+        wait for (R_int+6)*T;
+        -- TEST CASE 5 --
+        assert ( result = X"2A" ) -- 42
+        report LF
+            & "================ Test case 5 failed! ================" & LF
+            & "received: " & to_hstring(result) & LF
+            & "expected: " & to_hstring(X"2A") & LF
+            & "====================================================="
+        severity error;
+
 
         wait for 6*T;
 

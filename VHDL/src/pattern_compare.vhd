@@ -8,11 +8,6 @@ use ieee.numeric_std.all;
 use work.TYPE_PACK.all;
 
 entity pattern_compare is
---    generic (
---        R_int  : positive := 8;
---        N_int  : positive := ;
---        N_patt : positive := 
---    );
     port (
         -- inputs --
         clk, reset          : in  std_logic;
@@ -53,6 +48,7 @@ begin
         if(reset = '1') then
             has_finished := '1';
             check_pattern_done <= '0';
+            patterns_matched <= (others=>'0');
         elsif(rising_edge(clk)) then
             if(norm_done = '1') then
                 counter := to_unsigned(N_patt,R_patt_ctr);
