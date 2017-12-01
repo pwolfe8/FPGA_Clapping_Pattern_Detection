@@ -1,0 +1,359 @@
+#-----------------------------------------------------------
+# Vivado v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:10 MDT 2017
+# IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+# Start of session at: Thu Nov 30 19:58:40 2017
+# Process ID: 6454
+# Current directory: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_3
+# Command line: vivado -log pattern_compare.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source pattern_compare.tcl -notrace
+# Log file: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_3/pattern_compare.vdi
+# Journal file: /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_3/vivado.jou
+#-----------------------------------------------------------
+source pattern_compare.tcl -notrace
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Netlist 29-17] Analyzing 307 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2017.2
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc]
+WARNING: [Vivado 12-584] No ports matched 'sw[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:12]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:12]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:15]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:15]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:17]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:17]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sw[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:19]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:19]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:82]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:83]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:83]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:84]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:84]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:85]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:85]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[4]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[4]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[5]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[5]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[6]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[6]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[0]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[1]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[2]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'an[3]'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnC'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'btnL'. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL/Basys3_connections.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+link_design: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1461.051 ; gain = 285.918 ; free physical = 8583 ; free virtual = 11869
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t-cpg236'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t-cpg236'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+Command: report_drc (run_mandatory_drcs) for: opt_checks
+INFO: [DRC 23-27] Running DRC with 8 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.58 . Memory (MB): peak = 1549.082 ; gain = 88.031 ; free physical = 8573 ; free virtual = 11859
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 215dcfe21
+
+Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1999.512 ; gain = 0.000 ; free physical = 8201 ; free virtual = 11487
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 215dcfe21
+
+Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1999.512 ; gain = 0.000 ; free physical = 8201 ; free virtual = 11487
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 155d4f153
+
+Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.06 . Memory (MB): peak = 1999.512 ; gain = 0.000 ; free physical = 8201 ; free virtual = 11487
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 155d4f153
+
+Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1999.512 ; gain = 0.000 ; free physical = 8201 ; free virtual = 11487
+INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
+
+Phase 5 Shift Register Optimization
+Phase 5 Shift Register Optimization | Checksum: 155d4f153
+
+Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.09 . Memory (MB): peak = 1999.512 ; gain = 0.000 ; free physical = 8201 ; free virtual = 11487
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1999.512 ; gain = 0.000 ; free physical = 8201 ; free virtual = 11487
+Ending Logic Optimization Task | Checksum: 155d4f153
+
+Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.09 . Memory (MB): peak = 1999.512 ; gain = 0.000 ; free physical = 8201 ; free virtual = 11487
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: 1be4a684f
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1999.512 ; gain = 0.000 ; free physical = 8201 ; free virtual = 11487
+21 Infos, 34 Warnings, 34 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1999.512 ; gain = 538.461 ; free physical = 8201 ; free virtual = 11487
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2023.523 ; gain = 0.000 ; free physical = 8201 ; free virtual = 11487
+INFO: [Common 17-1381] The checkpoint '/home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_3/pattern_compare_opt.dcp' has been generated.
+Command: report_drc -file pattern_compare_drc_opted.rpt
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /home/will/DSP/FPGA_Clapping_Pattern_Detection/VHDL_TESTS/pattern_compare/test1/test1.runs/impl_3/pattern_compare_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Chipscope 16-241] No debug cores found in the current design.
+Before running the implement_debug_core command, either use the Set Up Debug wizard (GUI mode)
+or use the create_debug_core and connect_debug_core Tcl commands to insert debug cores into the design.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t-cpg236'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t-cpg236'
+Command: report_drc (run_mandatory_drcs) for: incr_eco_checks
+INFO: [DRC 23-27] Running DRC with 8 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+Command: report_drc (run_mandatory_drcs) for: placer_checks
+INFO: [DRC 23-27] Running DRC with 8 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2063.543 ; gain = 0.000 ; free physical = 8186 ; free virtual = 11472
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: cfcc7660
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2063.543 ; gain = 0.000 ; free physical = 8186 ; free virtual = 11472
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2063.543 ; gain = 0.000 ; free physical = 8187 ; free virtual = 11473
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+ERROR: [Place 30-415] IO Placement failed due to overutilization. This design contains 295 I/O ports
+ while the target  device: 7a35t package: cpg236, contains only 105 available user I/O. The target device has 106 usable I/O pins of which 1 are already occupied by user-locked I/Os.
+ To rectify this issue:
+ 1. Ensure you are targeting the correct device and package.  Select a larger device or different package if necessary.
+ 2. Check the top-level ports of the design to ensure the correct number of ports are specified.
+ 3. Consider design changes to reduce the number of I/Os necessary.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+ERROR: [Place 30-68] Instance check_pattern_done_OBUF_inst (OBUF) is not placed
+ERROR: [Place 30-68] Instance clk_IBUF_BUFG_inst (BUFG) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][0]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][0]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][0]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][0]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][1]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][1]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][1]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][1]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][2]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][2]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][2]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][2]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][3]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][3]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][3]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][3]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][4]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][4]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][4]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][4]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][5]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][5]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][5]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][5]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][6]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][6]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][6]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][6]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][7]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][7]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][7]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,0][7]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][0]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][0]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][0]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][0]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][1]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][1]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][1]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][1]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][2]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][2]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][2]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][2]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][3]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][3]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][3]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][3]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][4]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][4]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][4]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][4]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][5]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][5]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][5]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][5]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][6]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][6]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][6]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][6]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][7]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][7]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][7]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[0,1][7]_i_8 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][0]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][0]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][0]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][0]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][1]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][1]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][1]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][1]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][2]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][2]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][2]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][2]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][3]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][3]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][3]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][3]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][4]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][4]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][4]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][4]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][5]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][5]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][5]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][5]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][6]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][6]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][6]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][6]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][7]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][7]_i_3 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][7]_i_4 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,0][7]_i_5 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,1][0]_i_2 (IBUF) is not placed
+ERROR: [Place 30-68] Instance current_pattern_reg[1,1][0]_i_3 (IBUF) is not placed
+INFO: [Common 17-14] Message 'Place 30-68' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: cd6e2dde
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2063.543 ; gain = 0.000 ; free physical = 8187 ; free virtual = 11473
+Phase 1 Placer Initialization | Checksum: cd6e2dde
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2063.543 ; gain = 0.000 ; free physical = 8187 ; free virtual = 11473
+ERROR: [Place 30-99] Placer failed with error: 'IO Clock Placer failed'
+Please review all ERROR, CRITICAL WARNING, and WARNING messages during placement to understand the cause for failure.
+Ending Placer Task | Checksum: cd6e2dde
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2063.543 ; gain = 0.000 ; free physical = 8187 ; free virtual = 11473
+37 Infos, 34 Warnings, 34 Critical Warnings and 103 Errors encountered.
+place_design failed
+ERROR: [Common 17-69] Command failed: Placer could not place all instances
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 30 19:59:25 2017...

@@ -1,0 +1,137 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.2 (lin64) Build 1909853 Thu Jun 15 18:39:10 MDT 2017
+| Date         : Thu Nov 30 19:42:50 2017
+| Host         : localhost.localdomain running 64-bit unknown
+| Command      : report_control_sets -verbose -file div_by_min_control_sets_placed.rpt
+| Design       : div_by_min
+| Device       : xc7a35t
+---------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    74 |
+| Unused register locations in slices containing registers |   465 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               0 |            0 |
+| No           | No                    | Yes                    |              25 |           24 |
+| No           | Yes                   | No                     |              29 |           24 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |              89 |           39 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++---------------------------------+-------------------------------+--------------------------------+------------------+----------------+
+|           Clock Signal          |         Enable Signal         |        Set/Reset Signal        | Slice Load Count | Bel Load Count |
++---------------------------------+-------------------------------+--------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG                  | divider/idx0                  | numerator_reg[2]_LDC_i_1_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | numerator_reg[7]_LDC_i_1_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | numerator_reg[0]_LDC_i_1_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | numerator_reg[1]_LDC_i_1_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | numerator_reg[4]_LDC_i_1_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | idx_reg[3]_LDC_i_1_n_0         |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | idx_reg[2]_LDC_i_1_n_0         |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | idx_reg[1]_LDC_i_1_n_0         |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | idx_reg[0]_LDC_i_1_n_0         |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | numerator_reg[6]_LDC_i_1_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | numerator_reg[3]_LDC_i_1_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/idx0                  | numerator_reg[5]_LDC_i_1_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | reset_IBUF                     |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | numerator_reg[7]_LDC_i_2_n_0   |                1 |              1 |
+|  bank_at_idx_reg[0]_LDC_i_1_n_0 |                               | bank_at_idx_reg[0]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | numerator_reg[0]_LDC_i_2_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | bank_at_idx_reg[7]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | bank_at_idx_reg[6]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/bank_at_idx_reg[7]_P  | bank_at_idx_reg[0]_LDC_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/bank_at_idx_reg[7]_P  | bank_at_idx_reg[1]_LDC_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/bank_at_idx_reg[7]_P  | bank_at_idx_reg[3]_LDC_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/bank_at_idx_reg[7]_P  | bank_at_idx_reg[4]_LDC_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/bank_at_idx_reg[7]_P  | bank_at_idx_reg[5]_LDC_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/bank_at_idx_reg[7]_P  | bank_at_idx_reg[2]_LDC_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/bank_at_idx_reg[7]_P  | bank_at_idx_reg[7]_LDC_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/bank_at_idx_reg[7]_P  | bank_at_idx_reg[6]_LDC_i_1_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  | divider/start_div2            | reset_IBUF                     |                1 |              1 |
+|  numerator_reg[4]_LDC_i_1_n_0   |                               | numerator_reg[4]_LDC_i_2_n_0   |                1 |              1 |
+|  numerator_reg[1]_LDC_i_1_n_0   |                               | numerator_reg[1]_LDC_i_2_n_0   |                1 |              1 |
+|  bank_at_idx_reg[6]_LDC_i_1_n_0 |                               | bank_at_idx_reg[6]_LDC_i_2_n_0 |                1 |              1 |
+|  numerator_reg[0]_LDC_i_1_n_0   |                               | numerator_reg[0]_LDC_i_2_n_0   |                1 |              1 |
+|  numerator_reg[7]_LDC_i_1_n_0   |                               | numerator_reg[7]_LDC_i_2_n_0   |                1 |              1 |
+|  numerator_reg[6]_LDC_i_1_n_0   |                               | numerator_reg[6]_LDC_i_2_n_0   |                1 |              1 |
+|  bank_at_idx_reg[2]_LDC_i_1_n_0 |                               | bank_at_idx_reg[2]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | numerator_reg[5]_LDC_i_2_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | bank_at_idx_reg[5]_LDC_i_2_n_0 |                1 |              1 |
+|  bank_at_idx_reg[7]_LDC_i_1_n_0 |                               | bank_at_idx_reg[7]_LDC_i_2_n_0 |                1 |              1 |
+|  idx_reg[3]_LDC_i_1_n_0         |                               | idx_reg[3]_LDC_i_2_n_0         |                1 |              1 |
+|  idx_reg[2]_LDC_i_1_n_0         |                               | idx_reg[2]_LDC_i_2_n_0         |                1 |              1 |
+|  idx_reg[1]_LDC_i_1_n_0         |                               | idx_reg[1]_LDC_i_2_n_0         |                1 |              1 |
+|  idx_reg[0]_LDC_i_1_n_0         |                               | idx_reg[0]_LDC_i_2_n_0         |                1 |              1 |
+|  numerator_reg[2]_LDC_i_1_n_0   |                               | numerator_reg[2]_LDC_i_2_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | numerator_reg[4]_LDC_i_2_n_0   |                1 |              1 |
+|  numerator_reg[3]_LDC_i_1_n_0   |                               | numerator_reg[3]_LDC_i_2_n_0   |                1 |              1 |
+|  divider/div_done_buf_reg_P     |                               | reset_IBUF                     |                1 |              1 |
+|  numerator_reg[5]_LDC_i_1_n_0   |                               | numerator_reg[5]_LDC_i_2_n_0   |                1 |              1 |
+|  bank_at_idx_reg[5]_LDC_i_1_n_0 |                               | bank_at_idx_reg[5]_LDC_i_2_n_0 |                1 |              1 |
+|  bank_at_idx_reg[4]_LDC_i_1_n_0 |                               | bank_at_idx_reg[4]_LDC_i_2_n_0 |                1 |              1 |
+|  bank_at_idx_reg[3]_LDC_i_1_n_0 |                               | bank_at_idx_reg[3]_LDC_i_2_n_0 |                1 |              1 |
+|  bank_at_idx_reg[1]_LDC_i_1_n_0 |                               | bank_at_idx_reg[1]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | bank_at_idx_reg[1]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | numerator_reg[6]_LDC_i_2_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | idx_reg[3]_LDC_i_2_n_0         |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | idx_reg[2]_LDC_i_2_n_0         |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | idx_reg[1]_LDC_i_2_n_0         |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | idx_reg[0]_LDC_i_2_n_0         |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | numerator_reg[3]_LDC_i_2_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | numerator_reg[2]_LDC_i_2_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | divider/div_done_buf_reg_P     |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | norm_done_buf_i_2_n_0          |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | numerator_reg[1]_LDC_i_2_n_0   |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | bank_at_idx_reg[4]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | bank_at_idx_reg[3]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | bank_at_idx_reg[2]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | bank_at_idx_reg[0]_LDC_i_2_n_0 |                1 |              1 |
+|  clk_IBUF_BUFG                  |                               | divider/done_i_2_n_0           |                1 |              2 |
+|  min_done_IBUF_BUFG             |                               | reset_IBUF                     |                3 |              8 |
+|  clk_IBUF_BUFG                  | divider/bank_buf_reg[3][0][0] | norm_done_buf_i_2_n_0          |                2 |              8 |
+|  clk_IBUF_BUFG                  | divider/result_buf_reg[0][0]  | norm_done_buf_i_2_n_0          |                1 |              8 |
+|  clk_IBUF_BUFG                  | divider/result[7]_i_1_n_0     | divider/done_i_2_n_0           |                3 |              8 |
+|  clk_IBUF_BUFG                  | divider/bank_buf_reg[2][0][0] | norm_done_buf_i_2_n_0          |                3 |              8 |
+|  clk_IBUF_BUFG                  | divider/E[0]                  | norm_done_buf_i_2_n_0          |                1 |              8 |
+|  clk_IBUF_BUFG                  | divider/bank_buf_reg[0][0][0] | norm_done_buf_i_2_n_0          |                2 |              8 |
+|  clk_IBUF_BUFG                  | divider/R_0                   | divider/done_i_2_n_0           |                6 |             20 |
++---------------------------------+-------------------------------+--------------------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 1      |                    65 |
+| 2      |                     1 |
+| 8      |                     7 |
+| 16+    |                     1 |
++--------+-----------------------+
+
+

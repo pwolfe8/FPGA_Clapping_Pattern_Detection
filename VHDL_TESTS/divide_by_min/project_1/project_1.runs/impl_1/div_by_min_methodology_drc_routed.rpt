@@ -1,0 +1,536 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.2 (lin64) Build 1909853 Thu Jun 15 18:39:10 MDT 2017
+| Date         : Thu Nov 30 19:43:16 2017
+| Host         : localhost.localdomain running 64-bit unknown
+| Command      : report_methodology -file div_by_min_methodology_drc_routed.rpt -rpx div_by_min_methodology_drc_routed.rpx
+| Design       : div_by_min
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 100
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| TIMING-18 | Warning  | Missing input or output delay | 71         |
+| TIMING-20 | Warning  | Non-clocked latch             | 29         |
++-----------+----------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[0][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[0][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[0][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[0][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[0][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[0][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[0][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[0][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[1][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[1][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[1][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[1][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[1][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[1][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[1][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[1][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[2][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[2][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[2][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[2][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[2][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#22 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[2][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#23 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[2][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#24 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[2][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#25 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[3][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#26 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[3][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#27 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[3][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#28 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[3][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#29 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[3][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#30 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[3][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#31 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[3][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#32 Warning
+Missing input or output delay  
+An input delay is missing on bank_in[3][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#33 Warning
+Missing input or output delay  
+An input delay is missing on min_done relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#34 Warning
+Missing input or output delay  
+An input delay is missing on num_int[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#35 Warning
+Missing input or output delay  
+An input delay is missing on num_int[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#36 Warning
+Missing input or output delay  
+An input delay is missing on num_int[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#37 Warning
+Missing input or output delay  
+An input delay is missing on num_int[3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#38 Warning
+Missing input or output delay  
+An input delay is missing on reset relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#39 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[0][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#40 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[0][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#41 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[0][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#42 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[0][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#43 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[0][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#44 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[0][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#45 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[0][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#46 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[0][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#47 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[1][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#48 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[1][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#49 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[1][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#50 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[1][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#51 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[1][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#52 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[1][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#53 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[1][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#54 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[1][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#55 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[2][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#56 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[2][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#57 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[2][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#58 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[2][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#59 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[2][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#60 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[2][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#61 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[2][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#62 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[2][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#63 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[3][0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#64 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[3][1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#65 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[3][2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#66 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[3][3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#67 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[3][4] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#68 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[3][5] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#69 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[3][6] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#70 Warning
+Missing input or output delay  
+An output delay is missing on bank_out[3][7] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#71 Warning
+Missing input or output delay  
+An output delay is missing on norm_done relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch bank_at_idx_reg[0]_LDC cannot be properly analyzed as its control pin bank_at_idx_reg[0]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch bank_at_idx_reg[1]_LDC cannot be properly analyzed as its control pin bank_at_idx_reg[1]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch bank_at_idx_reg[2]_LDC cannot be properly analyzed as its control pin bank_at_idx_reg[2]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch bank_at_idx_reg[3]_LDC cannot be properly analyzed as its control pin bank_at_idx_reg[3]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#5 Warning
+Non-clocked latch  
+The latch bank_at_idx_reg[4]_LDC cannot be properly analyzed as its control pin bank_at_idx_reg[4]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#6 Warning
+Non-clocked latch  
+The latch bank_at_idx_reg[5]_LDC cannot be properly analyzed as its control pin bank_at_idx_reg[5]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#7 Warning
+Non-clocked latch  
+The latch bank_at_idx_reg[6]_LDC cannot be properly analyzed as its control pin bank_at_idx_reg[6]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#8 Warning
+Non-clocked latch  
+The latch bank_at_idx_reg[7]_LDC cannot be properly analyzed as its control pin bank_at_idx_reg[7]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch denominator_reg[0] cannot be properly analyzed as its control pin denominator_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch denominator_reg[1] cannot be properly analyzed as its control pin denominator_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch denominator_reg[2] cannot be properly analyzed as its control pin denominator_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch denominator_reg[3] cannot be properly analyzed as its control pin denominator_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch denominator_reg[4] cannot be properly analyzed as its control pin denominator_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch denominator_reg[5] cannot be properly analyzed as its control pin denominator_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch denominator_reg[6] cannot be properly analyzed as its control pin denominator_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch denominator_reg[7] cannot be properly analyzed as its control pin denominator_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#17 Warning
+Non-clocked latch  
+The latch div_done_buf_reg_LDC cannot be properly analyzed as its control pin div_done_buf_reg_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#18 Warning
+Non-clocked latch  
+The latch idx_reg[0]_LDC cannot be properly analyzed as its control pin idx_reg[0]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#19 Warning
+Non-clocked latch  
+The latch idx_reg[1]_LDC cannot be properly analyzed as its control pin idx_reg[1]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#20 Warning
+Non-clocked latch  
+The latch idx_reg[2]_LDC cannot be properly analyzed as its control pin idx_reg[2]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#21 Warning
+Non-clocked latch  
+The latch idx_reg[3]_LDC cannot be properly analyzed as its control pin idx_reg[3]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#22 Warning
+Non-clocked latch  
+The latch numerator_reg[0]_LDC cannot be properly analyzed as its control pin numerator_reg[0]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#23 Warning
+Non-clocked latch  
+The latch numerator_reg[1]_LDC cannot be properly analyzed as its control pin numerator_reg[1]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#24 Warning
+Non-clocked latch  
+The latch numerator_reg[2]_LDC cannot be properly analyzed as its control pin numerator_reg[2]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#25 Warning
+Non-clocked latch  
+The latch numerator_reg[3]_LDC cannot be properly analyzed as its control pin numerator_reg[3]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#26 Warning
+Non-clocked latch  
+The latch numerator_reg[4]_LDC cannot be properly analyzed as its control pin numerator_reg[4]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#27 Warning
+Non-clocked latch  
+The latch numerator_reg[5]_LDC cannot be properly analyzed as its control pin numerator_reg[5]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#28 Warning
+Non-clocked latch  
+The latch numerator_reg[6]_LDC cannot be properly analyzed as its control pin numerator_reg[6]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#29 Warning
+Non-clocked latch  
+The latch numerator_reg[7]_LDC cannot be properly analyzed as its control pin numerator_reg[7]_LDC/G is not reached by a timing clock
+Related violations: <none>
+
+

@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Sun Nov 26 23:35:06 2017">
+<application name="pa" timeStamp="Sun Nov 26 23:48:58 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="5812528c6f174b7da920819e51edc643" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -18,21 +18,24 @@ This means code written to parse this file will need to be revisited each subseq
 </item>
 <item name="Java Command Handlers">
 <property name="AddSources" value="1" type="JavaHandler"/>
-<property name="OpenProject" value="3" type="JavaHandler"/>
+<property name="OpenProject" value="4" type="JavaHandler"/>
 <property name="RunImplementation" value="1" type="JavaHandler"/>
 <property name="RunSynthesis" value="4" type="JavaHandler"/>
 <property name="ShowView" value="3" type="JavaHandler"/>
 <property name="ToolsSettings" value="3" type="JavaHandler"/>
+<property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
 <property name="BaseDialog_APPLY" value="1" type="GuiResourceData"/>
-<property name="BaseDialog_OK" value="11" type="GuiResourceData"/>
+<property name="BaseDialog_OK" value="12" type="GuiResourceData"/>
+<property name="CmdMsgDialog_OK" value="1" type="GuiResourceData"/>
+<property name="ExpReportTreePanel_EXP_REPORT_TREE_TABLE" value="5" type="GuiResourceData"/>
 <property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="8" type="GuiResourceData"/>
 <property name="MainMenuMgr_FILE" value="4" type="GuiResourceData"/>
 <property name="MainMenuMgr_OPEN_RECENT_PROJECT" value="6" type="GuiResourceData"/>
-<property name="MainToolbarMgr_OPEN" value="2" type="GuiResourceData"/>
+<property name="MainToolbarMgr_OPEN" value="3" type="GuiResourceData"/>
 <property name="MsgTreePanel_MESSAGE_VIEW_TREE" value="4" type="GuiResourceData"/>
-<property name="PACommandNames_OPEN_PROJECT" value="3" type="GuiResourceData"/>
+<property name="PACommandNames_OPEN_PROJECT" value="4" type="GuiResourceData"/>
 <property name="PartChooser_PARTS" value="1" type="GuiResourceData"/>
 <property name="SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT" value="1" type="GuiResourceData"/>
 <property name="SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT" value="1" type="GuiResourceData"/>

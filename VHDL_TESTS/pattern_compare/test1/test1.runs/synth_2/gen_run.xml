@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_2" LaunchPart="xcku035-ffva1156-3-e" LaunchTime="1511754729">
-  <File Type="VDS-TIMING-PB" Name="pattern_compare_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="pattern_compare_timing_summary_synth.rpt"/>
-  <File Type="RDS-RDS" Name="pattern_compare.vds"/>
-  <File Type="PA-TCL" Name="pattern_compare.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="pattern_compare_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="pattern_compare_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="pattern_compare_drc_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="pattern_compare_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="pattern_compare.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="pattern_compare_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="pattern_compare_timing_summary_synth.pb"/>
+  <File Type="RDS-RDS" Name="pattern_compare.vds"/>
+  <File Type="PA-TCL" Name="pattern_compare.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PPRDIR/../typePack.vhd">
