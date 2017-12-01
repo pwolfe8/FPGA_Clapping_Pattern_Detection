@@ -72,7 +72,7 @@ compares recorded pattern with a stored pattern to check for a match
     - ![](tb_boundary_comp.png) 
 
 
-## Clap Detector
+## Clap Detector Python
 * files:
     - run Python_high_level_testing/clap_detection/clap.py
 * dependencies:
@@ -80,3 +80,4 @@ compares recorded pattern with a stored pattern to check for a match
     - matplotlib
 * expected result
     - graph of clap with red overlayed and clap timestamps printed
+    

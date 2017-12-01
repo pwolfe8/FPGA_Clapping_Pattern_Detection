@@ -5,13 +5,10 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use work.TYPE_PACK.all;
 
 entity clap_detector is
     generic (
-        R_int  : positive;
-        N_int  : positive;
-        N_patt : positive
+        R_adc  : positive
     );
     port (
         -- inputs --

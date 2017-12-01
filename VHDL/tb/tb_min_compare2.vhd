@@ -63,11 +63,11 @@ begin
         left <= to_unsigned(8,R_int);
         right <= (others=>'0');
         wait for 10 ns;
-        assert ( out_min_val_2 = X"00" )
+        assert ( out_min_val_2 = X"08" )
         report LF
             & "================ Test case 3 failed! ================" & LF
             & "received: " & to_hstring(out_min_val_2) & LF
-            & "expected: " & to_hstring(X"00") & LF
+            & "expected: " & to_hstring(X"08") & LF
             & "====================================================="
         severity error;
         
