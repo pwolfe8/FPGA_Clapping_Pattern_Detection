@@ -21,7 +21,6 @@ end LED_buf_test;
 architecture LED_buf_test_arch of LED_buf_test is
 
     signal clk, reset, clap_detected, pattern_finished : std_logic;
-    -- signal clap_detected_buf, pattern_finished_buf : std_logic_vector(3 downto 0);
 
 begin
     clk <= CLK100MHZ;

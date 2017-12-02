@@ -25,7 +25,6 @@ entity sevenseg is
 --        clk             : in std_logic; --Assuming 50Mhz clock for now. 
         rst             : in std_logic;
         patternIn       : in std_logic_vector ( N_patt-1 downto 0 );
-        clapDetected    : in std_logic;
         state           : T_state;
         -- outputs --
         --These are the 7seg display legs. 
@@ -131,20 +130,20 @@ begin
 --        "0001110" when others;
 			case patternIn is
 				when "0001" => 
-					seg <= "0000110";
+					seg <= "1111001";
 				when "0010" => 
 					seg <= "0100100";
 				when "0100" =>  
 					seg <= "0110000";
 				when "1000" =>  
 					seg <= "0011001";
-				when others =>  
+				when others =>
 					seg <= "0001110";
 			end case;
 
 
---        "1000000" when "00000", --Pattern 1
--- 				"0000110" when "00001", --Pattern 2
+--        "1000000" when "00000", -- Pattern 1
+-- 				"0000110" when "00001", -- Pattern 2
 --				"0100100" when "00010",
 --				"0110000" when "00011",
 --				"0011001" when "00100", 
