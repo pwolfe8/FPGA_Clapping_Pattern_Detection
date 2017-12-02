@@ -23,6 +23,7 @@ begin
     DUT : entity work.LED_shift_reg
         port map (
             -- inputs -- 
+            clk=> clk,
             reset => reset,
             clap_detected => clap_detected,
             pattern_finished => pattern_finished,
@@ -30,13 +31,13 @@ begin
             leds=>leds
         );
 
-    -- -- set up clock
-    -- process begin
-    -- 	clk <= '1';
-    -- 	wait for T/2;
-    -- 	clk <= '0';
-    -- 	wait for T/2;
-    -- end process;
+    -- set up clock
+    process begin
+    	clk <= '1';
+    	wait for T/2;
+    	clk <= '0';
+    	wait for T/2;
+    end process;
     
     process begin
         -- initialize signals
@@ -62,13 +63,13 @@ begin
         clap_detected <= '0';
         wait for T;
         -- wait for a while --
-        wait for 3*T;
+        wait for 4*T;
 
         -- clap --
         clap_detected <= '1'; 
-        wait for T;
+        wait for 2*T;
         clap_detected <= '0';
-        wait for T;
+        wait for 5*T;
         -- wait for a while --
         wait for 3*T;
 
@@ -88,7 +89,7 @@ begin
 
         -- clap --
         clap_detected <= '1'; 
-        wait for T;
+        wait for 3*T;
         clap_detected <= '0';
         wait for T;
         -- wait for a while --
