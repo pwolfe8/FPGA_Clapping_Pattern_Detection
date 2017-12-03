@@ -1,7 +1,7 @@
 --Engineer     : Philip Wolfe
 --Date         : 12/1/2017
 --Name of file : debouncer.vhd
---Description  : aiming to debounce over 50 ms for now?
+--Description  : debounces a push button. specify how many ms stable time in generic param.
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

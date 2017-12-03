@@ -86,6 +86,15 @@ begin
             & "====================================================="
         severity error;
         
+        -- 0 / something
+        numerator <= X"00";
+        denominator <= X"10";
+        wait for T;
+        start <= '1';
+        wait for T;
+        start <= '0';
+        wait for (R_int+6)*T;        
+
         -- divide by 0 error?
         numerator <= X"20";
         denominator <= X"00";
@@ -102,7 +111,18 @@ begin
             & "expected: " & to_hstring(X"00") & LF
             & "====================================================="
         severity error;
-                
+
+
+        -- 0/0
+        numerator <= X"00";
+        denominator <= X"00";
+        wait for T;
+        start <= '1';
+        wait for T;
+        start <= '0';
+        wait for (R_int+6)*T;
+
+
         numerator <= X"20";
         denominator <= X"20";
         wait for T;

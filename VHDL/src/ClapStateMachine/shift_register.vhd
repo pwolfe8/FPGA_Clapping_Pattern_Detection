@@ -5,23 +5,17 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-
-use work.TYPE_PACK.all;
+use work.type_pack.all;
 
 entity shift_register is
-    generic (
-        R : positive; -- resolution of each entry
-        N : positive  -- number of entries in shift register
-    );
     port (
         -- inputs --
         clk         : in  std_logic;
         load		: in  std_logic; -- shifts in the next value
         flush       : in  std_logic; -- flushes all inputs when strobed
-        in_val      : in  unsigned(R-1 downto 0); -- value to be shifted in
+        in_val      : in  T_int;     -- value to be shifted in
         -- outputs --
         data_out    : out T_bank
-        
     );
 end shift_register;
 
@@ -36,7 +30,7 @@ begin
             data_out <= temp; -- clear output
         elsif ( rising_edge(clk) ) then
             if ( load='1' ) then
-                temp := in_val & temp(0 to N-2);
+                temp := in_val & temp(0 to N_int-2);
             end if;
             data_out <= temp;
         end if;

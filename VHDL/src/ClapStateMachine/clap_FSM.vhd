@@ -5,17 +5,12 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-
 use work.TYPE_PACK.all;
-
 
 entity clap_FSM is
     generic (
-        f_clk : real;           -- system frequency
-        end_silence : real;     -- amount of silence required to signal end of pattern
-        R_int : positive;       -- enough to handle ceil(log2(f_clk*T_END_SILENCE))
-        N_int : positive;       -- number of intervals in bank
-        R_int_ctr : positive    -- ceil(log2(N_int)). interval counter resolution
+        f_clk : real;       -- system frequency
+        end_silence : real  -- amount of silence required to signal end of pattern
     );
     port (
         -- inputs --
@@ -37,17 +32,18 @@ architecture clap_FSM_arch of clap_FSM is
     -- type T_state is (IDLE, WAIT_FOR_NEXT_CLAP, LOG_INTERVAL, CHECKING_PATTERN);
 
     -- constant definitions
-    constant T_END_SILENCE : positive := integer(real(f_clk) * end_silence);
-        -- clock counter resolution is ceil(log2(T_END_SILENCE))
+    constant T_END_SILENCE : positive := integer(f_clk * end_silence);
+    constant R_clk_ctr : positive := 28; -- integer(ceil(log2(real(T_END_SILENCE))));
+    -- constant R_clk_ctr : positive := 8; -- use this line for the testbench
 
     -- signal declarations  
+    signal clk_counter : unsigned(R_clk_ctr-1 downto 0);
     signal state, next_state : T_state;
     signal load, flush : std_logic;
     signal pattern_finished_buf : std_logic;
     signal last_interval : unsigned(R_int-1 downto 0);
-    signal clk_counter : unsigned(R_int-1 downto 0);
     signal interval_counter : unsigned(R_int_ctr-1 downto 0); -- count how many intervals have been stored
-    signal CLK_MAX : unsigned(clk_counter'range) := (others=>'1'); -- to_unsigned(48,clk_counter'length) -- use this for testbench
+    signal CLK_MAX : unsigned(clk_counter'range) := to_unsigned(T_END_SILENCE+7,clk_counter'length);
 
 begin
 
@@ -60,9 +56,8 @@ begin
             if ( clk_counter < CLK_MAX ) then
                 clk_counter <= clk_counter + 1;
             end if;
-
             if ( clap_detected='1' ) then 
-                last_interval <= clk_counter;
+                last_interval <= clk_counter(R_clk_ctr-1 downto R_clk_ctr-R_int); -- grab top R_int bits
                 clk_counter <= (others=>'0');
             end if;
         end if;
@@ -73,16 +68,18 @@ begin
     process ( clk, reset, clap_detected ) begin
         if ( reset = '1' or clap_detected='1') then
             pattern_finished_buf <='0';
-        elsif ( rising_edge(clk) and clk_counter = T_END_SILENCE ) then
-            -- make pattern_finished_buf high for one clock cycle (ctr will continue)
-                -- fix the counter though cuz that's bad practice. (it will cycle around...)
-            pattern_finished_buf <= '1';
+        elsif ( rising_edge(clk) ) then
+            -- make pattern_finished_buf high for one clock cycle
+            if ( clk_counter=T_END_SILENCE ) then 
+                pattern_finished_buf <= '1';
+            else
+                pattern_finished_buf <= '0';
+            end if;
         end if;
     end process;
 
     -- instantiate shift register to store bank of data
     interval_bank : entity work.shift_register
-        generic map ( R=>R_int, N=>N_int )
         port map (
             -- inputs --
             clk     => clk,
@@ -132,10 +129,9 @@ begin
                 else
                     next_state <= CHECKING_PATTERN;
                 end if;
-            when others =>
+            when others => -- hopefully never reach this
 
         end case;
-
     end process;
 
     -- logic to do while in the state
@@ -159,12 +155,13 @@ begin
             when CHECKING_PATTERN =>
                 load <= '0'; -- de-assert
                 flush <= '0';
-            when others =>
-
+            when others => -- hopefully never reach this, but do nothing for now
+                
         end case;
     end process;
     
-    -- output current state
+    -- output current state & intervals recorded
     state_output <= state;
-
+    num_intervals <= interval_counter;
+    
 end clap_FSM_arch;

@@ -65,7 +65,7 @@ begin
         min_done <= '0';
         wait for T;
         reset <= '0';
-        wait for T;
+        wait for 2*T;
         min_done <= '1';
         wait for T;
         min_done <= '0';

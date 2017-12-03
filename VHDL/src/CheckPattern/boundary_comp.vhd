@@ -9,7 +9,7 @@ use work.TYPE_PACK.all;
 entity boundaryComp is
     generic(
         N: integer; --Data width
-        M: integer --Data length (matts_number_intervals)
+        M: integer --Data length
         -- L: integer  --Pattern to check
     );
     port (

@@ -23,6 +23,7 @@ architecture LED_buf_test_arch of LED_buf_test is
     signal clk, reset, clap_detected, pattern_finished : std_logic;
 
 begin
+    -- connect board to internal signals
     clk <= CLK100MHZ;
     reset <= btnL;
     pattern_finished- <= btnR;

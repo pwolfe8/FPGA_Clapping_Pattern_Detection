@@ -18,9 +18,9 @@ architecture tb_clap_FSM_arch of tb_clap_FSM is
         -- set N_int to 4
     
     -- constant definitions
-    constant f_clk : real := 781.25e3; -- 100MHz/128
-    constant T : time := 1.28 us;
-    constant end_silence : real := 0.00005; --50 us
+    constant f_clk : real := 100.0e6;
+    constant T : time := 10 ns;
+    constant end_silence : real := 0.000000250; --25*T for simulation
 
     -- testbench signal declarations
     signal clk, reset : std_logic;
@@ -29,6 +29,7 @@ architecture tb_clap_FSM_arch of tb_clap_FSM is
 
     signal state_output : T_state;
     signal bank_array : T_bank;
+
 
 begin
     -- instantiate design under test
@@ -76,29 +77,33 @@ begin
         clap_detected <= '1';
         wait for T;
         clap_detected <= '0';
+        
         -- first interval
-        wait for 25 us; -- Real world intervals would be "ms" to "s".
-                        -- Use "us" in simulation because that way we can
-                        -- actually view the details of the waveform without
-                        -- needing a huge monitor with insane resolution.
+        wait for 20*T;
+
         -- second clap    
         clap_detected <= '1';
         wait for T;
         clap_detected <= '0';
+
         -- second interval
-        wait for 30 us;
+        wait for 23*T;
+
         -- third clap    
         clap_detected <= '1';
         wait for T;
         clap_detected <= '0';
+
         -- wait for > end_time
-        wait for 55 us; -- end silence is 50 us
+        wait for 28*T; -- end time is 25*T for this testbench
+
         -- "finish calculating" pattern
         check_pattern_done <= '1';
         wait for T;
         check_pattern_done <= '0';
-        -- wait a bit at end to return to idle and see if clock stops itself
-        wait for 10 us;
+
+        -- wait a bit at end to return to idle and see if clock stops itself at 29*T
+        wait for 4*T;
 
         -- end test
         assert false report LF & "**** Test Completed ****" & LF severity failure;
