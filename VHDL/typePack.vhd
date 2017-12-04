@@ -7,7 +7,7 @@ package type_pack is
     constant R_int : positive := 8;     -- resolution of an interval
     constant N_dec : positive := 4;     -- fixed point resolution for normalization (16ths)
     
-    constant N_int : positive := 4;     -- number of intervals in a bank
+    constant N_int : positive := 8;     -- number of intervals in a bank
     constant R_int_ctr : positive := 4; -- ceil(log2(N_int))+1 resolution of interval counter
     
     constant N_patt : positive := 4;    -- number of stored patterns
