@@ -15,21 +15,25 @@ architecture tb_sevenseg_arch of tb_sevenseg is
     constant T : time := 10 ns;
     
     -- testbench signal declarations
-    signal reset, min_done, norm_done, check_pattern_done : std_logic;
+    signal clk, reset : std_logic;
+    signal min_done, norm_done, check_pattern_done : std_logic;
     signal patterns_matched : std_logic_vector(N_patt-1 downto 0);
     signal state : T_state;
     signal sseg : std_logic_vector(6 downto 0);
     signal an : std_logic_vector(3 downto 0);
+    signal int1 : unsigned(7 downto 0);
 
 begin
     -- instantiate design under test
     DUT : entity work.sevenseg
         port map (
             -- inputs --
-            rst => reset,
+            clk => clk,
+            reset => reset,
             patternIn => patterns_matched,
             state => state,
             -- debug signals -- 
+            int1 => int1,
             min_done => min_done,
             norm_done => norm_done,
             check_pattern_done => check_pattern_done,
@@ -38,26 +42,26 @@ begin
             an => an
         );
 
-    -- -- set up clock
-    -- process begin
-    -- 	clk <= '1';
-    -- 	wait for T/2;
-    -- 	clk <= '0';
-    -- 	wait for T/2;
-    -- end process;
+    -- set up clock
+    process begin
+    	clk <= '1';
+    	wait for T/2;
+    	clk <= '0';
+    	wait for T/2;
+    end process;
     
     process begin
         -- initialize signals
         reset <= '1';
         patterns_matched <= "0010";
         state <= CHECKING_PATTERN;
+        int1 <= X"69";
         min_done <= '0';
         norm_done <= '0';
         check_pattern_done <= '0';
         wait for T;
         reset <= '0';
         wait for T;
-
 
         min_done <= '1';
         wait for T;

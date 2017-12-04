@@ -36,11 +36,7 @@ begin
     DUT : entity work.clap_FSM
         generic map (
             f_clk       => f_clk,
-            end_silence => end_silence,
-            -- from globals in typePack.vhd
-            R_int       => R_int,
-            N_int       => N_int,
-            R_int_ctr   => R_int_ctr
+            end_silence => end_silence
         )
         port map (
         -- inputs --
@@ -75,7 +71,7 @@ begin
     -- let's feed in some clap detections now
         -- first clap
         clap_detected <= '1';
-        wait for T;
+        wait for 3*T;
         clap_detected <= '0';
         
         -- first interval
@@ -83,7 +79,7 @@ begin
 
         -- second clap    
         clap_detected <= '1';
-        wait for T;
+        wait for 2*T;
         clap_detected <= '0';
 
         -- second interval
@@ -91,7 +87,7 @@ begin
 
         -- third clap    
         clap_detected <= '1';
-        wait for T;
+        wait for 5*T;
         clap_detected <= '0';
 
         -- wait for > end_time

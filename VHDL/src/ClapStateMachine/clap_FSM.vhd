@@ -28,7 +28,7 @@ entity clap_FSM is
 end clap_FSM;
 
 architecture clap_FSM_arch of clap_FSM is
-    -- globals from typePack.vhd, including state types:
+    -- globals from typePack.vhd
     -- type T_state is (IDLE, WAIT_FOR_NEXT_CLAP, LOG_INTERVAL, CHECKING_PATTERN);
 
     -- constant definitions
@@ -45,6 +45,9 @@ architecture clap_FSM_arch of clap_FSM is
     signal interval_counter : unsigned(R_int_ctr-1 downto 0); -- count how many intervals have been stored
     signal CLK_MAX : unsigned(clk_counter'range) := to_unsigned(T_END_SILENCE+7,clk_counter'length);
 
+    -- prev clap buffer
+    signal prev_clap_detected : std_logic;
+
 begin
 
     -- clock counter --
@@ -52,22 +55,23 @@ begin
         if ( reset='1' ) then
             clk_counter <= (others=>'0');
             last_interval <= (others=>'0');
+            prev_clap_detected <= '0';
         elsif ( rising_edge(clk) ) then
-            if ( clk_counter < CLK_MAX ) then
-                clk_counter <= clk_counter + 1;
-            end if;
-            if ( clap_detected='1' ) then 
+            if ( prev_clap_detected='0' and clap_detected='1' ) then 
                 last_interval <= clk_counter(R_clk_ctr-1 downto R_clk_ctr-R_int); -- grab top R_int bits
                 clk_counter <= (others=>'0');
+            elsif ( clk_counter < CLK_MAX ) then
+                clk_counter <= clk_counter + 1;
             end if;
+            prev_clap_detected <= clap_detected;
         end if;
     end process;
 
     -- pattern finished logic (latch on rising edge of clock)
-    pattern_finished <= pattern_finished_buf;
     process ( clk, reset, clap_detected ) begin
         if ( reset = '1' or clap_detected='1') then
             pattern_finished_buf <='0';
+            pattern_finished <= '0';
         elsif ( rising_edge(clk) ) then
             -- make pattern_finished_buf high for one clock cycle
             if ( clk_counter=T_END_SILENCE ) then 
@@ -75,6 +79,7 @@ begin
             else
                 pattern_finished_buf <= '0';
             end if;
+            pattern_finished <= pattern_finished_buf;
         end if;
     end process;
 
@@ -108,13 +113,13 @@ begin
     begin
         case state is
             when IDLE => 
-                if ( clap_detected ='1' ) then
+                if ( prev_clap_detected='0' and clap_detected ='1' ) then
                     next_state <= WAIT_FOR_NEXT_CLAP;
                 else
                     next_state <= IDLE;
                 end if;
             when WAIT_FOR_NEXT_CLAP => 
-                if ( clap_detected ='1' ) then
+                if ( prev_clap_detected='0' and clap_detected ='1' ) then
                     next_state <= LOG_INTERVAL;
                 elsif ( pattern_finished_buf='1' ) then
                     next_state <= CHECKING_PATTERN;
@@ -149,7 +154,7 @@ begin
                 load <= '1'; -- load for 1 clock cycle
                 flush <= '0';
                 interval_counter <= interval_counter + 1;
-                if ( interval_counter>N_int ) then
+                if ( interval_counter > N_int ) then
                     bank_overflowed <= '1';
                 end if;
             when CHECKING_PATTERN =>
@@ -160,8 +165,16 @@ begin
         end case;
     end process;
     
-    -- output current state & intervals recorded
+    -- output current state
     state_output <= state;
-    num_intervals <= interval_counter;
+    -- output intervals recorded after finished recording pattern
+    process ( clk, reset ) begin
+        if ( reset='1' ) then
+            num_intervals <= (others=>'0');
+        elsif ( rising_edge(clk) and pattern_finished_buf='1' ) then
+            num_intervals <= interval_counter;        
+        end if;
+    end process;
+    
     
 end clap_FSM_arch;

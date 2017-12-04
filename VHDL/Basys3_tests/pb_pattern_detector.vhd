@@ -22,7 +22,7 @@ end pb_pattern_detector;
 
 architecture pb_pattern_detector_arch of pb_pattern_detector is
     -- constant definitions
-    constant f_clk : real := real(100e6);
+    constant f_clk : real := 100.0e6;
     constant end_silence : real := 2.5;
     
     -- signal declarations
@@ -39,34 +39,23 @@ architecture pb_pattern_detector_arch of pb_pattern_detector is
     -- stored patterns 
     signal stored_patterns : T_stored :=
     (
-        0 => (  -- simple pattern (1 interval)
+        0 => (  -- pattern #1: simple pattern (1 interval)
             0 => (0=>X"10",1=>X"10"), -- target X"10" (there's only 1 interval)
             others => (others=>X"00")
         ),
-        others => ( -- impossible
+        1 => ( -- pattern #2: shave and a haircut (https://en.wikipedia.org/wiki/Shave_and_a_Haircut)
+            0 => (0=>X"1B",1=>X"25"), -- 2x is 0x20
+            1 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
+            2 => (0=>X"0B",1=>X"15"), -- 1x
+            others => (0=>X"1B",1=>X"25") -- 2x
+            -- 4 => (0=>X"3B",1=>X"45"), -- 4x
+            -- 5 => (0=>X"1B",1=>X"25"), -- 2x
+            -- others => (others=>X"00")
+        ),
+        others => ( -- impossible to match other patterns
             0 => (0=>X"FF",1=>X"FF"), -- target X"10" (there's only 1 interval)
             others => (others=>X"00")
         )
-        -- 1 => (  -- simple pattern length 4
-        --     0 => (0=>X"17",1=>X"23"), -- target X"20" or 2x smallest
-        --     1 => (0=>X"07",1=>X"13"), -- target X"20" or 2x smallest
-        --     2 => (0=>X"07",1=>X"13"),-- target X"20" or 2x smallest
-        --     others => (others=>X"00")
-        -- ),
-        -- 2 => (
-        --     0 => (0=>X"16",1=>X"1A"),
-        --     1 => (0=>X"10",1=>X"10"), -- the smallest val
-        --     2 => (0=>X"2A",1=>X"2E"),
-        --     3 => (0=>X"00",1=>X"00"),
-        --     others => (others=>X"00")
-        -- ),
-        -- 3 => (
-        --     0 => (0=>X"17",1=>X"19"),
-        --     1 => (0=>X"00",1=>X"02"),
-        --     2 => (0=>X"2B",1=>X"2D"),
-        --     3 => (0=>X"00",1=>X"00"),
-        --     others => (others=>X"00")
-        -- )
     );
 
 begin
@@ -78,7 +67,7 @@ begin
     debouncer : entity work.debouncer
         generic map (
             F_clk_kHz       => 100e3, -- set to 5 for tb
-            stable_time_ms  => 15 --set to 1 for tb
+            stable_time_ms  => 10 --set to 1 for tb
         )
         port map (
             -- inputs --
@@ -138,19 +127,22 @@ begin
     );
 
     -- sseg state visualizer
-    an <= "1110"; -- write to sseg0
     display_state : entity work.sevenseg
         port map (
             -- inputs --
-            rst => reset,-- left button resets
+            clk => clk,
+            reset => reset,-- left button resets
             patternIn => patterns_matched,
             state => state, -- this should change based on the center button
             -- debug signals
+            int1 => interval_bank(0),
+            num_intervals => num_intervals,
             min_done => min_done,
             norm_done => norm_done,
             check_pattern_done => check_pattern_done,
             -- ouputs --
-            seg => sseg
+            seg => sseg,
+            an => an
     );
 
 end pb_pattern_detector_arch;
