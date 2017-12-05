@@ -141,7 +141,7 @@
                 "\t${2:_value_} when ${3:_condition_} else",
                 "\t${4:_value_} when ${5:_condition_};"
         ],
-        "description": "When else snippet.\nlike with else, but when you need a conditional\n"
+        "description": "When else snippet.\nlike with select, but when you need a conditional\n"
     },
 
     // instantiation
