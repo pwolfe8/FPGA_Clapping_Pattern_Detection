@@ -1,12 +1,12 @@
 --Engineer     : Philip Wolfe
---Date         : 11/30/2017
---Name of file : xadc_test.vhd
---Description  : testing out the xadc. detects a clap and holds led(0) high for 1.34 sec after most recent clap
+--Date         : 12/04/2017
+--Name of file : clap_counter.vhd
+--Description  : counts your claps
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity xadc_test is
+entity clap_counter is
     port (
         -- inputs --
         CLK100MHZ   : in  std_logic;
@@ -16,9 +16,9 @@ entity xadc_test is
         -- outputs --
         leds		    : out std_logic_vector(15 downto 0)
     );
-end xadc_test;
+end clap_counter;
 
-architecture xadc_test_arch of xadc_test is
+architecture clap_counter_arch of clap_counter is
     -- Xilinx xadc IP component declaration
     COMPONENT xadc_mic
     PORT (
@@ -141,4 +141,4 @@ begin
     -- );
 
     
-end xadc_test_arch;
+end clap_counter_arch;

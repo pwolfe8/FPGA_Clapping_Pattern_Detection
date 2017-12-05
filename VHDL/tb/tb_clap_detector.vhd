@@ -17,7 +17,7 @@ architecture tb_clap_detector_arch of tb_clap_detector is
     constant T : time := 10 ns;
     
     -- testbench signal declarations
--- signal clk : std_logic;
+    signal clk : std_logic;
     
 
 begin
@@ -36,12 +36,12 @@ begin
         );
 
     -- -- set up clock
-    -- process begin
-    -- 	clk <= '1';
-    -- 	wait for T/2;
-    -- 	clk <= '0';
-    -- 	wait for T/2;
-    -- end process;
+    process begin
+    	clk <= '1';
+    	wait for T/2;
+    	clk <= '0';
+    	wait for T/2;
+    end process;
     
     process begin
         -- initialize signals
