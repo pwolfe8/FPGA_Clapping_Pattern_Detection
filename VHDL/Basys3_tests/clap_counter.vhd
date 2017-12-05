@@ -137,7 +137,7 @@ begin
                     begin_ignore := '0';
                     ignore_ctr := (others=>'0');
                 end if;
-            elsif ( above_thresh_ctr(24 downto 17) > "00000001" ) then -- check if more than 5ms in that 20 ms period
+            elsif ( above_thresh_ctr(23 downto 17) > "0000001" ) then -- check if more than 5ms in that 20 ms period
                 clap_detected <= '1';
                 begin_ignore := '1';
             end if;
