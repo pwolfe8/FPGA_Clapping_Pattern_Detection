@@ -75,9 +75,9 @@ begin
 
         -- flush --
         pattern_finished <= '1';
-        wait for T;
+        wait for 3*T;
         pattern_finished <= '0';
-        wait for 2*T;
+        -- wait for 2*T;
 
         -- clap --
         clap_detected <= '1'; 

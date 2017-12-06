@@ -58,11 +58,9 @@ begin
             others => (others=>'0')
         );
         stored_patterns <= (
-            0 =>(   -- bullshit pattern --
-                0 => (0=>X"69",1=>X"6C"),
-                1 => (0=>X"69",1=>X"6C"),
-                2 => (0=>X"96",1=>X"99"),
-                3 => (0=>X"00",1=>X"00")
+            0 => (   -- just one interval
+                0 => (0=>X"10",1=>X"10"), -- target X"10" (there's only 1 interval)
+                others => (others=>X"00")
             ),
             1 => (   -- actual matching pattern --
                 0 => (0=>X"01",1=>X"03"),
@@ -71,16 +69,10 @@ begin
                 3 => (0=>X"00",1=>X"00")
             ),
             2 => (   -- matches one --
-                0 => (0=>X"01",1=>X"03"),
-                1 => (0=>X"00",1=>X"00"),
-                2 => (0=>X"00",1=>X"00"),
-                3 => (0=>X"00",1=>X"00")
+                others => (others=>X"00")
             ),
             3 => (   -- matches 2
-                0 => (0=>X"01",1=>X"03"),
-                1 => (0=>X"00",1=>X"02"),
-                2 => (0=>X"00",1=>X"00"),
-                3 => (0=>X"00",1=>X"00")
+                others => (others=>X"00")
             )
         );
         wait for 10 ns;
@@ -91,7 +83,6 @@ begin
         norm_done <= '1';
         wait for T;
         norm_done <= '0';
-
         -- wait for 6*T;
         wait for 50 ns;
 
@@ -103,6 +94,13 @@ begin
             & LF & "expected: 0100" & LF
             & "====================================================="
             severity error;
+
+        -- should clear on norm_done
+        norm_done <= '1';
+        wait for T;
+        norm_done <= '0';
+        wait for 3*T;
+
 
         
         -- end test

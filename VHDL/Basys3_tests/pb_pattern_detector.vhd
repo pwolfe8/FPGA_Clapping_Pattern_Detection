@@ -2,6 +2,7 @@
 --Date         : 11/1/2017
 --Name of file : pb_pattern_detector.vhd
 --Description  : tests the system using a push button instead of clapping
+--Testbench Instructions: use testbench end silence, tie btnC directly (no debounce)
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -24,6 +25,8 @@ architecture pb_pattern_detector_arch of pb_pattern_detector is
     -- constant definitions
     constant f_clk : real := 100.0e6;
     constant end_silence : real := 2.5;
+    -- constant end_silence : real := 0.000000250; --25*T for testbench end_silence
+
     
     -- signal declarations
     signal clk, reset : std_logic;
@@ -43,39 +46,43 @@ architecture pb_pattern_detector_arch of pb_pattern_detector is
             0 => (0=>X"10",1=>X"10"), -- target X"10" (there's only 1 interval)
             others => (others=>X"00")
         ),
-        -- 1 => ( -- pattern #2: shave and a haircut (https://en.wikipedia.org/wiki/Shave_and_a_Haircut)
-        --     0 => (0=>X"1B",1=>X"25"), -- 2x is 0x20
-        --     1 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
+        1 => ( -- pattern #2: 1x, 2x, 1x
+            0 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
+            1 => (0=>X"1B",1=>X"25"), -- 2x is 0x20
+            2 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
+            others => (others=>X"00")
+        ),
+        2 => ( -- pattern #3: some movie sound effect i don't know the name of
+            0 => (0=>X"20",1=>X"40"), -- 3x is 0x30
+            1 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
+            2 => (0=>X"1B",1=>X"25"), -- 2x is 0x20
+            3 => (0=>X"1B",1=>X"25"), -- 2x
+            others => (others=>X"00")
+        ),
+        -- 2 => ( -- pattern #4: galloping pattern (1x, 2x, 1x, 2x)
+        --     0 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
+        --     1 => (0=>X"1B",1=>X"25"), -- 2x is 0x20
         --     2 => (0=>X"0B",1=>X"15"), -- 1x
-        --     others => (0=>X"1B",1=>X"25") -- 2x
+        --     3 => (0=>X"1B",1=>X"25"), -- 2x
+        --     others => (others=>X"00")
         -- ),
-        1 => ( -- pattern #2: shave and a haircut (https://en.wikipedia.org/wiki/Shave_and_a_Haircut)
+        3 => ( -- pattern #4: shave and a haircut beginning (https://en.wikipedia.org/wiki/Shave_and_a_Haircut)
             0 => (0=>X"1B",1=>X"25"), -- 2x is 0x20
             1 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
             2 => (0=>X"0B",1=>X"15"), -- 1x
             3 => (0=>X"1B",1=>X"25"), -- 2x
-            -- 4 => (0=>X"3B",1=>X"45"), -- 4x
-            -- 5 => (0=>X"1B",1=>X"25"), -- 2x
             others => (others=>X"00")
         ),
-        2 => ( -- pattern #2: shave and a haircut (https://en.wikipedia.org/wiki/Shave_and_a_Haircut)
-            0 => (0=>X"1B",1=>X"25"), -- 2x is 0x20
-            1 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
-            2 => (0=>X"0B",1=>X"15"), -- 1x
-            -- 3 => (0=>X"1B",1=>X"25"), -- 2x
-            -- 4 => (0=>X"30",1=>X"50"), -- 4x
-            -- 5 => (0=>X"1B",1=>X"25"), -- 2x
-            others => (others=>X"00")
-        ),
-        3 => ( -- pattern #2: shave and a haircut (https://en.wikipedia.org/wiki/Shave_and_a_Haircut)
-            0 => (0=>X"1B",1=>X"25"), -- 2x is 0x20
-            1 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
-            2 => (0=>X"0B",1=>X"15"), -- 1x
-            3 => (0=>X"1B",1=>X"25"), -- 2x
-            4 => (0=>X"30",1=>X"50"), -- 4x
-            5 => (0=>X"1B",1=>X"25"), -- 2x
-            others => (others=>X"00")
-        ),
+        -- requires pattern length 8 --
+    --    3 => ( -- pattern #2: shave and a haircut full (https://en.wikipedia.org/wiki/Shave_and_a_Haircut)
+    --        0 => (0=>X"1B",1=>X"25"), -- 2x is 0x20
+    --        1 => (0=>X"0B",1=>X"15"), -- 1x is 0x10
+    --        2 => (0=>X"0B",1=>X"15"), -- 1x
+    --        3 => (0=>X"1B",1=>X"25"), -- 2x
+    --        4 => (0=>X"30",1=>X"50"), -- 4x
+    --        5 => (0=>X"1B",1=>X"25"), -- 2x
+    --        others => (others=>X"00")
+    --    ),
         others => ( -- impossible to match other patterns
             0 => (0=>X"FF",1=>X"FF"), -- target X"10" (there's only 1 interval)
             others => (others=>X"00")
@@ -87,11 +94,11 @@ begin
     clk <= CLK100MHZ;
     reset <= btnL;
 
-    -- translate btnC to a debounced clap_detected signal
+    -- -- translate btnC to a debounced clap_detected signal
     debouncer : entity work.debouncer
         generic map (
             F_clk_kHz       => 100e3, -- set to 5 for tb
-            stable_time_ms  => 10 --set to 1 for tb
+            stable_time_ms  => 15 --set to 1 for tb
         )
         port map (
             -- inputs --
@@ -101,6 +108,8 @@ begin
             -- outputs --
             button_out          => clap_detected
     );
+    -- tie directly for testbench
+    -- clap_detected <= btnC;
 
     -- visualize claps
     led_shift_reg : entity work.led_shift_reg

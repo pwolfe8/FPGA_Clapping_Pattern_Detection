@@ -2,6 +2,7 @@
 --Date         : 11/14/2017
 --Name of file : clap_FSM.vhd
 --Description  : clap interval counter and state machine
+--Testbench instructions: use R_clk_ctr=8 for testbench
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -37,51 +38,82 @@ architecture clap_FSM_arch of clap_FSM is
     -- constant R_clk_ctr : positive := 8; -- use this line for the testbench
 
     -- signal declarations  
-    signal clk_counter : unsigned(R_clk_ctr-1 downto 0);
     signal state, next_state : T_state;
     signal load, flush : std_logic;
-    signal pattern_finished_buf : std_logic;
     signal last_interval : unsigned(R_int-1 downto 0);
-    signal interval_counter : unsigned(R_int_ctr-1 downto 0); -- count how many intervals have been stored
+    signal clk_counter : unsigned(R_clk_ctr-1 downto 0);
     signal CLK_MAX : unsigned(clk_counter'range) := to_unsigned(T_END_SILENCE+7,clk_counter'length);
 
-    -- prev clap buffer
-    signal prev_clap_detected : std_logic;
+    -- buffers
+    signal prev_clap_detected, cur_clap_detected : std_logic;
+    signal pattern_finished_buf, prev_pattern_finished_buf : std_logic;
+    signal prev_check_pattern_done, cur_check_pattern_done, check_pattern_done_buf : std_logic;
 
 begin
 
-    -- clock counter --
+    -- clock counter, last_interval, pattern_finished
     process ( clk, reset ) begin
         if ( reset='1' ) then
             clk_counter <= (others=>'0');
             last_interval <= (others=>'0');
             prev_clap_detected <= '0';
+            cur_clap_detected <= '0';
         elsif ( rising_edge(clk) ) then
-            if ( prev_clap_detected='0' and clap_detected='1' ) then 
+            if ( prev_clap_detected='0' and cur_clap_detected='1' ) then 
                 last_interval <= clk_counter(R_clk_ctr-1 downto R_clk_ctr-R_int); -- grab top R_int bits
                 clk_counter <= (others=>'0');
             elsif ( clk_counter < CLK_MAX ) then
                 clk_counter <= clk_counter + 1;
             end if;
-            prev_clap_detected <= clap_detected;
+            cur_clap_detected <= clap_detected;
+            prev_clap_detected <= cur_clap_detected;
         end if;
     end process;
 
     -- pattern finished logic (latch on rising edge of clock)
-    process ( clk, reset, clap_detected ) begin
-        if ( reset = '1' or clap_detected='1') then
-            pattern_finished_buf <='0';
+    process ( clk, reset ) begin
+        if ( reset = '1' ) then
             pattern_finished <= '0';
+            pattern_finished_buf <='0';
+            prev_pattern_finished_buf <= '0';
         elsif ( rising_edge(clk) ) then
             -- make pattern_finished_buf high for one clock cycle
-            if ( clk_counter=T_END_SILENCE ) then 
+            prev_pattern_finished_buf <= pattern_finished_buf;
+            if ( clk_counter>T_END_SILENCE ) then 
                 pattern_finished_buf <= '1';
             else
                 pattern_finished_buf <= '0';
             end if;
-            pattern_finished <= pattern_finished_buf;
+
+            if (prev_pattern_finished_buf='0' and pattern_finished_buf='1') then
+                pattern_finished <= '1';
+            else
+                pattern_finished <= '0';
+            end if;
+
         end if;
     end process;
+
+    -- latch in pattern
+    process ( clk, reset, state ) begin
+        if ( reset='1' ) then
+            cur_check_pattern_done <= '0';
+            prev_check_pattern_done <= '0';
+            check_pattern_done_buf <= '0';
+        elsif ( rising_edge(clk) ) then
+            if ( prev_check_pattern_done='0' and cur_check_pattern_done='1' ) then
+                check_pattern_done_buf <= '1';
+            end if;
+            prev_check_pattern_done <= cur_check_pattern_done;
+            cur_check_pattern_done <= check_pattern_done;
+
+            if (state=IDLE) then
+                check_pattern_done_buf <= '0';
+            end if;
+
+        end if;
+    end process;
+
 
     -- instantiate shift register to store bank of data
     interval_bank : entity work.shift_register
@@ -107,35 +139,33 @@ begin
 
     -- state machine transition logic
     process (   state,
-                clap_detected,
+                cur_clap_detected,
                 pattern_finished_buf,
-                check_pattern_done )
+                check_pattern_done_buf )
     begin
         case state is
             when IDLE => 
-                if ( prev_clap_detected='0' and clap_detected ='1' ) then
+                if ( prev_clap_detected='0' and cur_clap_detected ='1' ) then
                     next_state <= WAIT_FOR_NEXT_CLAP;
                 else
                     next_state <= IDLE;
                 end if;
             when WAIT_FOR_NEXT_CLAP => 
-                if ( prev_clap_detected='0' and clap_detected ='1' ) then
+                if ( prev_clap_detected='0' and cur_clap_detected ='1' ) then
                     next_state <= LOG_INTERVAL;
-                elsif ( pattern_finished_buf='1' ) then
+                elsif ( prev_pattern_finished_buf='0' and pattern_finished_buf='1' ) then
                     next_state <= CHECKING_PATTERN;
                 else
                     next_state <= WAIT_FOR_NEXT_CLAP;
                 end if;
             when LOG_INTERVAL =>
                 next_state <= WAIT_FOR_NEXT_CLAP;
-            when CHECKING_PATTERN =>
-                if ( check_pattern_done='1' ) then
+            when others => -- CHECKING_PATTERN =>
+                if ( check_pattern_done_buf='1' ) then
                     next_state <= IDLE;
                 else
                     next_state <= CHECKING_PATTERN;
                 end if;
-            when others => -- hopefully never reach this
-
         end case;
     end process;
 
@@ -146,35 +176,40 @@ begin
                 load <= '0';
                 flush <= '1';
                 bank_overflowed <= '0';
-                interval_counter <= (others=>'0');
             when WAIT_FOR_NEXT_CLAP =>
                 load <= '0';  -- de-assert
                 flush <= '0'; -- de-assert
             when LOG_INTERVAL =>
                 load <= '1'; -- load for 1 clock cycle
                 flush <= '0';
-                interval_counter <= interval_counter + 1;
-                if ( interval_counter > N_int ) then
-                    bank_overflowed <= '1';
-                end if;
-            when CHECKING_PATTERN =>
+            when others => -- CHECKING_PATTERN =>
                 load <= '0'; -- de-assert
                 flush <= '0';
-            when others => -- hopefully never reach this, but do nothing for now
-                
         end case;
+    end process;
+
+    -- count how many intervals have been stored
+    process ( clk, reset )
+        variable clap_counter : unsigned(R_int_ctr-1 downto 0) := (others=>'0');
+    begin
+        if ( reset='1' ) then
+            clap_counter := (others=>'0');
+        elsif ( rising_edge(clk) ) then
+            if (clap_counter>0) then
+                num_intervals <= clap_counter-1;
+            else
+                num_intervals <= (others=>'0');
+            end if;
+
+            if ( prev_clap_detected='0' and cur_clap_detected='1' ) then
+                clap_counter := clap_counter + 1;
+            elsif (check_pattern_done_buf='1' ) then
+                clap_counter := (others=>'0');
+            end if;
+        end if;
     end process;
     
     -- output current state
     state_output <= state;
-    -- output intervals recorded after finished recording pattern
-    process ( clk, reset ) begin
-        if ( reset='1' ) then
-            num_intervals <= (others=>'0');
-        elsif ( rising_edge(clk) and pattern_finished_buf='1' ) then
-            num_intervals <= interval_counter;        
-        end if;
-    end process;
-    
     
 end clap_FSM_arch;

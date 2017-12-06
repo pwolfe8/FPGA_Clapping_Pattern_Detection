@@ -40,8 +40,6 @@ architecture divider_arch of divider is
     -- signal remainder : unsigned(R_int-1 downto 0);
 
 begin
-    N <= numerator & to_unsigned(0,N_dec);
-    D <= denominator;
 
     process ( clk, reset, start )
         variable idx : unsigned(R_ctr-1 downto 0);
@@ -49,7 +47,6 @@ begin
         variable R : unsigned(R_int-1 downto 0); -- remainder
     begin
         if ( reset='1' or start='1' ) then
-            done <= '0';
             done_buf <= '0';
             idx := to_unsigned(R_int+N_dec-1,R_ctr);
             Q := (others=>'0');
@@ -61,6 +58,8 @@ begin
             -- quotient <= Q;
             -- remainder <= R;
 
+            N <= numerator & to_unsigned(0,N_dec);
+            D <= denominator;       
             prev_done_buf <= done_buf;
             if ( D>0 ) then
                 if (idx > 0) then
@@ -76,18 +75,23 @@ begin
                         result <= Q(R_int-1 downto 0); -- assign Q to result
                     end if;
                 end if;
-                
-                -- manage done signal
-                if ( done_buf='1') then
-                    done_buf <= '0';
-                    done <= '1';
-                else
-                    done <= '0';
-                end if;
-                
             else 
-                done <= '0';
+                done_buf <= '1';
                 result <= (others=>'0');
+            end if;
+
+        end if;
+    end process;
+
+    -- manage done signal
+    process ( clk, reset ) begin
+        if ( reset='1' ) then
+            done <= '0';
+        elsif ( rising_edge(clk) ) then
+            if ( prev_done_buf='0' and done_buf='1' ) then
+                done <= '1';
+            else
+                done <= '0';
             end if;
         end if;
     end process;

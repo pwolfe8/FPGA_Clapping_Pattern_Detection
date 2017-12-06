@@ -102,7 +102,7 @@ begin
         start <= '1';
         wait for T;
         start <= '0';
-        wait for (R_int+6)*T;
+        wait for 3*T;
         -- TEST CASE 3 --
         assert ( result = X"00" ) -- 0
         report LF
@@ -120,8 +120,7 @@ begin
         start <= '1';
         wait for T;
         start <= '0';
-        wait for (R_int+6)*T;
-
+        wait for 3*T;
 
         numerator <= X"20";
         denominator <= X"20";

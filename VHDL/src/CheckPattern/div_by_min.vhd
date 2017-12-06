@@ -39,7 +39,7 @@ architecture div_by_min_arch of div_by_min is
 
     -- buffers
     signal result_buf : unsigned(R_int-1 downto 0);
-    signal div_done_buf : std_logic; -- for communicating when to start next division
+    signal div_done_buf, prev_div_done_buf : std_logic; -- for communicating when to start next division
     signal bank_buf : T_bank;
     signal norm_done_buf : std_logic;
     signal bank_at_idx : unsigned(R_int-1 downto 0);
@@ -71,7 +71,7 @@ begin
 
     -- main process
     process ( clk, reset, min_done, div_done )
-        variable idx : unsigned(R_int_ctr-1 downto 0); -- index for bank_in
+        variable idx : unsigned(R_int_ctr-1 downto 0) := (others=>'0'); -- index for bank_in
         
     begin
         -- output to debug signals --
@@ -85,22 +85,30 @@ begin
             numerator <= (others=>'0');
             denominator <= (others=>'0');
             div_done_buf <= '0';
+            prev_div_done_buf <= '0';
             norm_done_buf <= '0';
-            norm_done <= '0';
             start_div <= '0';
         elsif ( min_done='1' ) then
             result_buf <= (others=>'0');
             bank_buf <= (others=>(others=>'0'));
             idx := num_int;   -- reset index to number of intervals recorded
-            bank_at_idx <= bank_in(to_integer(idx-1));
-            numerator <= bank_at_idx;
-            denominator <= min_val; -- minimum value (doesn't change)
-            div_done_buf <= '1';  -- start the process
-            norm_done_buf <= '0';
+            if (idx>0) then
+                bank_at_idx <= bank_in(to_integer(idx-1));
+                numerator <= bank_at_idx;
+                denominator <= min_val; -- minimum value (doesn't change)
+                div_done_buf <= '1';  -- start the process
+                norm_done_buf <= '0';
+            else
+                norm_done_buf <= '1';
+                prev_div_done_buf <= '0';
+                div_done_buf <= '1';
+            end if;
+            
         elsif ( div_done='1' ) then
             div_done_buf <= '1';
         elsif ( rising_edge(clk) ) then
             result_buf <= result;
+            prev_div_done_buf <= div_done_buf;
 
             -- manage bank_at_idx
             if (idx>0) then
@@ -119,7 +127,9 @@ begin
                     if (not(idx>0) ) then
                         norm_done_buf <= '1';
                     end if;
-                end if;        
+                else
+                    norm_done_buf <= '1';
+                end if;  
             end if;
 
             -- manage deassertion of start_div
@@ -127,14 +137,20 @@ begin
                 start_div <= '0'; --deassert
             end if;
 
-            -- manage norm_done signal
-            if ( norm_done_buf='1' and div_done_buf='1') then
-                norm_done_buf <= '0';
-                norm_done <= '1'; -- fix this to happen after last division finishes
+        end if;
+    end process;
+
+    
+    -- manage norm_done signal
+    process ( clk, reset ) begin
+        if ( reset='1' ) then
+            norm_done <= '0';
+        elsif ( rising_edge(clk) ) then
+            if ( norm_done_buf='1' and prev_div_done_buf='0' and div_done_buf='1') then
+                norm_done <= '1';
             else
                 norm_done <= '0';
             end if;
-
         end if;
     end process;
 

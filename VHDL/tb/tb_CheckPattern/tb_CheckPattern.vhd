@@ -67,13 +67,11 @@ begin
         );
         num_intervals <= X"3";
         stored_patterns <= (
-            0 =>(   -- bullshit pattern --
-                0 => (0=>X"69",1=>X"6C"),
-                1 => (0=>X"69",1=>X"6C"),
-                2 => (0=>X"96",1=>X"99"),
-                3 => (0=>X"00",1=>X"00")
+            0 =>(   -- single interval
+                0 => (0=>X"10",1=>X"10"),
+                others => (others=>X"00")
             ),
-            1 => (   -- actual matching pattern --
+            1 => (   -- 2 intervals same spacing
                 0 => (0=>X"1F",1=>X"21"), -- 0x20
                 1 => (0=>X"0F",1=>X"11"), -- 0x10
                 2 => (0=>X"3F",1=>X"41"), -- 0x40

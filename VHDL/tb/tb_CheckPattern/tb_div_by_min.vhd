@@ -96,6 +96,18 @@ begin
         wait for (N_int+1)*12*T;
 
 
+        -- test no one clap
+        bank_in <= (
+            0 => X"00",
+            others => (others=>'0')
+        );
+        num_int <= X"0";
+        min_val <= X"00";
+        wait for T;
+        min_done <='1';
+        wait for T;
+        min_done <= '0';
+        wait for (N_int+1)*12*T;
 
         
         -- end test

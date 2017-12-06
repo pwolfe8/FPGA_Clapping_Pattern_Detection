@@ -96,7 +96,7 @@ begin
     -- define digit 3, 2, 1 & translate them to sseg output codes
     dig3 <= int1(7 downto 4);
     dig2 <= int1(3 downto 0);
-    dig1 <= num_intervals; --to_unsigned(to_integer(num_intervals),4);
+    dig1 <= to_unsigned(to_integer(num_intervals),4);
     trans_dig3 : entity work.digit2seg
     port map (
         digit => dig3,

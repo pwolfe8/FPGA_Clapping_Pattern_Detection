@@ -49,8 +49,10 @@ begin
             has_finished := '1';
             check_pattern_done <= '0';
             patterns_matched <= (others=>'0');
+            current_pattern <= (others=>(others=>(others=>'0')));
         elsif(rising_edge(clk)) then
             if(norm_done = '1') then
+                patterns_matched <= (others=>'0');
                 counter := to_unsigned(N_patt,R_patt_ctr);
                 has_finished := '0';
             end if;
